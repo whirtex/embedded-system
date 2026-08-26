@@ -262,6 +262,59 @@ Orientação mais recente dada em sala: utilizar um slide para cada artigo da re
 - [ ] Enviar o e-mail antes do prazo, pois a ordem das apresentações seguirá a ordem de recebimento dos slides.
 - [ ] Guardar uma cópia dos arquivos exatamente como foram enviados.
 
+## Atividades práticas - Mosquitto e MQTT
+
+Orientações apresentadas em sala após a publicação das instruções da AC:
+
+- [ ] Desenvolver as atividades da aula anterior que ainda não foram realizadas.
+- [ ] Elaborar para a próxima aula os slides das referências visitadas, seguindo as instruções completas da AC.
+- [ ] Verificar se o Mosquitto está instalado nas máquinas que serão utilizadas.
+- [ ] Verificar se os clientes `mosquitto_sub` e `mosquitto_pub` estão disponíveis.
+- [ ] Iniciar o broker Mosquitto localmente.
+- [ ] Abrir dois terminais para realizar o teste local.
+- [ ] No primeiro terminal, inscrever-se no tópico local `ibmec/test`.
+- [ ] No segundo terminal, publicar uma mensagem no tópico local `ibmec/test`.
+- [ ] Confirmar que a mensagem publicada foi recebida pelo primeiro terminal.
+- [ ] Registrar os comandos utilizados e o resultado do teste local.
+- [ ] Utilizar os clientes MQTT instalados no computador para testar um broker remoto.
+- [ ] Utilizar o servidor público `test.mosquitto.org`.
+- [ ] Inscrever-se no tópico remoto `iotbr/esp32`.
+- [ ] Publicar uma mensagem no mesmo tópico remoto `iotbr/esp32`.
+- [ ] Confirmar que a mensagem publicada foi recebida pelo cliente inscrito.
+- [ ] Registrar os comandos utilizados e o resultado do teste remoto.
+
+### Comandos sugeridos para o teste local
+
+Terminal que recebe a mensagem:
+
+```bash
+mosquitto_sub -h localhost -t ibmec/test
+```
+
+Terminal que publica a mensagem:
+
+```bash
+mosquitto_pub -h localhost -t ibmec/test -m "Hello there!"
+```
+
+### Comandos sugeridos para o broker remoto
+
+Terminal que recebe a mensagem:
+
+```bash
+mosquitto_sub -h test.mosquitto.org -t iotbr/esp32
+```
+
+Terminal que publica a mensagem:
+
+```bash
+mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
+```
+
+### Ponto a confirmar
+
+- [ ] Confirmar com a professora qual tópico deve ser utilizado no teste local. O texto do slide informa `ibmec/test`, enquanto os comandos mostrados na parte inferior usam `iotbr/esp32` com `localhost`.
+
 ## Conferência final acumulada da AC1 à AC4
 
 - [ ] Grupo e número do grupo confirmados.
@@ -286,6 +339,8 @@ Orientação mais recente dada em sala: utilizar um slide para cada artigo da re
 - [ ] Resultados qualitativos e quantitativos presentes na apresentação.
 - [ ] Todos os integrantes com pelo menos uma referência para apresentar.
 - [ ] Apresentação ensaiada.
+- [ ] Teste local do Mosquitto realizado e documentado.
+- [ ] Teste com o broker remoto realizado e documentado.
 - [ ] Repositório atualizado e enviado ao remoto.
 - [ ] E-mail preparado com assunto correto.
 - [ ] PDF do manuscrito anexado.
