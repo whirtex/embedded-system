@@ -20,21 +20,21 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 ## Procedimento obrigatório para cada entrega
 
 - [x] Confirmar qual AC está sendo entregue.
-- [ ] Revisar todos os arquivos alterados pelo grupo.
-- [ ] Atualizar o repositório com os arquivos da atividade.
-- [ ] Fazer commits com mensagens claras e enviar ao repositório remoto.
-- [ ] Conferir se o repositório permanece público e acessível ao professor.
-- [ ] Atualizar no Overleaf a versão mais recente do manuscrito.
-- [ ] Compilar o projeto e corrigir erros de LaTeX e BibTeX.
-- [ ] Conferir se todas as citações aparecem no texto e na bibliografia.
-- [ ] Baixar do Overleaf o PDF mais recente do manuscrito.
-- [ ] Abrir o PDF e revisar título, autores, referências, formatação e limite de páginas.
-- [ ] Preparar o e-mail para `rigel.fernandes@professores.ibmec.edu.br`.
-- [ ] Usar no assunto o padrão `[IBM3118 AC 2026-2 G3]`.
+- [x] Revisar todos os arquivos alterados pelo grupo.
+- [x] Atualizar o repositório com os arquivos da atividade.
+- [x] Fazer commits com mensagens claras e enviar ao repositório remoto.
+- [x] Conferir se o repositório permanece público e acessível ao professor.
+- [x] Atualizar no Overleaf a versão mais recente do manuscrito.
+- [x] Compilar o projeto e corrigir erros de LaTeX e BibTeX.
+- [x] Conferir se todas as citações aparecem no texto e na bibliografia.
+- [x] Baixar do Overleaf o PDF mais recente do manuscrito.
+- [x] Abrir o PDF e revisar título, autores, referências, formatação e limite de páginas.
+- [x] Preparar o e-mail para `rigel.fernandes@professores.ibmec.edu.br`.
+- [x] Usar no assunto o padrão `[IBM3118 AC 2026-2 G3]`.
 - [x] Utilizar `G3`, pois o projeto de manutenção preditiva pertence ao Grupo 3.
-- [ ] Anexar o PDF mais recente do manuscrito.
-- [ ] Anexar os slides quando a atividade solicitar apresentação.
-- [ ] Conferir os anexos, enviar dentro do prazo e guardar uma cópia do e-mail.
+- [x] Anexar o PDF mais recente do manuscrito.
+- [x] Confirmar que slides não eram exigidos para a entrega da AC2.
+- [x] Conferir os anexos, enviar dentro do prazo e guardar uma cópia do e-mail.
 
 ## Dados do grupo
 
@@ -82,9 +82,9 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [x] Selecionar Yousuf et al. (2024), Mohammed et al. (2023) e Kolok et al. (2025).
 - [x] Conferir autores, título, ano, publicação e DOI dessas referências.
 - [x] Registrar métodos, resultados e limitações relevantes.
-- [ ] Verificar se referências de alunos do Ibmec são pertinentes.
-- [ ] Confirmar que os três PDFs podem ser acessados por todos os integrantes.
-- [ ] Solicitar ajuda ao professor caso algum PDF não esteja disponível gratuitamente.
+- [x] Verificar se referências de alunos do Ibmec são pertinentes.
+- [x] Confirmar que os três PDFs podem ser acessados por todos os integrantes.
+- [x] Confirmar que não foi necessário solicitar ao professor uma referência indisponível.
 
 ### Texto e BibTeX
 
@@ -94,14 +94,14 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [x] Criar entradas BibTeX completas para as três referências.
 - [x] Adicionar DOI e URL permanente a cada entrada.
 - [x] Conferir os nomes completos dos autores.
-- [ ] Criar no Overleaf a pasta `refsPDF`, caso ela ainda não exista.
-- [ ] Baixar e adicionar os três PDFs à pasta `refsPDF`.
-- [ ] Compilar o manuscrito e revisar as referências geradas.
+- [x] Criar no Overleaf a pasta `refsPDF`.
+- [ ] Adicionar os três PDFs da AC2 à pasta `refsPDF` no Overleaf.
+- [x] Compilar o manuscrito e revisar as referências geradas.
 
 ### Entrega da AC2
 
-- [ ] Executar o procedimento obrigatório de entrega.
-- [ ] Enviar por e-mail o PDF atualizado do manuscrito.
+- [ ] Concluir o procedimento obrigatório da AC2 após adicionar os três PDFs ao Overleaf.
+- [x] Reenviar por e-mail o PDF da AC2 com o assunto correto do Grupo 3.
 
 ## AC3 - Continuação da revisão de literatura
 
