@@ -50,6 +50,7 @@ Prazo indicado no documento: uma semana.
 - [x] Definir os integrantes do grupo.
 - [x] Confirmar o número do grupo: Grupo 4.
 - [x] Registrar o nome completo de todos os integrantes.
+- [x] Confirmar a afiliação dos integrantes: Ibmec Barra, Rio de Janeiro--RJ.
 - [ ] Registrar o e-mail de todos os integrantes.
 - [ ] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
 - [ ] Confirmar que todos os integrantes conseguem acessar o projeto no Overleaf.

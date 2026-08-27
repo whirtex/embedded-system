@@ -43,7 +43,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [x] Ian Dias — `iandpcarvalho@gmail.com`.
 - [x] Davi Ito — `cdavi8249@gmail.com`.
 - [x] Confirmar o número do grupo: Grupo 3.
-- [ ] Confirmar afiliação, cidade e estado que serão usados no comando `\thanks`.
+- [x] Confirmar afiliação, cidade e estado usados no comando `\thanks`: Ibmec Barra, Rio de Janeiro--RJ.
 - [ ] Confirmar se existe apoio financeiro a declarar; remover o texto-modelo se não existir.
 
 ## AC1 - Início do projeto
@@ -228,7 +228,7 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [x] Texto em inglês e tradução em português disponíveis no repositório.
 - [x] Contribuições das referências relacionadas aos requisitos e especificações.
 - [x] Número do grupo confirmado: Grupo 3.
-- [ ] Dados institucionais confirmados.
+- [x] Dados institucionais confirmados: Ibmec Barra, Rio de Janeiro--RJ.
 - [ ] Overleaf compartilhado com todos os integrantes.
 - [ ] Repositório compartilhado com o professor e citado no artigo.
 - [ ] Quatro referências gerais adicionadas para totalizar dez referências acadêmicas.
