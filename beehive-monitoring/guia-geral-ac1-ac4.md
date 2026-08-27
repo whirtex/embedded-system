@@ -103,7 +103,7 @@ Prazo indicado no documento: uma semana.
 - [x] Registrar resultados qualitativos relevantes.
 - [x] Registrar resultados quantitativos relevantes.
 - [x] Registrar limitações importantes.
-- [x] Elaborar um ou dois parágrafos sintetizando as contribuições de pelo menos três referências.
+- [x] Elaborar dois parágrafos sintetizando as contribuições de pelo menos três referências.
 - [x] Relacionar as referências entre si, evitando apenas listar resumos isolados.
 - [x] Inserir as citações no texto utilizando as chaves BibTeX corretas.
 - [x] Adaptar o título provisório caso a leitura indique uma mudança necessária no escopo.
@@ -143,7 +143,7 @@ Prazo indicado no documento: uma semana.
 ### Continuação do texto
 
 - [x] Ler e registrar método, resultados qualitativos, resultados quantitativos e limitações das novas referências.
-- [x] Elaborar mais um ou dois parágrafos sintetizando as contribuições de pelo menos três novas referências.
+- [x] Elaborar mais dois parágrafos sintetizando as contribuições de pelo menos três novas referências.
 - [x] Relacionar os novos trabalhos com os artigos já apresentados na AC2.
 - [x] Evitar afirmações que não sejam sustentadas pelas referências citadas.
 - [x] Revisar a coerência e a sequência dos parágrafos de revisão de literatura.
@@ -173,28 +173,31 @@ Prazo original indicado no documento: uma semana. Conforme orientação posterio
 
 - [x] Consolidar o título do trabalho após a leitura das seis referências diretamente relacionadas.
 - [ ] Confirmar que o título representa o problema, o sistema embarcado e o escopo atual do projeto.
-- [x] Manter os dois primeiros parágrafos como contextualização e motivação.
-- [x] Manter os parágrafos seguintes como revisão dos trabalhos relacionados.
+- [x] Reservar os dois primeiros parágrafos para contextualização e motivação.
+- [x] Manter placeholders nesses dois parágrafos enquanto as quatro referências gerais não forem selecionadas.
+- [x] Manter os quatro parágrafos seguintes como revisão dos trabalhos relacionados: dois da AC2 e dois da AC3.
 
 ### Primeiro parágrafo - contexto geral
 
-- [x] Escrever ou revisar o primeiro parágrafo da introdução.
-- [x] Contextualizar o problema de maneira geral.
-- [x] Utilizar no mínimo duas referências para sustentar o texto.
-- [x] Selecionar referências de bases acadêmicas confiáveis.
+- [x] Reservar um placeholder para o primeiro parágrafo da introdução.
+- [ ] Escrever ou revisar o primeiro parágrafo definitivo.
+- [ ] Contextualizar o problema de maneira geral.
+- [ ] Utilizar no mínimo duas referências para sustentar o texto.
+- [ ] Selecionar referências de bases acadêmicas confiáveis.
 - [ ] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
 - [ ] Considerar fundamentos de sistemas embarcados, sensores ou monitoramento contínuo quando forem pertinentes.
-- [x] Evitar antecipar detalhes excessivos da solução nesse primeiro parágrafo.
+- [ ] Evitar antecipar detalhes excessivos da solução nesse primeiro parágrafo.
 
 ### Segundo parágrafo - motivação e área estudada
 
-- [x] Escrever ou revisar o segundo parágrafo da introdução.
-- [x] Apresentar o problema de forma mais específica.
-- [x] Explicar a motivação do trabalho.
-- [x] Indicar a área tecnológica que será explorada para desenvolver a solução.
-- [x] Utilizar no mínimo duas referências para sustentar o texto.
+- [x] Reservar um placeholder para o segundo parágrafo da introdução.
+- [ ] Escrever ou revisar o segundo parágrafo definitivo.
+- [ ] Apresentar o problema de forma mais específica.
+- [ ] Explicar a motivação do trabalho.
+- [ ] Indicar a área tecnológica que será explorada para desenvolver a solução.
+- [ ] Utilizar no mínimo duas referências para sustentar o texto.
 - [ ] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
-- [x] Considerar fundamentos de IoT, comunicação remota, processamento local, computação de borda ou integração de sensores quando forem pertinentes.
+- [ ] Considerar fundamentos de IoT, comunicação remota, processamento local, computação de borda ou integração de sensores quando forem pertinentes.
 
 ### Organização das dez referências
 
@@ -211,6 +214,7 @@ Prazo original indicado no documento: uma semana. Conforme orientação posterio
 
 ### Revisão dos parágrafos de literatura
 
+- [x] Elaborar quatro parágrafos de revisão de literatura.
 - [x] Revisar os parágrafos produzidos nas AC2 e AC3.
 - [x] Confirmar que os seis artigos de colmeias são apresentados nos parágrafos de revisão.
 - [x] Apresentar método, contribuição, resultados e limitações quando forem relevantes.
@@ -331,8 +335,9 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [ ] Todas as referências possuem dados bibliográficos conferidos.
 - [ ] Todas as referências possuem DOI no campo `url`, quando houver DOI.
 - [ ] Dez PDFs acadêmicos adicionados à pasta `refsPDF` do Overleaf.
-- [x] Dois parágrafos de contextualização e motivação revisados.
-- [ ] Quatro parágrafos de revisão de literatura revisados.
+- [x] Dois placeholders reservados para contextualização e motivação.
+- [ ] Dois parágrafos definitivos de contextualização e motivação revisados.
+- [x] Quatro parágrafos de revisão de literatura revisados.
 - [ ] Manuscrito compilando sem erros.
 - [ ] PDF mais recente do manuscrito baixado e revisado.
 - [ ] Apresentação com um slide por artigo.
