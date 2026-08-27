@@ -33,8 +33,8 @@ Os itens marcados foram comprovados pelos arquivos e pelo histórico do reposit�
 - [ ] Baixar do Overleaf a versão mais recente da parte escrita em formato PDF.
 - [ ] Abrir o PDF baixado e conferir título, autores, texto, referências, limite de páginas e possíveis erros de formatação.
 - [ ] Preparar o e-mail para `rigel.fernandes@professores.ibmec.edu.br`.
-- [ ] Usar no assunto do e-mail o padrão `[IBM3118 AC 2026-2 G<número do grupo>]`.
-- [ ] Substituir `<número do grupo>` pelo número correto do grupo.
+- [ ] Usar no assunto do e-mail o padrão `[IBM3118 AC 2026-2 G4]`.
+- [x] Utilizar `G4`, pois o Beehive Monitoring pertence ao Grupo 4.
 - [ ] Anexar ao e-mail o PDF mais recente do manuscrito.
 - [ ] Anexar os slides quando a atividade solicitar apresentação.
 - [ ] Conferir os anexos antes de enviar o e-mail.
@@ -48,7 +48,7 @@ Prazo indicado no documento: uma semana.
 ### Organização do grupo
 
 - [x] Definir os integrantes do grupo.
-- [ ] Confirmar o número do grupo.
+- [x] Confirmar o número do grupo: Grupo 4.
 - [x] Registrar o nome completo de todos os integrantes.
 - [ ] Registrar o e-mail de todos os integrantes.
 - [ ] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
@@ -317,7 +317,7 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 
 ## Conferência final acumulada da AC1 à AC4
 
-- [ ] Grupo e número do grupo confirmados.
+- [x] Grupo e número do grupo confirmados: Grupo 4.
 - [ ] Overleaf compartilhado com todos os integrantes.
 - [ ] Repositório público e compartilhado com o professor.
 - [x] Título consolidado no artigo.

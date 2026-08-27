@@ -30,8 +30,8 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [ ] Baixar do Overleaf o PDF mais recente do manuscrito.
 - [ ] Abrir o PDF e revisar título, autores, referências, formatação e limite de páginas.
 - [ ] Preparar o e-mail para `rigel.fernandes@professores.ibmec.edu.br`.
-- [ ] Usar no assunto o padrão `[IBM3118 AC 2026-2 G<número do grupo>]`.
-- [ ] Substituir `<número do grupo>` pelo número correto.
+- [ ] Usar no assunto o padrão `[IBM3118 AC 2026-2 G3]`.
+- [x] Utilizar `G3`, pois o projeto de manutenção preditiva pertence ao Grupo 3.
 - [ ] Anexar o PDF mais recente do manuscrito.
 - [ ] Anexar os slides quando a atividade solicitar apresentação.
 - [ ] Conferir os anexos, enviar dentro do prazo e guardar uma cópia do e-mail.
@@ -42,7 +42,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [x] Jorge Alves — `jorgedocruzeiro07@gmail.com`.
 - [x] Ian Dias — `iandpcarvalho@gmail.com`.
 - [x] Davi Ito — `cdavi8249@gmail.com`.
-- [ ] Confirmar o número do grupo.
+- [x] Confirmar o número do grupo: Grupo 3.
 - [ ] Confirmar afiliação, cidade e estado que serão usados no comando `\thanks`.
 - [ ] Confirmar se existe apoio financeiro a declarar; remover o texto-modelo se não existir.
 
@@ -227,7 +227,8 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [x] Seis referências específicas verificadas e cadastradas no BibTeX.
 - [x] Texto em inglês e tradução em português disponíveis no repositório.
 - [x] Contribuições das referências relacionadas aos requisitos e especificações.
-- [ ] Número do grupo e dados institucionais confirmados.
+- [x] Número do grupo confirmado: Grupo 3.
+- [ ] Dados institucionais confirmados.
 - [ ] Overleaf compartilhado com todos os integrantes.
 - [ ] Repositório compartilhado com o professor e citado no artigo.
 - [ ] Quatro referências gerais adicionadas para totalizar dez referências acadêmicas.
