@@ -88,7 +88,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 
 ### Texto e BibTeX
 
-- [x] Elaborar os parágrafos que apresentam o problema e os três primeiros trabalhos.
+- [x] Elaborar dois parágrafos de revisão apresentando os três primeiros trabalhos.
 - [x] Relacionar sensores de temperatura, vibração e corrente com comunicação e processamento.
 - [x] Substituir citações manuais como `[1]` por comandos `\cite{...}`.
 - [x] Criar entradas BibTeX completas para as três referências.
@@ -145,11 +145,12 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 
 ### Estrutura da introdução
 
-- [x] Manter os dois primeiros parágrafos como contextualização e motivação.
-- [x] Manter os dois parágrafos seguintes como trabalhos relacionados.
-- [x] Revisar a sequência lógica entre problema, tecnologias, literatura e decisões do projeto.
+- [x] Reservar os dois primeiros parágrafos para contextualização e motivação.
+- [x] Manter placeholders nesses dois parágrafos enquanto as quatro referências gerais não forem selecionadas.
+- [ ] Substituir os dois placeholders pelos parágrafos definitivos da AC4.
+- [x] Manter os quatro parágrafos seguintes como revisão de literatura: dois da AC2 e dois da AC3.
+- [x] Revisar a sequência lógica dos quatro parágrafos de revisão.
 - [x] Manter uma versão em inglês para o artigo e uma tradução de apoio em português.
-- [ ] Confirmar se o professor exige quatro parágrafos de revisão, em vez dos dois atuais.
 - [ ] Confirmar se o título representa corretamente o foco em aparelhos de ar-condicionado.
 
 ### Referências de contextualização
@@ -163,6 +164,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 
 ### Revisão dos trabalhos relacionados
 
+- [x] Elaborar quatro parágrafos de revisão de literatura.
 - [x] Apresentar as seis referências selecionadas no texto atual.
 - [x] Incluir método, contribuição, resultados e limitações quando relevantes.
 - [x] Manter resultados quantitativos com métrica e contexto.
