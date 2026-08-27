@@ -109,6 +109,8 @@ O repositório ainda não possui código. As seguintes decisões precisam ser to
 - formato dos registros;
 - procedimento de treinamento e validação do modelo.
 
+Como ponto de partida experimental, a literatura selecionada sugere calcular características no domínio do tempo e da frequência, como RMS e FFT, e comparar uma abordagem por limites com um método leve de detecção de anomalias. Essa escolha ainda depende do sensor de vibração, da capacidade do controlador e da quantidade de dados obtida.
+
 ## 9. Dados e validação
 
 Para avaliar o sistema de manutenção preditiva, será necessário obter:
@@ -119,6 +121,8 @@ Para avaliar o sistema de manutenção preditiva, será necessário obter:
 - quantidade mínima de amostras;
 - critérios para classificar uma previsão como correta;
 - procedimento para repetir os testes.
+
+Os registros também deverão identificar o equipamento, o estado operacional, a carga aplicada, a data e hora, a frequência de amostragem, as unidades e qualquer intervenção realizada. Os dados usados para ajustar limites ou treinar modelos não deverão ser reutilizados como conjunto final de teste.
 
 Não foram identificados entre os componentes disponíveis na faculdade uma máquina industrial, um conjunto de falhas controladas ou uma base de dados pronta. Essa definição deve ser confirmada com o professor.
 
@@ -134,3 +138,13 @@ Não foram identificados entre os componentes disponíveis na faculdade uma máq
 8. Forma de armazenar e visualizar os dados.
 9. Necessidade de desligamento automático por relé.
 10. Necessidade de gabinete e proteção física.
+
+## 11. Rastreabilidade acadêmica
+
+- Yousuf et al. e Mohammed et al.: arquitetura de sensores, comunicação e monitoramento de motores.
+- Kolok et al.: ESP32, sensores MEMS, RMS, FFT e detecção de anomalias.
+- Meitz et al.: organização do fluxo completo de manutenção preditiva.
+- Gupta et al.: limpeza, rotulagem e avaliação de dados reais de vibração.
+- Burmeister et al.: interpretação das previsões e apoio à decisão.
+
+Os metadados completos estão em `references.bib`, e a relação detalhada entre cada artigo e o projeto está em `reference-contributions.md`.

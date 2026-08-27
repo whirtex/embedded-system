@@ -27,6 +27,8 @@ Este documento reúne os requisitos iniciais para um protótipo de sistema embar
 | RF13 | O sistema deve permitir a configuração dos limites de alerta. | Parcial. Há botões, potenciômetros e teclado, mas a forma de configuração ainda precisa ser definida. |
 | RF14 | O sistema deve testar os sensores ao ser ligado. | Será implementado no software. |
 | RF15 | O sistema deve identificar uma falha ou desconexão de sensor. | Será implementado no software. |
+| RF16 | O sistema deve registrar quais variáveis ou condições motivaram cada alerta. | Será implementado no software. A forma de explicação ainda precisa ser definida. |
+| RF17 | O sistema deve manter separados os dados de operação normal, falha, treinamento e teste. | Será implementado no procedimento de coleta e validação. |
 
 ## Requisitos não funcionais
 
@@ -41,6 +43,15 @@ Este documento reúne os requisitos iniciais para um protótipo de sistema embar
 | RNF07 | O sistema deve ter baixo custo e usar, de preferência, os componentes disponíveis. | Parcial. A maior parte da montagem pode usar os componentes disponíveis. |
 | RNF08 | O sistema deve possuir proteção física para os circuitos. | Ausente. Não foi identificada uma caixa ou um gabinete de proteção. |
 | RNF09 | O sistema deve permitir repetir os testes em condições semelhantes. | Parcial. Ainda falta definir o suporte, a carga mecânica e o procedimento de teste. |
+| RNF10 | O sistema deve registrar a frequência de coleta, unidades, calibração e contexto de cada medição. | Será documentado durante a implementação. |
+
+## Relação com a literatura
+
+- Yousuf et al. e Mohammed et al. apoiam o monitoramento conjunto de temperatura, vibração e grandezas elétricas, além de alertas e comunicação remota.
+- Kolok et al. apoiam a extração de características como RMS e FFT e a detecção leve de anomalias em um ESP32.
+- Meitz et al. e Gupta et al. mostram que coleta, limpeza, rotulagem e avaliação precisam fazer parte do mesmo fluxo.
+- Burmeister et al. apoiam a apresentação de alertas interpretáveis para a equipe de manutenção.
+- As chaves BibTeX e os dados completos dessas seis referências estão em `references.bib`.
 
 ## Perguntas para o professor
 
@@ -56,3 +67,5 @@ Este documento reúne os requisitos iniciais para um protótipo de sistema embar
 10. Será necessário comprar os sensores que não estão entre os componentes disponíveis na faculdade?
 11. O projeto deve funcionar com bateria ou com fonte externa?
 12. Será necessário construir um gabinete e uma estrutura mecânica?
+13. O objetivo da primeira versão é detectar anomalias, classificar falhas ou estimar a vida útil restante?
+14. Como as condições normais e as falhas controladas serão produzidas e validadas com segurança?
