@@ -1,27 +1,45 @@
-# Relação das referências com o projeto
+# Contribuição das referências para o projeto
 
-Este arquivo registra como cada referência utilizada no artigo de manutenção preditiva contribui para o desenvolvimento do projeto.
+A lista foi elaborada com base no objetivo do projeto e nos componentes disponíveis na faculdade. Este arquivo relaciona cada uma das seis referências selecionadas com a arquitetura, os requisitos e as especificações do sistema embarcado de manutenção preditiva.
 
-## Referências utilizadas
+## Matriz de contribuição
 
-| Referência | O que o trabalho apresenta | Contribuição para o projeto | Limitação considerada |
+| Ref. | Trabalho | Contribuição para o projeto | Limitação ou cuidado |
 |---|---|---|---|
-| Meitz et al. (2025) | Organiza 249 publicações sobre manutenção preditiva em nove categorias e 73 atributos, incluindo monitoramento de condição, detecção de falhas, degradação, planejamento, dados, prognóstico e avaliação. | Ajuda a estruturar o projeto como um sistema completo, incluindo sensores, tratamento de dados, modelo de previsão, avaliação e apoio à decisão. | É um trabalho de revisão e não apresenta uma comparação experimental própria entre modelos. |
-| Gupta et al. (2023) | Analisa dados de vibração coletados em um sistema real de transporte de bagagens. O estudo trata anomalias, limpeza de dados, registros de manutenção e classificação supervisionada. O Random Forest obteve os melhores resultados relatados, com precisão, recall e F1-score de 0,86. | Apoia a escolha de dados de sensores, a necessidade de filtrar ruídos e o cuidado com registros incompletos, rótulos e ausência de histórico completo de falhas. | O estudo não realizou prognóstico de falha até o fim da vida útil e teve limitações de transferência entre diferentes transportadores. |
-| Burmeister et al. (2023) | Usa 227.996 observações de produção e inspeção, com 29 variáveis, para comparar redes Bayesianas e árvores de classificação. A configuração CT RUS apresentou os melhores resultados entre os modelos avaliados e gerou regras interpretáveis. | Mostra como incluir dados operacionais e produzir alertas que possam ser entendidos pela equipe de manutenção, em vez de apresentar apenas uma classificação. | Os dados vêm de uma única empresa e a resposta é desbalanceada, portanto a generalização precisa de validação externa. |
+| [1] | Yousuf et al., *IoT-Based Health Monitoring and Fault Detection of Industrial AC Induction Motor for Efficient Predictive Maintenance* | Apoia uma arquitetura de baixo custo com sensores de temperatura, vibração, corrente, tensão e velocidade, aquisição embarcada, alertas e armazenamento remoto. | O trabalho monitora um motor de indução industrial; os resultados não podem ser transferidos diretamente para compressores de ar-condicionado sem testes próprios. |
+| [2] | Mohammed, Abdulateef e Hamad, *An IoT and Machine Learning-Based Predictive Maintenance System for Electrical Motors* | Orienta o uso conjunto de acelerômetro, sensor de corrente e temperatura, Raspberry Pi, MQTT e modelos supervisionados para distinguir operação normal e falhas. Também informa uma coleta experimental a cada segundo. | O conjunto é de uma única máquina, tem tamanho limitado e usa falhas induzidas; a frequência de um segundo não é suficiente para preservar a forma de onda bruta de vibração. |
+| [3] | Kolok et al., *Low-Cost IoT-Based Predictive Maintenance Using Vibration* | Apoia o uso de ESP32 e sensores MEMS de baixo custo, extração de RMS e FFT e detecção de anomalias com Isolation Forest treinado a partir da operação saudável. | A acurácia de detecção ficou pouco acima de 72,9\%, e o protótipo foi avaliado em uma pequena máquina rotativa; é necessária calibração para o equipamento do projeto. |
+| [4] | Meitz et al., *A Literature Review Framework and Open Research Challenges for Predictive Maintenance in Industry 4.0* | Ajuda a organizar o projeto como um fluxo completo que inclui monitoramento, tratamento dos dados, detecção de falhas, prognóstico, planejamento e avaliação. | É uma revisão de literatura e não fornece um protótipo único nem parâmetros de aquisição prontos para serem copiados. |
+| [5] | Gupta et al., *Predictive Maintenance of Baggage Handling Conveyors Using IoT* | Mostra como tratar vibrações e registros de manutenção de um sistema real, lidar com ruído e ausência de histórico até a falha e comparar classificadores. | O estudo trata esteiras de bagagens, não equipamentos de refrigeração, e depende da qualidade dos registros e rótulos disponíveis. |
+| [6] | Burmeister et al., *Exploration of Production Data for Predictive Maintenance of Industrial Equipment: A Case Study* | Reforça a necessidade de resultados interpretáveis e mostra como transformar previsões em regras que apoiem decisões de manutenção. | Os dados pertencem a uma única empresa e apresentam desbalanceamento; a generalização requer validação externa. |
 
-## Como as referências orientam a solução
+## Relação com os requisitos e as especificações
 
-As três referências cobrem partes diferentes do sistema:
+| Parte do projeto | Referências que dão suporte | Aplicação prevista |
+|---|---|---|
+| Temperatura e condições de operação | [1] e [2] | Registrar a condição térmica do equipamento e o contexto ambiental ao longo do tempo. |
+| Vibração e sinais acústicos | [1], [2], [3] e [5] | Medir alterações mecânicas, extrair características como RMS e FFT e investigar desbalanceamento ou desgaste. |
+| Corrente elétrica | [1] e [2] | Acompanhar variações de carga e sobrecorrente, caso um sensor adequado seja disponibilizado. |
+| Comunicação e histórico | [1] e [2] | Transmitir medições e alertas por rede, preferencialmente com MQTT, e manter um histórico para análise. |
+| Organização e qualidade dos dados | [4] e [5] | Documentar frequência de coleta, limpeza, rótulos, falhas induzidas e separação dos dados de treinamento e teste. |
+| Detecção e avaliação | [2], [3], [5] e [6] | Comparar limites ou modelos leves, medir o desempenho com métricas adequadas e evitar depender apenas da acurácia. |
+| Alertas interpretáveis | [4] e [6] | Informar quais variáveis ou condições motivaram o alerta para apoiar a decisão da equipe de manutenção. |
 
-1. Meitz et al. orientam a organização geral da arquitetura e da avaliação.
-2. Gupta et al. orientam a coleta, a limpeza e o tratamento de dados de sensores em uma situação real.
-3. Burmeister et al. orientam a interpretação dos resultados e a transformação das previsões em ações de manutenção.
+## Síntese para o desenvolvimento
 
-Com base nesse conjunto, o projeto deve tratar a coleta de dados, o processamento, a detecção de anomalias e a apresentação dos resultados como etapas conectadas. A precisão do modelo não deve ser analisada sem considerar ruído, desbalanceamento, qualidade dos rótulos e possibilidade de uso em outra máquina.
+As seis referências sustentam uma solução que combina sensores de vibração, corrente e temperatura, processamento embarcado, comunicação sem fio e armazenamento histórico. A literatura também indica que o modelo é apenas uma parte do sistema: qualidade dos dados, calibração, rotulagem das falhas, escolha das métricas e interpretação dos alertas precisam ser documentadas.
 
-## Registros das referências
+No escopo atual, o protótipo deve ser apresentado como um sistema de monitoramento e detecção experimental de anomalias. A previsão de falhas futuras ou da vida útil restante somente poderá ser afirmada depois da obtenção de um histórico representativo, com estados normais e falhas validadas no equipamento-alvo.
 
-- [Meitz et al. (2025)](https://doi.org/10.1016/j.cie.2025.111193)
-- [Gupta et al. (2023)](https://doi.org/10.1016/j.cie.2023.109033)
-- [Burmeister et al. (2023)](https://doi.org/10.1109/ACCESS.2023.3315842)
+## Registros bibliográficos verificados
+
+| Ref. | Tipo e publicação | DOI / registro |
+|---|---|---|
+| [1] | Artigo — *Measurement and Control*, v. 57, n. 8, p. 1146--1160, 2024 | [10.1177/00202940241231473](https://doi.org/10.1177/00202940241231473) |
+| [2] | Artigo — *Journal Européen des Systèmes Automatisés*, v. 56, n. 4, p. 651--656, 2023 | [10.18280/jesa.560414](https://doi.org/10.18280/jesa.560414) |
+| [3] | Artigo — *Sensors*, v. 25, n. 21, art. 6610, 2025 | [10.3390/s25216610](https://doi.org/10.3390/s25216610) |
+| [4] | Artigo de revisão — *Computers \& Industrial Engineering*, v. 206, art. 111193, 2025 | [10.1016/j.cie.2025.111193](https://doi.org/10.1016/j.cie.2025.111193) |
+| [5] | Artigo — *Computers \& Industrial Engineering*, v. 177, art. 109033, 2023 | [10.1016/j.cie.2023.109033](https://doi.org/10.1016/j.cie.2023.109033) |
+| [6] | Artigo — *IEEE Access*, v. 11, p. 102025--102037, 2023 | [10.1109/ACCESS.2023.3315842](https://doi.org/10.1109/ACCESS.2023.3315842) |
+
+As referências dos alunos do IBMEC ainda não foram adicionadas porque os dados bibliográficos e os links dos trabalhos não foram fornecidos. Quando forem enviados, elas poderão ser comparadas com os requisitos do projeto e incluídas na matriz.
