@@ -2,7 +2,7 @@
 
 Este arquivo reúne as instruções gerais da disciplina IBM3118, as atividades previstas da AC1 até a AC4 e as orientações complementares dadas pela professora em sala. Marque cada caixa somente depois de conferir a atividade no repositório, no Overleaf e no arquivo enviado por e-mail.
 
-Os itens marcados foram comprovados pelos arquivos e pelo histórico do repositório em 31 de agosto de 2026. Atividades externas que não puderam ser verificadas, como acesso ao Overleaf, inclusão dos PDFs acadêmicos e envio de e-mails, permanecem desmarcadas.
+Os itens marcados foram comprovados pelos arquivos, pelo histórico do repositório e pelas confirmações do grupo em 1º de setembro de 2026. Atividades externas que não puderam ser verificadas, como inclusão dos PDFs acadêmicos e envio do PDF final por e-mail, permanecem desmarcadas.
 
 ## Regras gerais do projeto
 
@@ -52,8 +52,8 @@ Prazo indicado no documento: uma semana.
 - [x] Registrar o nome completo de todos os integrantes.
 - [x] Confirmar a afiliação dos integrantes: Ibmec Barra, Rio de Janeiro--RJ.
 - [ ] Registrar o e-mail de todos os integrantes.
-- [ ] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
-- [ ] Confirmar que todos os integrantes conseguem acessar o projeto no Overleaf.
+- [x] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
+- [x] Confirmar que todos os integrantes conseguem acessar o projeto no Overleaf.
 
 ### Repositório
 
@@ -323,7 +323,7 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 ## Conferência final acumulada da AC1 à AC4
 
 - [x] Grupo e número do grupo confirmados: Grupo 4.
-- [ ] Overleaf compartilhado com todos os integrantes.
+- [x] Overleaf compartilhado com todos os integrantes.
 - [ ] Repositório público e compartilhado com o professor.
 - [x] Título consolidado no artigo.
 - [ ] Autores atualizados no artigo.
