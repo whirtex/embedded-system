@@ -2,7 +2,7 @@
 
 Este arquivo reúne as instruções gerais da disciplina IBM3118, as atividades previstas da AC1 até a AC4 e as orientações complementares dadas pela professora em sala. Marque cada caixa somente depois de conferir a atividade no repositório, no Overleaf e no arquivo enviado por e-mail.
 
-Os itens marcados foram comprovados pelos arquivos e pelo histórico do repositório em 25 de agosto de 2026. Atividades externas que não puderam ser verificadas, como acesso ao Overleaf, inclusão dos PDFs acadêmicos e envio de e-mails, permanecem desmarcadas.
+Os itens marcados foram comprovados pelos arquivos e pelo histórico do repositório em 31 de agosto de 2026. Atividades externas que não puderam ser verificadas, como acesso ao Overleaf, inclusão dos PDFs acadêmicos e envio de e-mails, permanecem desmarcadas.
 
 ## Regras gerais do projeto
 
@@ -10,7 +10,7 @@ Os itens marcados foram comprovados pelos arquivos e pelo histórico do reposit�
 - [ ] Desenvolver um protótipo ou uma solução funcional para o problema escolhido.
 - [ ] Manter o artigo com no máximo três páginas.
 - [ ] Utilizar obrigatoriamente o formato do Simpósio Brasileiro de Telecomunicações e Processamento de Sinais (SBrT).
-- [ ] Citar dez referências acadêmicas ao longo do artigo.
+- [x] Citar dez referências acadêmicas ao longo do artigo.
 - [ ] Citar o repositório separadamente, além das dez referências acadêmicas.
 - [x] Manter o repositório público.
 - [ ] Colocar no repositório as implementações, documentos e materiais utilizados no desenvolvimento do protótipo.
@@ -180,34 +180,34 @@ Prazo original indicado no documento: uma semana. Conforme orientação posterio
 ### Primeiro parágrafo - contexto geral
 
 - [x] Reservar um placeholder para o primeiro parágrafo da introdução.
-- [ ] Escrever ou revisar o primeiro parágrafo definitivo.
-- [ ] Contextualizar o problema de maneira geral.
-- [ ] Utilizar no mínimo duas referências para sustentar o texto.
-- [ ] Selecionar referências de bases acadêmicas confiáveis.
-- [ ] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
-- [ ] Considerar fundamentos de sistemas embarcados, sensores ou monitoramento contínuo quando forem pertinentes.
-- [ ] Evitar antecipar detalhes excessivos da solução nesse primeiro parágrafo.
+- [x] Escrever ou revisar o primeiro parágrafo definitivo.
+- [x] Contextualizar o problema de maneira geral.
+- [x] Utilizar no mínimo duas referências para sustentar o texto.
+- [x] Selecionar referências de bases acadêmicas confiáveis.
+- [x] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
+- [x] Considerar fundamentos de sistemas embarcados, sensores ou monitoramento contínuo quando forem pertinentes.
+- [x] Evitar antecipar detalhes excessivos da solução nesse primeiro parágrafo.
 
 ### Segundo parágrafo - motivação e área estudada
 
 - [x] Reservar um placeholder para o segundo parágrafo da introdução.
-- [ ] Escrever ou revisar o segundo parágrafo definitivo.
-- [ ] Apresentar o problema de forma mais específica.
-- [ ] Explicar a motivação do trabalho.
-- [ ] Indicar a área tecnológica que será explorada para desenvolver a solução.
-- [ ] Utilizar no mínimo duas referências para sustentar o texto.
-- [ ] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
-- [ ] Considerar fundamentos de IoT, comunicação remota, processamento local, computação de borda ou integração de sensores quando forem pertinentes.
+- [x] Escrever ou revisar o segundo parágrafo definitivo.
+- [x] Apresentar o problema de forma mais específica.
+- [x] Explicar a motivação do trabalho.
+- [x] Indicar a área tecnológica que será explorada para desenvolver a solução.
+- [x] Utilizar no mínimo duas referências para sustentar o texto.
+- [x] Utilizar referências de motivação ou fundamentação, mesmo que não tratem diretamente de colmeias.
+- [x] Considerar fundamentos de IoT, comunicação remota, processamento local, computação de borda ou integração de sensores quando forem pertinentes.
 
 ### Organização das dez referências
 
-- [ ] Utilizar quatro referências gerais nos parágrafos 1 e 2, sendo duas por parágrafo.
-- [ ] Utilizar essas quatro referências para motivação e fundamentação tecnológica.
+- [x] Utilizar quatro referências gerais nos parágrafos 1 e 2, sendo duas por parágrafo.
+- [x] Utilizar essas quatro referências para motivação e fundamentação tecnológica.
 - [x] Utilizar seis referências específicas sobre monitoramento de colmeias nos parágrafos de revisão de literatura.
-- [ ] Conferir se as dez referências acadêmicas aparecem citadas no manuscrito.
+- [x] Conferir se as dez referências acadêmicas aparecem citadas no manuscrito.
 - [ ] Manter a referência do repositório além das dez referências acadêmicas.
-- [ ] Adicionar ao BibTeX as quatro referências gerais que ainda estiverem ausentes.
-- [ ] Adicionar o campo `url` com DOI às quatro referências gerais.
+- [x] Adicionar ao BibTeX as quatro referências gerais que ainda estiverem ausentes.
+- [x] Adicionar o campo `url` com DOI às quatro referências gerais.
 - [ ] Baixar os PDFs das quatro referências gerais.
 - [ ] Adicionar os quatro PDFs à pasta `refsPDF` no Overleaf.
 - [ ] Confirmar que a pasta `refsPDF` contém os PDFs das dez referências utilizadas.
@@ -223,7 +223,7 @@ Prazo original indicado no documento: uma semana. Conforme orientação posterio
 - [x] Evitar apresentar faixas observadas em um artigo como regras universais.
 - [x] Evitar afirmar que a detecção de Varroa está validada quando os dados forem insuficientes.
 - [x] Relacionar cada trabalho com as decisões do projeto sem transformar a revisão em uma lista de especificações.
-- [ ] Conferir se os seis parágrafos da introdução formam uma sequência coerente.
+- [x] Conferir se os seis parágrafos da introdução formam uma sequência coerente.
 
 ### Slides da apresentação
 
@@ -328,15 +328,15 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [x] Título consolidado no artigo.
 - [ ] Autores atualizados no artigo.
 - [ ] Repositório citado no texto e cadastrado no BibTeX.
-- [ ] Quatro referências gerais utilizadas nos dois primeiros parágrafos.
+- [x] Quatro referências gerais utilizadas nos dois primeiros parágrafos.
 - [x] Seis referências de colmeias utilizadas na revisão de literatura.
-- [ ] Dez referências acadêmicas citadas no manuscrito.
+- [x] Dez referências acadêmicas citadas no manuscrito.
 - [ ] Referência do repositório presente além das dez referências acadêmicas.
-- [ ] Todas as referências possuem dados bibliográficos conferidos.
-- [ ] Todas as referências possuem DOI no campo `url`, quando houver DOI.
+- [x] Todas as referências possuem dados bibliográficos conferidos.
+- [x] Todas as referências possuem DOI no campo `url`, quando houver DOI.
 - [ ] Dez PDFs acadêmicos adicionados à pasta `refsPDF` do Overleaf.
 - [x] Dois placeholders reservados para contextualização e motivação.
-- [ ] Dois parágrafos definitivos de contextualização e motivação revisados.
+- [x] Dois parágrafos definitivos de contextualização e motivação revisados.
 - [x] Quatro parágrafos de revisão de literatura revisados.
 - [ ] Manuscrito compilando sem erros.
 - [ ] PDF mais recente do manuscrito baixado e revisado.
