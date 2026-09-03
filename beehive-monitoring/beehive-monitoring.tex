@@ -1,5 +1,45 @@
-% Rascunho do artigo Beehive Monitoring.
-% Este arquivo será ampliado com as próximas seções do trabalho.
+%% ------------- English version ---------------
+\documentclass[english,hidelinks]{sbrt}
+\usepackage{newtxtext}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\newtheorem{theorem}{Theorem}
+%% ---------------------------------------------
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+\newcommand\rigel[1]{\todo[color=green, inline]{\textbf{Rigel}: #1}}
+\usepackage{orcidlink}
+\usepackage{hyperref}
+\usepackage[
+  compatibility=false,
+  font=footnotesize,
+  labelsep=period,
+  format=plain,
+  justification=raggedright,
+  singlelinecheck=false
+]{caption}
+
+\begin{document}
+
+\title{Low-Cost Embedded System for Beehive Monitoring}
+
+\author{Igor Costa, Jorge Alves, Ian Dias and Davi Ito
+  \thanks{The authors are with Ibmec, Rio de Janeiro, RJ, Brazil.
+  E-mails: igorcosta.silva10a@gmail.com,
+  jorgedocruzeiro07@gmail.com,
+  iandpcarvalho@gmail.com,
+  cdavi8249@gmail.com.}%
+  }
+
+\maketitle
+
+\markboth{XLIV BRAZILIAN SYMPOSIUM ON TELECOMMUNICATIONS AND SIGNAL PROCESSING - SBrT 2026, SEPTEMBER 29TH TO OCTOBER 2ND, 2026, SALVADOR, BA}{}
+
+\begin{abstract}
+\end{abstract}
+\begin{keywords}
+Beehive monitoring, embedded systems, Internet of Things, computer vision.
+\end{keywords}
 
 \section{Introduction}
 
@@ -14,3 +54,66 @@ Acoustic and vibration sensing provide another non-invasive approach for assessi
 IoT platforms and wireless sensor networks support continuous acquisition and remote access to measurements collected inside the hive. Tashakkori et al. presented Beemon, an architecture that combines temperature, humidity, weight, audio, and video acquisition with MQTT communication, a ThingsBoard dashboard, and remote storage. Henry et al. developed a wireless sensor network for continuous in-hive temperature, relative-humidity, and acoustic measurements in an apiary environment. These systems demonstrate the feasibility of integrating multiple sensing modalities and maintaining a historical data stream, while also motivating the proposed project to document timestamps, communication reliability, sensor placement, and missing measurements instead of treating data transmission alone as evidence of colony health \cite{tashakkori2021beemon,henry2019precision}.
 
 Tu et al. investigated lightweight entrance monitoring through computer vision implemented on a Raspberry Pi. Their background-subtraction approach counted bees, identified their positions, and estimated entrance and exit activity, reporting $R^2$ values of 0.987 for bee counting, 0.953 for incoming activity, and 0.888 for outgoing activity. The results support local processing on a low-cost platform and the use of manually annotated counts as an evaluation reference. Nevertheless, performance may vary with illumination, camera placement, entrance geometry, and overlapping bees. For the proposed system, this work motivates scheduled entrance-image acquisition and reproducible comparison with manual observations before more complex detection or tracking models are adopted \cite{tu2016automatic}.
+
+\rigel{AC Semana 5: Elaborar o penúltimo parágrafo que descreve a proposta do artigo e contribuições
+
+Verifiquem as referências dos alunos do Ibmec e cite-as caso seja oportuno}
+
+\rigel{AC Semana 5: Elaborar o último parágrafo da introdução (que é a visita guiada), nesse parágrafo sintetize para o leitor o que cada seção tratará, como o exemplo abaixo:
+“The rest of this work is organized as follows. Section II examines the computer-vision-based liveness monitoring system, while Section III details the system’s implementation. We then analyze the system’s performance in liveness detection and discuss encountered issues in Section IV, and Section V concludes the work.”}
+
+\rigel{AC Semana 5: Elaborar outline do artigo (criar apenas o esqueleto do artigo - nomes das seções), e.g., seção descrição do sistema, método proposto, resultados e conclusões. Para isso utilize como referência as 10 referências já visitadas sobre o problema que se está estudando (tome como base esse manuscrito que foi elaborado por outros estudantes do Ibmec e que foi submetido e aceito para publicação).}
+
+\section{System Description}
+\label{sec:system-description}
+
+\rigel{AC Semana 6: Apresente os sensores e/ou microcontroladores e, possivelmente, os protocolos de comunicação utilizados. Inclua uma referência que apresente cada um desses componentes (pode ser referências já utilizadas previamente na seção de introdução) que deverão dar suporte a essa descrição.}
+
+\subsection{MQTT Protocol}
+
+MQTT (Message Queuing Telemetry Transport) is a lightweight communication protocol designed for low-bandwidth and high-latency environments, widely used in IoT applications. Unlike HTTP, which is optimized for web browsing, MQTT is ideal for asynchronous communication between devices, such as environmental sensors and camera controllers.
+
+In this project, MQTT is used to transmit environmental measurements and processed activity indicators from the beehive to a remote application or server. Its low overhead and efficient publish/subscribe model make it well-suited for embedded systems focused on continuous monitoring and low power consumption.
+
+\section{The Method}
+\label{sec:method}
+
+\rigel{AC Semana 7:
+Nesse momento já teremos a seção Introdução, a seção II e a Seção III que trata do método que o grupo propõe.
+Atividade relativa a parte escrita: Elaborar a seção III que deverá tratar sobre o método proposto:
+
+(1) Apresente, em detalhes, o funcionamento do sistema desenvolvido. Como nessa seção estão as contribuições do grupo, não é necessário inserir referências que dêem suporte;
+
+(2) Elabore um diagrama que facilite a compreensão do método (use o LucidChart por exemplo, exporte o diagrama como PDF para manter a boa resolução no artigo, cuidado com os espaços em branco que podem sobrar às margens do diagrama (no momento de exportar como PDF faça um recorte personalizado para tirar as margens em branco indesejáveis).
+
+De forma alternativa (ou adicionalmente), o grupo poderá gerar um pseudocódigo para mostrar como o sistema funciona (passos principais do método proposto);
+
+(3) Um parágrafo deverá ser escrito e deverá referenciar o diagrama criado na seção III Método. Explique o diagrama criado ao leitor.
+(4) Outro parágrafo deverá ser escrito e referenciar uma foto do protótipo. Explique o que está na foto ao leitor.}
+
+\section{Results}
+\label{sec:results}
+
+\rigel{AC Semana 8:
+Nesse momento já teremos a seção Introdução, a seção II e a Seção III que trata do método que o grupo propõe.
+Atividade relativa a parte escrita: Elaborar a seção IV que deverá tratar sobre os resultados experimentais:
+
+(1) Apresente, em detalhes, os resultados qualitativos e quantitativos obtidos até o momento. No mínimo resultados qualitativos.
+
+(2) Elabore o Abstract e Conclusions.}
+
+\rigel{AC Semana 9: Continuar na elaboração da seção IV que deverá tratar sobre os resultados experimentais:
+
+(1) Introduza na Seção IV (Results), em detalhes, os resultados quantitativos obtidos (além de resultados qualitativos já conseguidos).
+
+(2) Refine o abstract. Na última linha do abstract devemos inserir algum resultado que seja interessante para o leitor e que represente algum aspecto considerado como a maior contribuição do grupo
+
+(3) Refine a seção Conclusions. Insira resultados que resumam a avaliação do sistema embarcado proposto.}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\bibliographystyle{ieeetr}
+\bibliography{refs}
+
+\end{document}
