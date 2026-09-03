@@ -2,6 +2,12 @@
 
 Estas são as especificações preliminares para o protótipo de manutenção preditiva. Os pontos que ainda dependem do enunciado ou da orientação do professor estão indicados no texto.
 
+## 0. Escopo de aplicação
+
+- O alvo do projeto é o monitoramento de aparelhos de ar-condicionado em ambientes críticos ou coletivos, nos quais os equipamentos permanecem ligados por períodos prolongados.
+- Exemplos de aplicação incluem hospitais, escolas, data centers, laboratórios, escritórios, shopping centers, hotéis, aeroportos e instalações industriais.
+- A montagem experimental poderá usar o motor de passo disponível para simular um componente rotativo do equipamento, mas essa bancada não representa a validação completa de um aparelho de ar-condicionado real.
+
 ## 1. Controlador e comunicação
 
 - A placa principal recomendada é um ESP8266 ou um ESP32-CAM.
