@@ -76,15 +76,17 @@ métricas serão reportadas e como os conjuntos de treino e teste serão separad
 | Código | Requisito | Situação |
 |---|---|---|
 | RNF01 | O sistema deve operar com baixa tensão e sem oferecer risco ao usuário. | Parcial. Há conectores de pilhas, mas ainda não foi confirmada uma fonte regulada adequada. |
-| RNF02 | O sistema deve funcionar continuamente durante os testes, reproduzindo o regime ininterrupto do equipamento monitorado. | A duração dos testes ainda precisa ser definida. |
-| RNF03 | As leituras dos sensores devem ter precisão suficiente para identificar anomalias. | O nível de precisão precisa ser definido com o professor. |
-| RNF04 | O sistema deve apresentar o alerta dentro de um tempo adequado. | O tempo máximo de resposta precisa ser definido. |
-| RNF05 | O sistema deve ser modular, permitindo trocar ou adicionar sensores. | Parcial. Há protoboards, jumpers e vários módulos. |
-| RNF06 | O sistema deve possuir documentação de montagem e funcionamento. | A documentação deverá ser produzida durante o projeto. |
-| RNF07 | O sistema deve ter baixo custo e usar, de preferência, os componentes disponíveis. | Parcial. A maior parte da montagem pode usar os componentes disponíveis. |
-| RNF08 | O sistema deve possuir proteção física para os circuitos. | Ausente. Não foi identificada uma caixa ou um gabinete de proteção. |
-| RNF09 | O sistema deve permitir repetir os testes em condições semelhantes. | Parcial. Ainda falta definir o suporte, a carga mecânica e o procedimento de teste. |
-| RNF10 | O sistema deve registrar a frequência de coleta, unidades, calibração e contexto de cada medição. | Será documentado durante a implementação. |
+| RNF02 | O sistema deve ser alimentado por fonte regulada de 5 V ligada à rede elétrica, e não por pilhas ou bateria. | Ausente. É necessário obter uma fonte de 5 V com corrente suficiente para o microcontrolador e os sensores. A operação de 24 horas inviabiliza alimentação por pilha. |
+| RNF03 | O ponto de alimentação deve estar disponível junto ao equipamento monitorado. | A definir. A unidade externa do ar-condicionado raramente tem tomada próxima, e puxar energia de dentro do próprio aparelho exige eletricista. |
+| RNF04 | O sistema deve funcionar continuamente durante os testes, reproduzindo o regime ininterrupto do equipamento monitorado. | A duração dos testes ainda precisa ser definida. |
+| RNF05 | As leituras dos sensores devem ter precisão suficiente para identificar anomalias. | O nível de precisão precisa ser definido com o professor. |
+| RNF06 | O sistema deve apresentar o alerta dentro de um tempo adequado. | O tempo máximo de resposta precisa ser definido. |
+| RNF07 | O sistema deve ser modular, permitindo trocar ou adicionar sensores. | Parcial. Há protoboards, jumpers e vários módulos. |
+| RNF08 | O sistema deve possuir documentação de montagem e funcionamento. | A documentação deverá ser produzida durante o projeto. |
+| RNF09 | O sistema deve ter baixo custo e usar, de preferência, os componentes disponíveis. | Parcial. A maior parte da montagem pode usar os componentes disponíveis. |
+| RNF10 | O sistema deve possuir proteção física para os circuitos. | Ausente. Não foi identificada uma caixa ou um gabinete de proteção. |
+| RNF11 | O sistema deve permitir repetir os testes em condições semelhantes. | Parcial. Ainda falta definir o suporte, a carga mecânica e o procedimento de teste. |
+| RNF12 | O sistema deve registrar a frequência de coleta, unidades, calibração e contexto de cada medição. | Será documentado durante a implementação. |
 
 ## Relação com a literatura
 
