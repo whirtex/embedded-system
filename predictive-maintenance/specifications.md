@@ -154,4 +154,4 @@ Não foram identificados entre os componentes disponíveis na faculdade uma máq
 - Gupta et al.: limpeza, rotulagem e avaliação de dados reais de vibração.
 - Burmeister et al.: interpretação das previsões e apoio à decisão.
 
-Os metadados completos estão em `references.bib`, e a relação detalhada entre cada artigo e o projeto está em `reference-contributions.md`.
+Os metadados completos estão em `refs.bib`, e a relação detalhada entre cada artigo e o projeto está em `reference-contributions.md`.

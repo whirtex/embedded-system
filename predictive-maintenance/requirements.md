@@ -4,7 +4,7 @@ Este documento reúne os requisitos iniciais para um protótipo de sistema embar
 
 ## Escopo do projeto
 
-O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que permanecem ligados por períodos prolongados em ambientes críticos ou coletivos, como hospitais, escolas, data centers, laboratórios, escritórios, shopping centers, hotéis, aeroportos e instalações industriais. A primeira versão terá como objetivo detectar anomalias e emitir alertas; a estimativa da vida útil restante dependerá da obtenção de um histórico representativo de falhas validadas.
+O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que operam em regime contínuo, 24 horas por dia, em ambientes nos quais a refrigeração não pode ser interrompida, como enfermarias e UTIs, data centers e salas de servidores, e shelters de telecomunicação. A operação em regime contínuo é um pressuposto do método: ela permite estabelecer uma linha de base estável e evita que transitórios de partida e parada sejam confundidos com degradação. A primeira versão terá como objetivo detectar anomalias e emitir alertas; a estimativa da vida útil restante dependerá da obtenção de um histórico representativo de falhas validadas.
 
 ## Legenda
 
@@ -39,7 +39,7 @@ O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que per
 | Código | Requisito | Situação |
 |---|---|---|
 | RNF01 | O sistema deve operar com baixa tensão e sem oferecer risco ao usuário. | Parcial. Há conectores de pilhas, mas ainda não foi confirmada uma fonte regulada adequada. |
-| RNF02 | O sistema deve funcionar continuamente durante os testes. | A duração dos testes ainda precisa ser definida. |
+| RNF02 | O sistema deve funcionar continuamente durante os testes, reproduzindo o regime ininterrupto do equipamento monitorado. | A duração dos testes ainda precisa ser definida. |
 | RNF03 | As leituras dos sensores devem ter precisão suficiente para identificar anomalias. | O nível de precisão precisa ser definido com o professor. |
 | RNF04 | O sistema deve apresentar o alerta dentro de um tempo adequado. | O tempo máximo de resposta precisa ser definido. |
 | RNF05 | O sistema deve ser modular, permitindo trocar ou adicionar sensores. | Parcial. Há protoboards, jumpers e vários módulos. |
@@ -55,7 +55,7 @@ O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que per
 - Kolok et al. apoiam a extração de características como RMS e FFT e a detecção leve de anomalias em um ESP32.
 - Meitz et al. e Gupta et al. mostram que coleta, limpeza, rotulagem e avaliação precisam fazer parte do mesmo fluxo.
 - Burmeister et al. apoiam a apresentação de alertas interpretáveis para a equipe de manutenção.
-- As chaves BibTeX e os dados completos das dez referências estão em `references.bib`.
+- As chaves BibTeX e os dados completos das dez referências acadêmicas, mais a entrada do repositório, estão em `refs.bib`.
 
 ## Perguntas para o professor
 
