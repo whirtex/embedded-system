@@ -166,6 +166,18 @@ O pacote transmitido por LoRa deve conter apenas dados pequenos, como identifica
 
 Para o primeiro teste, recomenda-se uma comunicação LoRa ponto a ponto, com um ESP equipado com LoRa como transmissor e outro ESP equipado com LoRa como receptor. Essa etapa reproduz, em escala reduzida, a ideia de nós sensores distribuídos usada em redes sem fio para apiários [5]. O receptor pode encaminhar os dados para um computador por USB ou Wi-Fi. Em uma versão com várias colmeias, deve ser avaliada uma rede LoRaWAN com gateway e servidor apropriados.
 
+### 12.2.1 Parâmetros e validação do enlace LoRa
+
+A configuração do rádio deve equilibrar alcance, velocidade e consumo. O spreading factor (SF), a largura de banda, a potência de transmissão e o tempo no ar influenciam a sensibilidade, a duração da transmissão e a autonomia da bateria. Um SF maior tende a melhorar a recepção em enlaces difíceis, mas aumenta o tempo de transmissão; por isso, não deve ser escolhido apenas pelo maior alcance teórico. A configuração final deverá ser obtida por testes no local da colmeia, considerando obstáculos, altura e orientação da antena. A relação entre taxa de dados, sensibilidade e tempo no ar deve ser analisada conforme a documentação técnica da Semtech.
+
+Se a versão LoRaWAN for adotada, o nó alimentado por bateria deverá priorizar a Classe A, na qual o dispositivo transmite quando necessário e abre janelas curtas para receber respostas. Essa classe permite que o nó permaneça em baixo consumo entre as medições, mas não é adequada para comandos que precisem chegar instantaneamente. Como os nós das colmeias serão fixos, o Adaptive Data Rate (ADR) poderá ser avaliado depois que a estabilidade do enlace for confirmada, com o objetivo de reduzir o tempo no ar e o consumo. Classes B e C não são necessárias para a primeira versão.
+
+O teste inicial deve comparar a comunicação ponto a ponto com uma possível implantação LoRaWAN. No modo ponto a ponto, o grupo controla diretamente os dois rádios e não precisa de gateway ou servidor LoRaWAN, mas deverá implementar ou registrar endereçamento, confirmação, tentativas de reenvio e segurança. No modo LoRaWAN, será necessário configurar o plano regional correto no nó e no gateway, cadastrar os dispositivos e integrar o servidor de rede ao MQTT.
+
+Para o uso no Brasil, o módulo, a antena e o gateway devem ser compatíveis com a faixa e o plano regional aplicáveis, além de atender às exigências de certificação da Anatel. A faixa nominal de 915 MHz não deve ser tratada como suficiente por si só: o grupo deverá confirmar canais, potência, antena e homologação do equipamento antes da aquisição e da instalação. A Resolução nº 680 da Anatel e o Ato nº 14.448 devem ser consultados junto com os parâmetros regionais atuais da LoRa Alliance.
+
+Cada experimento deve registrar a distância, a presença de obstáculos, a configuração do rádio, RSSI, SNR, número de pacotes enviados, número de pacotes recebidos, perdas, retransmissões, latência e tensão da bateria antes e depois do teste. Esses dados permitirão decidir se LoRa atende à telemetria ambiental e evitarão apresentar o alcance como uma característica fixa do sistema.
+
 ### 12.3 Integração com a câmera e a visão computacional
 
 A ESP32-CAM deve seguir um caminho de comunicação separado do nó de sensores:
