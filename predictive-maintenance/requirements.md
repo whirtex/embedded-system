@@ -14,6 +14,15 @@ O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que ope
 
 ## Requisitos funcionais
 
+Os requisitos estão agrupados pelas etapas de manutenção preditiva descritas por
+Meitz et al., a mesma estrutura adotada no artigo. As etapas de modelagem de
+degradação, prognóstico e planejamento da manutenção ficam fora do escopo do
+protótipo, porque dependem de um histórico representativo de falhas validadas.
+
+### Monitoramento de condição
+
+Medir o equipamento e levar a medição até onde ela será usada.
+
 | Código | Requisito | Situação |
 |---|---|---|
 | RF01 | O sistema deve coletar dados da máquina continuamente. | Parcial. A frequência de coleta ainda precisa ser definida. |
@@ -22,17 +31,45 @@ O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que ope
 | RF04 | O sistema deve medir o esforço ou o peso aplicado ao equipamento. | Disponível. Há uma célula de carga de 50 kg e um módulo HX711. |
 | RF05 | O sistema deve medir o consumo de corrente do motor. | Ausente. Seria necessário um sensor ACS712 ou INA219. |
 | RF06 | O sistema deve possuir uma máquina ou um motor para realizar os testes. | Parcial. Há um motor de passo e um driver, mas não foram identificados suporte mecânico, carga ou estrutura de teste. |
-| RF07 | O sistema deve filtrar e processar os dados dos sensores. | Será implementado no software. |
-| RF08 | O sistema deve identificar o funcionamento normal e uma possível falha. | A definir. É necessário escolher entre limites fixos e um modelo de aprendizado de máquina. |
-| RF09 | O sistema deve emitir um alerta quando detectar uma anomalia. | Disponível. Há LEDs, buzzer e display LCD. |
-| RF10 | O sistema deve permitir o desligamento ou o acionamento de um dispositivo em caso de falha. | Parcial. Há módulos relé, mas a função e as condições de acionamento ainda precisam ser definidas. |
-| RF11 | O sistema deve armazenar o histórico das medições. | Ausente. Não foi identificado um módulo de cartão SD. Como alternativa, os dados podem ser armazenados em um servidor pela rede. |
 | RF12 | O sistema deve enviar os dados para outro dispositivo ou plataforma. | Parcial. Há ESP8266, ESP32-CAM, Ethernet e LoRa, mas o protocolo e o destino ainda não foram definidos. |
-| RF13 | O sistema deve permitir a configuração dos limites de alerta. | Parcial. Há botões, potenciômetros e teclado, mas a forma de configuração ainda precisa ser definida. |
 | RF14 | O sistema deve testar os sensores ao ser ligado. | Será implementado no software. |
 | RF15 | O sistema deve identificar uma falha ou desconexão de sensor. | Será implementado no software. |
-| RF16 | O sistema deve registrar quais variáveis ou condições motivaram cada alerta. | Será implementado no software. A forma de explicação ainda precisa ser definida. |
+
+### Tratamento de dados
+
+Organizar, filtrar e separar o que será usado para treinar e para testar.
+
+| Código | Requisito | Situação |
+|---|---|---|
+| RF07 | O sistema deve filtrar e processar os dados dos sensores. | Será implementado no software. |
+| RF11 | O sistema deve armazenar o histórico das medições. | Ausente. Não foi identificado um módulo de cartão SD. Como alternativa, os dados podem ser armazenados em um servidor pela rede. |
 | RF17 | O sistema deve manter separados os dados de operação normal, falha, treinamento e teste. | Será implementado no procedimento de coleta e validação. |
+
+### Detecção de falhas
+
+Distinguir operação normal de anomalia.
+
+| Código | Requisito | Situação |
+|---|---|---|
+| RF08 | O sistema deve identificar o funcionamento normal e uma possível falha. | A definir. É necessário escolher entre limites fixos e um modelo de aprendizado de máquina. |
+| RF13 | O sistema deve permitir a configuração dos limites de alerta. | Parcial. Há botões, potenciômetros e teclado, mas a forma de configuração ainda precisa ser definida. |
+
+### Interpretação e ação
+
+Informar o que motivou o alerta e permitir uma resposta.
+
+| Código | Requisito | Situação |
+|---|---|---|
+| RF09 | O sistema deve emitir um alerta quando detectar uma anomalia. | Disponível. Há LEDs, buzzer e display LCD. |
+| RF16 | O sistema deve registrar quais variáveis ou condições motivaram cada alerta. | Será implementado no software. A forma de explicação ainda precisa ser definida. |
+| RF10 | O sistema deve permitir o desligamento ou o acionamento de um dispositivo em caso de falha. | Parcial. Há módulos relé, mas a função e as condições de acionamento ainda precisam ser definidas. |
+
+### Avaliação
+
+Nenhum requisito funcional foi definido para esta etapa. Meitz et al. tratam
+avaliação como categoria própria, e Gupta et al. mostram na prática que métrica
+e separação de dados decidem se o resultado se sustenta. Falta definir quais
+métricas serão reportadas e como os conjuntos de treino e teste serão separados.
 
 ## Requisitos não funcionais
 
@@ -54,7 +91,7 @@ O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que ope
 - Yousuf et al. e Mohammed et al. apoiam o monitoramento conjunto de temperatura, vibração e grandezas elétricas, além de alertas e comunicação remota.
 - Kolok et al. apoiam a extração de características como RMS e FFT e a detecção leve de anomalias em um ESP32.
 - Meitz et al. e Gupta et al. mostram que coleta, limpeza, rotulagem e avaliação precisam fazer parte do mesmo fluxo.
-- Burmeister et al. apoiam a apresentação de alertas interpretáveis para a equipe de manutenção.
+- Tormos et al. apoiam aprender a linha de base saudável sem rótulo de falha e informar qual medição disparou o alerta.
 - As chaves BibTeX e os dados completos das dez referências acadêmicas, mais a entrada do repositório, estão em `refs.bib`.
 
 ## Perguntas para o professor

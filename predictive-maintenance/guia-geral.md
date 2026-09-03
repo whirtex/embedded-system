@@ -14,6 +14,23 @@ A restrição a 24 horas é uma decisão de escopo do grupo e também tem justif
 
 O protótipo deve investigar monitoramento contínuo e detecção antecipada de anomalias. Enquanto não houver histórico representativo de falhas validadas, o artigo não deve afirmar que o sistema estima a vida útil restante do equipamento. Um motor de passo pode ser usado como equipamento-simulador para os testes iniciais, mas isso deve ser declarado como limitação e não como validação de um aparelho de ar-condicionado real.
 
+## Estrutura adotada
+
+O projeto segue as etapas de manutenção preditiva descritas por Meitz et al., que é uma das seis referências específicas. Isso dá ao trabalho uma organização vinda da literatura e permite declarar o que fica de fora, em vez de simplesmente omitir.
+
+| Etapa | Situação | Referência que sustenta |
+|---|---|---|
+| Monitoramento de condição | No escopo | Yousuf et al., Mohammed et al. |
+| Tratamento de dados | No escopo | Gupta et al. |
+| Detecção de falhas | No escopo | Kolok et al. |
+| Avaliação | No escopo, sem requisito definido ainda | Meitz et al., Gupta et al. |
+| Interpretação do alerta | No escopo; acréscimo do grupo, não é etapa do Meitz | Tormos et al. |
+| Modelagem de degradação | Fora do escopo | — |
+| Prognóstico e vida útil restante | Fora do escopo | — |
+| Planejamento da manutenção | Fora do escopo | — |
+
+As três etapas fora do escopo exigem histórico representativo de falhas validadas, que o protótipo não terá.
+
 ## Situação atual confirmada
 
 - [x] Título atualizado: `Embedded Systems-based Predictive Maintenance for Air-Conditioning Equipment`.
@@ -107,7 +124,7 @@ O PDF pede um ou dois parágrafos sintetizando pelo menos três referências enc
 
 O PDF mantém a mesma lógica da AC2 e pede pelo menos três novas referências. Elas não devem simplesmente repetir as referências da atividade anterior; devem ampliar a revisão e ajudar a fundamentar o sistema.
 
-- [x] Selecionar três novas referências: Meitz et al. (2025), Gupta et al. (2023) e Burmeister et al. (2023).
+- [x] Selecionar três novas referências: Meitz et al. (2025), Gupta et al. (2023) e Tormos et al. (2026), esta última substituindo Burmeister et al. (2023) por tratar de ar-condicionado e dispensar rótulo de falha.
 - [x] Escrever os dois parágrafos de continuação da revisão.
 - [x] Relacionar dados, limpeza, rotulagem, avaliação e interpretação dos alertas ao projeto.
 - [x] Adicionar as três novas entradas ao BibTeX com DOI e URL.

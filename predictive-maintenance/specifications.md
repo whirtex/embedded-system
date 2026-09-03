@@ -148,10 +148,17 @@ Não foram identificados entre os componentes disponíveis na faculdade uma máq
 
 ## 11. Rastreabilidade acadêmica
 
-- Yousuf et al. e Mohammed et al.: arquitetura de sensores, comunicação e monitoramento de motores.
-- Kolok et al.: ESP32, sensores MEMS, RMS, FFT e detecção de anomalias.
-- Meitz et al.: organização do fluxo completo de manutenção preditiva.
-- Gupta et al.: limpeza, rotulagem e avaliação de dados reais de vibração.
-- Burmeister et al.: interpretação das previsões e apoio à decisão.
+As referências estão organizadas pelas etapas de manutenção preditiva descritas por Meitz et al.
+
+| Etapa | Referência | O que sustenta |
+|---|---|---|
+| Panorama e estrutura | Meitz et al. | A divisão em etapas e a delimitação do que fica fora do escopo. |
+| Monitoramento de condição | Yousuf et al., Mohammed et al. | Sensores, aquisição embarcada, comunicação e alerta. |
+| Tratamento de dados | Gupta et al. | Limpeza, rotulagem e separação de dados reais de vibração. |
+| Detecção de falhas | Kolok et al. | ESP32, sensores MEMS, RMS, FFT e Isolation Forest na borda. |
+| Avaliação | Meitz et al., Gupta et al. | Escolha de métrica e separação entre treino e teste. |
+| Interpretação do alerta | Tormos et al. | Linha de base saudável e atribuição do desvio às variáveis. |
+
+Modelagem de degradação, prognóstico e planejamento da manutenção ficam fora do escopo do protótipo.
 
 Os metadados completos estão em `refs.bib`, e a relação detalhada entre cada artigo e o projeto está em `reference-contributions.md`.
