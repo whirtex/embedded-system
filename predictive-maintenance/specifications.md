@@ -4,8 +4,9 @@ Estas são as especificações preliminares para o protótipo de manutenção pr
 
 ## 0. Escopo de aplicação
 
-- O alvo do projeto é o monitoramento de aparelhos de ar-condicionado em ambientes críticos ou coletivos, nos quais os equipamentos permanecem ligados por períodos prolongados.
-- Exemplos de aplicação incluem hospitais, escolas, data centers, laboratórios, escritórios, shopping centers, hotéis, aeroportos e instalações industriais.
+- O alvo do projeto é o monitoramento de aparelhos de ar-condicionado que operam em regime contínuo, 24 horas por dia, em ambientes nos quais a refrigeração não pode ser interrompida.
+- Exemplos de aplicação incluem enfermarias e UTIs, data centers e salas de servidores, e shelters de telecomunicação.
+- Ficam fora do escopo escolas, escritórios e shopping centers, que operam em horário comercial e desligam diariamente.
 - A montagem experimental poderá usar o motor de passo disponível para simular um componente rotativo do equipamento, mas essa bancada não representa a validação completa de um aparelho de ar-condicionado real.
 
 ## 1. Controlador e comunicação
