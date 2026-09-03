@@ -2,6 +2,10 @@
 
 Este documento reúne os requisitos iniciais para um protótipo de sistema embarcado de manutenção preditiva. A lista foi elaborada com base no objetivo do projeto e nos componentes disponíveis na faculdade.
 
+## Escopo do projeto
+
+O sistema será desenvolvido para monitorar aparelhos de ar-condicionado que permanecem ligados por períodos prolongados em ambientes críticos ou coletivos, como hospitais, escolas, data centers, laboratórios, escritórios, shopping centers, hotéis, aeroportos e instalações industriais. A primeira versão terá como objetivo detectar anomalias e emitir alertas; a estimativa da vida útil restante dependerá da obtenção de um histórico representativo de falhas validadas.
+
 ## Legenda
 
 - Disponível: componente ou recurso disponível na faculdade.
@@ -51,7 +55,7 @@ Este documento reúne os requisitos iniciais para um protótipo de sistema embar
 - Kolok et al. apoiam a extração de características como RMS e FFT e a detecção leve de anomalias em um ESP32.
 - Meitz et al. e Gupta et al. mostram que coleta, limpeza, rotulagem e avaliação precisam fazer parte do mesmo fluxo.
 - Burmeister et al. apoiam a apresentação de alertas interpretáveis para a equipe de manutenção.
-- As chaves BibTeX e os dados completos dessas seis referências estão em `references.bib`.
+- As chaves BibTeX e os dados completos das dez referências estão em `references.bib`.
 
 ## Perguntas para o professor
 
