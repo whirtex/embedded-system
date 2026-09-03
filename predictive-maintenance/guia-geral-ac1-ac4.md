@@ -8,7 +8,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [ ] Desenvolver um protótipo ou uma solução funcional para o problema escolhido.
 - [ ] Manter o artigo com no máximo três páginas.
 - [ ] Utilizar o formato do Simpósio Brasileiro de Telecomunicações e Processamento de Sinais (SBrT).
-- [ ] Citar dez referências acadêmicas ao longo do artigo.
+- [x] Citar dez referências acadêmicas ao longo do artigo.
 - [ ] Citar o repositório separadamente, além das dez referências acadêmicas.
 - [x] Manter o repositório público.
 - [ ] Colocar no repositório as implementações, documentos e materiais usados no protótipo.
@@ -147,19 +147,19 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 
 - [x] Reservar os dois primeiros parágrafos para contextualização e motivação.
 - [x] Manter placeholders nesses dois parágrafos enquanto as quatro referências gerais não forem selecionadas.
-- [ ] Substituir os dois placeholders pelos parágrafos definitivos da AC4.
+- [x] Substituir os dois placeholders pelos parágrafos definitivos da AC4.
 - [x] Manter os quatro parágrafos seguintes como revisão de literatura: dois da AC2 e dois da AC3.
 - [x] Revisar a sequência lógica dos quatro parágrafos de revisão.
 - [x] Manter uma versão em inglês para o artigo e uma tradução de apoio em português.
-- [ ] Confirmar se o título representa corretamente o foco em aparelhos de ar-condicionado.
+- [x] Confirmar que o projeto terá foco em aparelhos de ar-condicionado instalados em ambientes críticos ou coletivos, com operação prolongada.
 
 ### Referências de contextualização
 
-- [ ] Selecionar quatro referências gerais de motivação ou fundamentação tecnológica.
-- [ ] Usar duas referências no primeiro parágrafo e duas no segundo.
-- [ ] Considerar sistemas embarcados, sensores, IoT, monitoramento contínuo e manutenção de climatização.
-- [ ] Evitar usar nessas quatro vagas os mesmos seis artigos destinados à revisão específica, caso a orientação seja totalizar dez referências distintas.
-- [ ] Inserir as quatro novas entradas no BibTeX com DOI e URL.
+- [x] Selecionar quatro referências gerais de motivação ou fundamentação tecnológica.
+- [x] Usar duas referências no primeiro parágrafo e duas no segundo.
+- [x] Considerar sistemas embarcados, sensores, IoT, monitoramento contínuo e manutenção de climatização.
+- [x] Evitar usar nessas quatro vagas os mesmos seis artigos destinados à revisão específica, caso a orientação seja totalizar dez referências distintas.
+- [x] Inserir as quatro novas entradas no BibTeX com DOI e URL.
 - [ ] Baixar os quatro PDFs e adicioná-los a `refsPDF` no Overleaf.
 
 ### Revisão dos trabalhos relacionados
@@ -171,7 +171,7 @@ Este arquivo reúne as orientações acumuladas das AC1, AC2, AC3 e AC4 para o p
 - [x] Explicar como cada trabalho influencia a arquitetura proposta.
 - [x] Não apresentar detecção de anomalias como previsão validada da vida útil restante.
 - [ ] Explicar no artigo, quando necessário, siglas como IoT, MQTT, RMS, FFT e termos de aprendizado de máquina.
-- [ ] Conferir a coerência do texto depois da inclusão das quatro referências gerais.
+- [x] Conferir a coerência do texto depois da inclusão das quatro referências gerais.
 
 ### Slides da apresentação
 
@@ -233,7 +233,7 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [x] Dados institucionais confirmados: Ibmec Barra, Rio de Janeiro--RJ.
 - [ ] Overleaf compartilhado com todos os integrantes.
 - [ ] Repositório compartilhado com o professor e citado no artigo.
-- [ ] Quatro referências gerais adicionadas para totalizar dez referências acadêmicas.
+- [x] Quatro referências gerais adicionadas para totalizar dez referências acadêmicas.
 - [ ] Dez PDFs armazenados em `refsPDF` no Overleaf.
 - [ ] Manuscrito compilando sem erros e dentro de três páginas.
 - [ ] PDF mais recente baixado e revisado.
@@ -246,7 +246,7 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 
 - `predictive-maintenance.tex`: texto em inglês para inclusão no manuscrito.
 - `predictive-maintenance-pt.md`: tradução de apoio em português.
-- `references.bib`: seis referências acadêmicas em BibTeX.
+- `references.bib`: dez referências acadêmicas em BibTeX.
 - `reference-contributions.md`: relação entre cada artigo e o projeto.
 - `requirements.md`: requisitos funcionais e não funcionais.
 - `specifications.md`: especificações técnicas preliminares.
