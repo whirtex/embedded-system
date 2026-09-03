@@ -2,7 +2,7 @@
 
 Este arquivo reúne as instruções gerais da disciplina IBM3118, as atividades previstas da AC1 até a AC4 e as orientações complementares dadas pela professora em sala. Marque cada caixa somente depois de conferir a atividade no repositório, no Overleaf e no arquivo enviado por e-mail.
 
-Os itens marcados foram comprovados pelos arquivos, pelo histórico do repositório e pelas confirmações do grupo em 1º de setembro de 2026. Atividades externas que não puderam ser verificadas, como inclusão dos PDFs acadêmicos e envio do PDF final por e-mail, permanecem desmarcadas.
+Os itens marcados foram comprovados pelos arquivos, pelo histórico do repositório e pelas confirmações do grupo em 1º e 3 de setembro de 2026. A apresentação do Seminário 1 foi realizada em 2 de setembro de 2026. Atividades externas que não puderam ser verificadas, como inclusão dos PDFs acadêmicos e envio do PDF final por e-mail, permanecem desmarcadas.
 
 ## Regras gerais do projeto
 
@@ -17,14 +17,14 @@ Os itens marcados foram comprovados pelos arquivos, pelo histórico do repositó
 - [ ] Referenciar o repositório no artigo.
 - [ ] Compartilhar o repositório com o professor.
 - [ ] Desenvolver a parte física do protótipo para as demonstrações dos Seminários 2, 3 e 4.
-- [ ] Utilizar o Seminário 1 para apresentar os trabalhos relacionados e as referências estudadas.
+- [x] Utilizar o Seminário 1 para apresentar os trabalhos relacionados e as referências estudadas.
 
 ## Procedimento obrigatório para cada entrega
 
 - [x] Confirmar qual AC está sendo entregue.
 - [ ] Revisar os arquivos alterados pelo grupo.
 - [ ] Atualizar o repositório com todos os arquivos da atividade.
-- [ ] Fazer os commits necessários com mensagens claras.
+- [x] Fazer os commits necessários com mensagens claras.
 - [ ] Enviar os commits ao repositório remoto antes de entregar a atividade.
 - [ ] Conferir se o repositório continua público e acessível ao professor.
 - [ ] Atualizar no Overleaf a versão mais recente do manuscrito.
@@ -229,22 +229,22 @@ Prazo original indicado no documento: uma semana. Conforme orientação posterio
 
 Orientação mais recente dada em sala: utilizar um slide para cada artigo da revisão de literatura, além dos slides iniciais e finais. Essa orientação substitui a possibilidade de usar dois slides por referência.
 
-- [ ] Criar ou manter a capa da apresentação.
-- [ ] Criar ou manter os slides iniciais de contexto e motivação.
-- [ ] Preparar exatamente um slide para cada um dos seis artigos diretamente relacionados ao monitoramento de colmeias.
+- [x] Criar ou manter a capa da apresentação.
+- [x] Criar ou manter os slides iniciais de contexto e motivação.
+- [x] Preparar exatamente um slide para cada um dos seis artigos diretamente relacionados ao monitoramento de colmeias.
 - [ ] Manter o mesmo padrão visual e o mesmo tom de cores ao longo da apresentação.
-- [ ] Mostrar em cada slide o nome do artigo ou uma frase que represente sua contribuição.
-- [ ] Destacar autor e ano.
+- [x] Mostrar em cada slide o nome do artigo ou uma frase que represente sua contribuição.
+- [x] Destacar autor e ano.
 - [ ] Informar a instituição ou o país de origem dos autores quando for útil para a apresentação.
-- [ ] Explicar de forma simples como o estudo foi realizado.
-- [ ] Apresentar pelo menos um resultado qualitativo relevante de cada referência.
-- [ ] Apresentar pelo menos um resultado quantitativo relevante de cada referência, quando disponível.
-- [ ] Explicar como cada artigo contribui para o projeto do grupo.
+- [x] Explicar de forma simples como o estudo foi realizado.
+- [x] Apresentar pelo menos um resultado qualitativo relevante de cada referência.
+- [x] Apresentar pelo menos um resultado quantitativo relevante de cada referência, quando disponível.
+- [x] Explicar como cada artigo contribui para o projeto do grupo.
 - [ ] Evitar excesso de termos técnicos sem explicação.
 - [ ] Conferir se métricas como MOTA, MOTP e F1-score podem ser explicadas oralmente.
 - [ ] Conferir se tecnologias como YOLOv5, DeepSORT, YOLOv7-tiny, MQTT, ThingsBoard e Raspberry Pi podem ser explicadas oralmente.
 - [ ] Manter os slides finais de síntese e conclusão.
-- [ ] Manter no final os nomes completos e os links das referências.
+- [x] Manter no final os nomes completos e os links das referências.
 - [ ] Conferir se os links DOI estão corretos e clicáveis.
 - [ ] Garantir que todos os integrantes apresentem pelo menos uma referência.
 - [ ] Distribuir os seis artigos entre os integrantes do grupo.
@@ -252,14 +252,14 @@ Orientação mais recente dada em sala: utilizar um slide para cada artigo da re
 - [ ] Ensaiar a transição entre os integrantes.
 - [ ] Ensaiar a apresentação completa e verificar o tempo total.
 - [ ] Revisar ortografia, tamanho das fontes, quebras de linha e sobreposições.
-- [ ] Abrir o arquivo final no PowerPoint ou no sistema que será usado em sala.
+- [x] Abrir o arquivo final no PowerPoint ou no sistema que será usado em sala.
 
 ### Entrega dos slides e do manuscrito
 
 - [ ] Confirmar a nova data da apresentação com a professora.
 - [ ] Finalizar o manuscrito com dez referências acadêmicas citadas.
 - [ ] Compilar e baixar o PDF mais recente do manuscrito no Overleaf.
-- [ ] Finalizar a apresentação com um slide por artigo, além dos slides iniciais e finais.
+- [x] Finalizar a apresentação com um slide por artigo, além dos slides iniciais e finais.
 - [ ] Atualizar os arquivos da AC4 no repositório.
 - [ ] Preparar o e-mail com o assunto padronizado da disciplina.
 - [ ] Anexar o PDF mais recente do manuscrito.
@@ -340,9 +340,9 @@ mosquitto_pub -h test.mosquitto.org -t iotbr/esp32 -m "Hello there!"
 - [x] Quatro parágrafos de revisão de literatura revisados.
 - [ ] Manuscrito compilando sem erros.
 - [ ] PDF mais recente do manuscrito baixado e revisado.
-- [ ] Apresentação com um slide por artigo.
-- [ ] Slides iniciais e finais preservados.
-- [ ] Resultados qualitativos e quantitativos presentes na apresentação.
+- [x] Apresentação com um slide por artigo.
+- [x] Slides iniciais e finais preservados.
+- [x] Resultados qualitativos e quantitativos presentes na apresentação.
 - [ ] Todos os integrantes com pelo menos uma referência para apresentar.
 - [ ] Apresentação ensaiada.
 - [ ] Teste local do Mosquitto realizado e documentado.
