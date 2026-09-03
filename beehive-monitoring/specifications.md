@@ -124,7 +124,7 @@ A validação deve separar treinamento e teste e informar as condições de cole
 
 ### 12.1 Alimentação e conexão dos sensores internos
 
-Os sensores devem permanecer dentro da colmeia, enquanto a bateria, o microcontrolador e os módulos de comunicação devem ser instalados preferencialmente fora dela, em uma caixa protegida contra chuva, poeira e umidade. Dessa forma, somente os cabos dos sensores atravessam a parede da colmeia, por uma abertura pequena protegida por prensa-cabo ou vedação apropriada.
+Os sensores devem permanecer dentro da colmeia, enquanto a bateria, o microcontrolador e os módulos de comunicação devem ser instalados preferencialmente fora dela, em uma caixa protegida contra chuva, poeira e umidade. Essa separação considera as restrições de tamanho, custo, consumo e confiabilidade características de sistemas embarcados [9] e reduz a necessidade de intervir no interior da colmeia. Dessa forma, somente os cabos dos sensores atravessam a parede da colmeia, por uma abertura pequena protegida por prensa-cabo ou vedação apropriada.
 
 O fluxo de alimentação proposto é:
 
@@ -140,15 +140,15 @@ Todos os componentes devem compartilhar o mesmo terra (GND). A bateria não deve
 
 Cada DHT11 pode receber alimentação e ser conectado a um pino de dados do microcontrolador. A saída analógica do KY-038 pode ser conectada a uma entrada ADC, lembrando que esse módulo deve ser tratado apenas como indicador simples de intensidade sonora. Os cabos e a instalação não podem bloquear a entrada, alterar significativamente a ventilação ou expor as abelhas a partes elétricas.
 
-O nó de sensores pode acordar em intervalos definidos, realizar as medições, registrar a data e a hora, transmitir um pacote e retornar ao modo de baixo consumo. A câmera deve possuir alimentação separada ou uma estratégia própria de economia, pois seu consumo é maior que o dos sensores ambientais.
+O nó de sensores pode acordar em intervalos definidos, realizar as medições, registrar a data e a hora, transmitir um pacote e retornar ao modo de baixo consumo. Essa estratégia é coerente com a operação contínua de redes de sensores sem fio para colmeias descrita por Henry et al. [5]. A câmera deve possuir alimentação separada ou uma estratégia própria de economia, pois seu consumo é maior que o dos sensores ambientais.
 
 ### 12.2 LoRa, LoRaWAN e MQTT
 
 LoRa é a tecnologia de rádio usada para transmitir pequenas mensagens a longa distância com baixo consumo. LoRa não é, por si só, uma conexão com a internet: o módulo instalado junto ao microcontrolador precisa transmitir para outro módulo ou para um gateway. LoRaWAN é uma arquitetura de rede que organiza os dispositivos LoRa, os gateways, o servidor de rede e a aplicação.
 
-MQTT é um protocolo de mensagens usado depois que os dados chegam a uma rede IP, como Wi-Fi, Ethernet ou 4G. Ele utiliza um broker: o nó ou gateway publica mensagens em tópicos, e o dashboard ou banco de dados assina esses tópicos para receber os dados.
+MQTT é um protocolo de mensagens usado depois que os dados chegam a uma rede IP, como Wi-Fi, Ethernet ou 4G. Ele utiliza um broker: o nó ou gateway publica mensagens em tópicos, e o dashboard ou banco de dados assina esses tópicos para receber os dados. A escolha desse protocolo acompanha a arquitetura do Beemon, que combina aquisição multissensorial, MQTT, armazenamento remoto e dashboard [4].
 
-Assim, LoRa e MQTT têm funções diferentes e podem ser usados em conjunto:
+Assim, LoRa e MQTT têm funções diferentes e podem ser usados em conjunto. A separação entre dispositivos, comunicação, serviços e processamento também segue a organização em camadas de arquiteturas IoT discutida por Ray [10]:
 
 ```text
 Sensores internos
@@ -164,7 +164,7 @@ Banco de dados e dashboard
 
 O pacote transmitido por LoRa deve conter apenas dados pequenos, como identificação da colmeia, data e hora, temperatura, umidade, intensidade sonora, nível da bateria e resultados agregados da visão computacional. Fotografias, vídeos e áudio contínuo não devem ser enviados por LoRa. Esses dados devem ser armazenados localmente ou transmitidos por Wi-Fi, Ethernet ou outra rede com maior capacidade.
 
-Para o primeiro teste, recomenda-se uma comunicação LoRa ponto a ponto, com um ESP equipado com LoRa como transmissor e outro ESP equipado com LoRa como receptor. O receptor pode encaminhar os dados para um computador por USB ou Wi-Fi. Em uma versão com várias colmeias, deve ser avaliada uma rede LoRaWAN com gateway e servidor apropriados.
+Para o primeiro teste, recomenda-se uma comunicação LoRa ponto a ponto, com um ESP equipado com LoRa como transmissor e outro ESP equipado com LoRa como receptor. Essa etapa reproduz, em escala reduzida, a ideia de nós sensores distribuídos usada em redes sem fio para apiários [5]. O receptor pode encaminhar os dados para um computador por USB ou Wi-Fi. Em uma versão com várias colmeias, deve ser avaliada uma rede LoRaWAN com gateway e servidor apropriados.
 
 ### 12.3 Integração com a câmera e a visão computacional
 
@@ -180,8 +180,8 @@ Contagens, fluxo e alertas
 Servidor e dashboard
 ```
 
-O YOLO processa cada imagem e fornece caixas delimitadoras, classes e níveis de confiança para as abelhas. O DeepSORT recebe essas detecções, associa objetos entre quadros e atribui identificadores temporários para estimar o fluxo de entrada e saída. O sistema deve transmitir as métricas agregadas, e não cada quadro de vídeo.
+O YOLO processa cada imagem e fornece caixas delimitadoras, classes e níveis de confiança para as abelhas. O DeepSORT recebe essas detecções, associa objetos entre quadros e atribui identificadores temporários para estimar o fluxo de entrada e saída, conforme a combinação de detecção e rastreamento utilizada por Zheng et al. [1]. A adoção de modelos leves e a comparação com abordagens de baixo custo também são motivadas por Narcia-Macias et al. [2] e Tu et al. [6]. O sistema deve transmitir as métricas agregadas, e não cada quadro de vídeo.
 
-Essa arquitetura separa o tráfego de baixa taxa e baixo consumo dos sensores do tráfego de maior volume da câmera. A escolha final entre LoRa ponto a ponto, LoRaWAN e Wi-Fi deverá considerar distância, cobertura, disponibilidade de gateway, consumo, custo, volume de dados e necessidade de armazenamento durante falhas de comunicação.
+Essa arquitetura separa o tráfego de baixa taxa e baixo consumo dos sensores do tráfego de maior volume da câmera, mantendo a integração multimodal sugerida pelos sistemas de monitoramento de colmeias [1], [4] e [5]. A escolha final entre LoRa ponto a ponto, LoRaWAN e Wi-Fi deverá considerar distância, cobertura, disponibilidade de gateway, consumo, custo, volume de dados e necessidade de armazenamento durante falhas de comunicação.
 
 Referências introdutórias: [LoRa Alliance — visão geral de LoRaWAN](https://lora-alliance.org/resource_hub/what-is-lorawan/), [Semtech — visão geral de LoRa](https://www.semtech.com/lora/what-is-lora) e [OASIS — especificação MQTT](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html).
