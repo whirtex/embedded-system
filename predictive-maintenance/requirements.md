@@ -31,7 +31,7 @@ Medir o equipamento e levar a medição até onde ela será usada.
 | RF04 | O sistema deve medir o esforço ou o peso aplicado ao equipamento. | Disponível. Há uma célula de carga de 50 kg e um módulo HX711. |
 | RF05 | O sistema deve medir o consumo de corrente do motor. | Ausente. Seria necessário um sensor ACS712 ou INA219. |
 | RF06 | O sistema deve possuir uma máquina ou um motor para realizar os testes. | Parcial. Há um motor de passo e um driver, mas não foram identificados suporte mecânico, carga ou estrutura de teste. |
-| RF12 | O sistema deve enviar os dados para outro dispositivo ou plataforma. | Parcial. Há ESP8266, ESP32-CAM, Ethernet e LoRa, mas o protocolo e o destino ainda não foram definidos. |
+| RF12 | O sistema deve enviar as medições para outro dispositivo ou plataforma. | Parcial. Há ESP8266, ESP32-CAM, Ethernet e LoRa. A proposta é MQTT, seguindo Mohammed et al. O MQTT transporta a medição, mas não notifica pessoas: isso é tratado no RF18. |
 | RF14 | O sistema deve testar os sensores ao ser ligado. | Será implementado no software. |
 | RF15 | O sistema deve identificar uma falha ou desconexão de sensor. | Será implementado no software. |
 
@@ -60,8 +60,10 @@ Informar o que motivou o alerta e permitir uma resposta.
 
 | Código | Requisito | Situação |
 |---|---|---|
-| RF09 | O sistema deve emitir um alerta quando detectar uma anomalia. | Disponível. Há LEDs, buzzer e display LCD. |
+| RF09 | O sistema deve emitir um alerta local quando detectar uma anomalia. | Disponível. Há LEDs, buzzer e display LCD. |
+| RF18 | O sistema deve enviar uma notificação remota a cada alerta, de forma que a equipe de manutenção seja avisada sem estar no local. | A definir. A proposta é usar um bot do Telegram: o ESP32 faz uma requisição à API do Telegram, que entrega a notificação aos celulares cadastrados. Exige acesso à internet, não apenas à rede local. |
 | RF16 | O sistema deve registrar quais variáveis ou condições motivaram cada alerta. | Será implementado no software. A forma de explicação ainda precisa ser definida. |
+| RF19 | A notificação remota deve informar qual medição motivou o alerta, e não apenas que houve anomalia. | A definir. Depende do RF16. |
 | RF10 | O sistema deve permitir o desligamento ou o acionamento de um dispositivo em caso de falha. | Parcial. Há módulos relé, mas a função e as condições de acionamento ainda precisam ser definidas. |
 
 ### Avaliação
