@@ -1,5 +1,45 @@
-% Rascunho do artigo de manutencao preditiva.
-% Este arquivo sera ampliado com as proximas secoes do trabalho.
+%% ------------- English version ---------------
+\documentclass[english,hidelinks]{sbrt}
+\usepackage{newtxtext}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\newtheorem{theorem}{Theorem}
+%% ---------------------------------------------
+\setlength{\marginparwidth}{2cm}
+\usepackage{todonotes}
+\newcommand\rigel[1]{\todo[color=green, inline]{\textbf{Rigel}: #1}}
+\usepackage{orcidlink}
+\usepackage{hyperref}
+\usepackage[
+  compatibility=false,
+  font=footnotesize,
+  labelsep=period,
+  format=plain,
+  justification=raggedright,
+  singlelinecheck=false
+]{caption}
+
+\begin{document}
+
+\title{Embedded Systems-based Predictive Maintenance for Air-Conditioning Equipment}
+
+\author{Igor Costa, Jorge Alves, Ian Dias and Davi Ito
+  \thanks{The authors are with Ibmec, Rio de Janeiro, RJ, Brazil.
+  E-mails: igorcosta.silva10a@gmail.com,
+  jorgedocruzeiro07@gmail.com,
+  iandpcarvalho@gmail.com,
+  cdavi8249@gmail.com.}%
+  }
+
+\maketitle
+
+\markboth{XLIV BRAZILIAN SYMPOSIUM ON TELECOMMUNICATIONS AND SIGNAL PROCESSING - SBrT 2026, SEPTEMBER 29TH TO OCTOBER 2ND, 2026, SALVADOR, BA}{}
+
+\begin{abstract}
+\end{abstract}
+\begin{keywords}
+Predictive maintenance, air-conditioning systems, embedded systems, Internet of Things, anomaly detection.
+\end{keywords}
 
 \section{Introduction}
 
@@ -14,3 +54,42 @@ Kolok et al. investigated whether low-cost embedded processing could support pre
 At the system level, predictive maintenance depends not only on the selected model, but also on the organization and quality of the complete data pipeline. Meitz et al. organized 249 publications into a framework of nine categories and 73 attributes, covering condition monitoring, fault detection, degradation modeling, scheduling, data handling, prognostic techniques, and evaluation. Gupta et al. complemented this broad view with a field study of airport baggage-handling conveyors, where vibration data were collected from a live system despite the absence of historical run-to-failure records. Their pipeline distinguished anomalies from noisy observations, processed heterogeneous maintenance records, and compared four classifiers. Random Forest achieved the best reported motor--gearbox classification performance, with precision, recall, and F1-score of 0.86. These findings indicate that sensing, cleaning, labeling, and evaluation should be treated as connected parts of the proposed system rather than as isolated modeling tasks \cite{meitz2025pdmframework,gupta2023baggage}.
 
 Beyond predictive accuracy, maintenance systems must provide outputs that can be understood and acted upon by domain users. Burmeister et al. investigated this issue using 227,996 production and inspection observations from a large industrial-equipment manufacturer, with 29 variables describing the manufacturing process. The authors used Bayesian networks and classification trees to relate production errors to critical inspection errors. The resampling-based classification-tree configuration achieved the highest F1-score and accuracy among the evaluated models and translated the predictions into interpretable production rules. However, the case is tied to one manufacturing process and involves an imbalanced response, so external validation remains necessary. This study supports the use of interpretable alerts in the proposed project and shows that the system should explain which monitored conditions motivate a maintenance action instead of presenting only an isolated prediction \cite{burmeister2023production}.
+
+\rigel{AC Semana 5: Elaborar o penúltimo parágrafo que descreve a proposta do artigo e contribuições.
+
+Verifiquem as referências dos alunos do Ibmec e cite-as caso seja oportuno.}
+
+\rigel{AC Semana 5: Elaborar o último parágrafo da introdução, que será a visita guiada pelas seções do artigo. Nesse parágrafo, sintetize para o leitor o que cada seção tratará, como no exemplo fornecido pela professora.}
+
+\rigel{AC Semana 5: Elaborar o outline do artigo, criando o esqueleto das seções de descrição do sistema, método proposto, resultados e conclusões.}
+
+\section{System Description}
+\label{sec:system-description}
+
+\rigel{AC Semana 6: Apresente os sensores, o microcontrolador e os protocolos de comunicação utilizados. Inclua referências que deem suporte à descrição dos componentes e relacione a arquitetura ao monitoramento de aparelhos de ar-condicionado em ambientes críticos ou coletivos.}
+
+\subsection{MQTT Protocol}
+
+MQTT (Message Queuing Telemetry Transport) is a lightweight communication protocol designed for low-bandwidth and high-latency environments and widely used in IoT applications. Its publish/subscribe model allows sensor and controller devices to transmit measurements without requiring a direct connection between the data producer and the monitoring application.
+
+In this project, MQTT is intended to transmit temperature, vibration, current, and operational measurements from the monitored air-conditioning equipment to a remote application or server. Its low overhead and asynchronous communication model make it suitable for an embedded system focused on continuous monitoring and alert generation.
+
+\section{The Method}
+\label{sec:method}
+
+\rigel{AC Semana 7: Elaborar a seção do método proposto. Descreva o funcionamento do sistema, inclua um diagrama da arquitetura e, quando disponível, uma foto do protótipo. Um pseudocódigo também pode ser utilizado para apresentar os principais passos do método.}
+
+\section{Results}
+\label{sec:results}
+
+\rigel{AC Semana 8: Elaborar a seção de resultados experimentais, apresentando os resultados qualitativos e quantitativos obtidos até o momento. Elaborar também o Abstract e a Conclusion.}
+
+\rigel{AC Semana 9: Inserir os resultados quantitativos da avaliação, refinar o Abstract e concluir a discussão do desempenho do sistema embarcado proposto.}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\bibliographystyle{ieeetr}
+\IfFileExists{refs.bib}{\bibliography{refs}}{\bibliography{references}}
+
+\end{document}
