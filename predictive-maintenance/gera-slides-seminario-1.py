@@ -1,32 +1,33 @@
-"""Gera o deck do Seminario 1 — trabalhos relacionados."""
+"""Deck do Seminario 1: trabalhos relacionados. Azul e branco."""
 
 from pptx import Presentation
 from pptx.dml.color import RGBColor
+from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import MSO_ANCHOR, PP_ALIGN
 from pptx.oxml.ns import qn
 from pptx.util import Emu, Inches, Pt
 
 SAIDA = "seminario-1-trabalhos-relacionados.pptx"
 
-FUNDO = RGBColor(0xF7, 0xF9, 0xFB)
-TEXTO = RGBColor(0x16, 0x20, 0x2A)
-SECUNDARIO = RGBColor(0x5A, 0x6B, 0x7A)
-FRIO = RGBColor(0x1B, 0x6E, 0x8C)
-QUENTE = RGBColor(0xD9, 0x7A, 0x28)
-LINHA = RGBColor(0xDC, 0xE4, 0xEA)
-CAIXA_FRIA = RGBColor(0xFF, 0xFF, 0xFF)
-CAIXA_QUENTE = RGBColor(0xEC, 0xF3, 0xF7)
+AZUL_FUNDO = RGBColor(0x0B, 0x33, 0x55)   # painel e capa
+AZUL = RGBColor(0x1B, 0x6F, 0xB5)         # acento
+AZUL_CLARO = RGBColor(0x7F, 0xB4, 0xDD)   # numerais e apoio sobre azul
+AZUL_TENUE = RGBColor(0xE8, 0xF1, 0xF8)   # faixas sobre branco
 BRANCO = RGBColor(0xFF, 0xFF, 0xFF)
+TINTA = RGBColor(0x0F, 0x24, 0x36)        # texto sobre branco
+CINZA = RGBColor(0x5B, 0x72, 0x85)
 
 FONTE = "Arial"
 L, A = Inches(13.333), Inches(7.5)
-MARGEM = Inches(0.9)
+MARGEM = Inches(0.85)
 UTIL = L - 2 * MARGEM
 
+PAINEL = Inches(4.55)
+DIR_X = PAINEL + Inches(0.75)
+DIR_W = L - DIR_X - MARGEM
 
-def retangulo(slide, x, y, cx, cy, cor):
-    from pptx.enum.shapes import MSO_SHAPE
 
+def bloco(slide, x, y, cx, cy, cor):
     forma = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, x, y, cx, cy)
     forma.fill.solid()
     forma.fill.fore_color.rgb = cor
@@ -36,144 +37,156 @@ def retangulo(slide, x, y, cx, cy, cor):
     return forma
 
 
-def texto(slide, x, y, cx, cy, conteudo, tamanho, cor=TEXTO,
-          negrito=False, espaco=1.15, alinha=PP_ALIGN.LEFT, ancora=MSO_ANCHOR.TOP):
+def texto(slide, x, y, cx, cy, conteudo, tamanho, cor=TINTA, negrito=False,
+          espaco=1.15, alinha=PP_ALIGN.LEFT, espacamento_letras=None):
     caixa = slide.shapes.add_textbox(x, y, cx, cy)
     tf = caixa.text_frame
     tf.word_wrap = True
-    tf.vertical_anchor = ancora
+    tf.vertical_anchor = MSO_ANCHOR.TOP
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
 
-    linhas = conteudo if isinstance(conteudo, list) else [conteudo]
-    for i, linha in enumerate(linhas):
+    for i, linha in enumerate(conteudo if isinstance(conteudo, list) else [conteudo]):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
         p.alignment = alinha
         p.line_spacing = espaco
         if i:
-            p.space_before = Pt(10)
+            p.space_before = Pt(9)
         r = p.add_run()
         r.text = linha
         r.font.size = Pt(tamanho)
         r.font.bold = negrito
         r.font.color.rgb = cor
         r.font.name = FONTE
+        if espacamento_letras:
+            r.font._rPr.set("spc", str(int(espacamento_letras * 100)))
     return caixa
 
 
-def topicos(slide, x, y, cx, cy, itens, tamanho=17):
-    """Lista com marcador e recuo pendurado."""
-    caixa = slide.shapes.add_textbox(x, y, cx, cy)
+def rotulo(slide, x, y, cx, conteudo, cor=AZUL):
+    """Etiqueta pequena, maiúscula e espaçada."""
+    return texto(slide, x, y, cx, Inches(0.28), conteudo.upper(), 12, cor,
+                 negrito=True, espacamento_letras=1.4)
+
+
+def topicos(slide, x, y, cx, itens, tamanho=16, cor=TINTA, marcador="1B6FB5"):
+    caixa = slide.shapes.add_textbox(x, y, cx, Inches(0.4))
     tf = caixa.text_frame
     tf.word_wrap = True
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
 
-    recuo = Inches(0.28)
+    recuo = Inches(0.3)
+    folga = 12 if len(itens) <= 3 else 8
     for i, item in enumerate(itens):
         p = tf.paragraphs[0] if i == 0 else tf.add_paragraph()
-        p.line_spacing = 1.2
+        p.line_spacing = 1.22
         if i:
-            p.space_before = Pt(11)
-
+            p.space_before = Pt(folga)
         pPr = p._pPr
         pPr.set("marL", str(recuo))
         pPr.set("indent", str(-recuo))
-
-        # marcador nativo, para o recuo pendurado alinhar no PowerPoint
-        cor = pPr.makeelement(qn("a:buClr"), {})
-        cor.append(pPr.makeelement(qn("a:srgbClr"), {"val": "1B6E8C"}))
-        pPr.append(cor)
+        clr = pPr.makeelement(qn("a:buClr"), {})
+        clr.append(pPr.makeelement(qn("a:srgbClr"), {"val": marcador}))
+        pPr.append(clr)
         pPr.append(pPr.makeelement(qn("a:buFont"), {"typeface": "Arial"}))
-        pPr.append(pPr.makeelement(qn("a:buChar"), {"char": "•"}))
-
+        pPr.append(pPr.makeelement(qn("a:buChar"), {"char": "–"}))
         r = p.add_run()
         r.text = item
         r.font.size = Pt(tamanho)
-        r.font.color.rgb = TEXTO
+        r.font.color.rgb = cor
         r.font.name = FONTE
     return caixa
 
 
-def slide_base(prs, camada=None):
+def altura_topicos(itens, largura_pol, tamanho=16):
+    """Estimativa da altura ocupada, para posicionar o bloco seguinte."""
+    por_linha = max(int((largura_pol - 0.3) * 148 / tamanho), 20)
+    linhas = sum(max(1, -(-len(i) // por_linha)) for i in itens)
+    folga = 0.17 if len(itens) <= 3 else 0.12
+    return Inches(linhas * tamanho * 0.0185 + (len(itens) - 1) * folga)
+
+
+def branco(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    retangulo(s, 0, 0, L, A, FUNDO)
-    if camada:
-        retangulo(s, 0, 0, L, Inches(0.16), FRIO)
-        texto(s, MARGEM, Inches(0.34), UTIL, Inches(0.3),
-              camada.upper(), 12, FRIO, negrito=True)
+    bloco(s, 0, 0, L, A, BRANCO)
     return s
 
 
-def rodape(slide, esquerda, direita):
-    y = A - Inches(0.62)
-    retangulo(slide, MARGEM, y - Inches(0.16), UTIL, Emu(9525), LINHA)
-    texto(slide, MARGEM, y, UTIL * 0.6, Inches(0.3), esquerda, 12, SECUNDARIO)
-    texto(slide, MARGEM + UTIL * 0.6, y, UTIL * 0.4, Inches(0.3),
-          direita, 12, SECUNDARIO, alinha=PP_ALIGN.RIGHT)
+def cabecalho(slide, etiqueta, titulo, linha=None):
+    rotulo(slide, MARGEM, Inches(0.72), UTIL, etiqueta)
+    texto(slide, MARGEM, Inches(1.15), UTIL, Inches(0.8), titulo, 38, TINTA, negrito=True)
+    bloco(slide, MARGEM, Inches(1.95), Inches(1.9), Inches(0.055), AZUL)
+    if linha:
+        texto(slide, MARGEM, Inches(2.28), UTIL, Inches(0.4), linha, 19, CINZA)
 
 
-# ---------------------------------------------------------------- 1. capa
+def rodape(slide, direita, esquerda="Seminário 1 · Trabalhos relacionados"):
+    y = A - Inches(0.6)
+    bloco(slide, MARGEM, y - Inches(0.18), UTIL, Emu(9525), AZUL_TENUE)
+    texto(slide, MARGEM, y, UTIL * 0.7, Inches(0.3), esquerda, 11, CINZA)
+    texto(slide, MARGEM + UTIL * 0.7, y, UTIL * 0.3, Inches(0.3), direita, 11,
+          CINZA, alinha=PP_ALIGN.RIGHT)
+
+
+# ------------------------------------------------------------------ 1. capa
 def capa(prs):
     s = prs.slides.add_slide(prs.slide_layouts[6])
-    retangulo(s, 0, 0, L, A, FUNDO)
-    retangulo(s, 0, 0, Inches(0.28), A, FRIO)
-    retangulo(s, 0, A - Inches(1.9), Inches(0.28), Inches(1.9), QUENTE)
+    bloco(s, 0, 0, L, A, AZUL_FUNDO)
+    bloco(s, 0, 0, L, Inches(0.22), AZUL)
 
-    texto(s, Inches(1.5), Inches(1.6), Inches(10.5), Inches(0.4),
-          "SEMINÁRIO 1 · TRABALHOS RELACIONADOS", 15, FRIO, negrito=True)
-    texto(s, Inches(1.5), Inches(2.25), Inches(10.6), Inches(2.0),
+    rotulo(s, MARGEM, Inches(1.7), UTIL, "Seminário 1 · Trabalhos relacionados", AZUL_CLARO)
+    texto(s, MARGEM, Inches(2.35), Inches(11.0), Inches(2.2),
           "Manutenção preditiva de aparelhos de ar-condicionado em operação contínua",
-          40, TEXTO, negrito=True, espaco=1.1)
-    retangulo(s, Inches(1.5), Inches(4.35), Inches(1.6), Inches(0.05), QUENTE)
-    texto(s, Inches(1.5), Inches(4.75), Inches(10.5), Inches(0.9),
+          44, BRANCO, negrito=True, espaco=1.08)
+    bloco(s, MARGEM, Inches(4.9), Inches(1.9), Inches(0.055), AZUL_CLARO)
+    texto(s, MARGEM, Inches(5.3), UTIL, Inches(0.9),
           ["Igor Costa · Jorge Alves · Ian Dias · Davi Ito",
-           "Ibmec, Rio de Janeiro · IBM3118 · 2026.2 · Grupo 3"],
-          19, SECUNDARIO, espaco=1.3)
+           "Ibmec, Rio de Janeiro · IBM3118 Sistemas Embarcados · 2026.2 · Grupo 3"],
+          18, AZUL_CLARO, espaco=1.35)
 
 
-# ----------------------------------------------------------- 2. motivação
+# ------------------------------------------------------------- 2. motivação
 def motivacao(prs):
-    s = slide_base(prs, "Motivação")
-    texto(s, MARGEM, Inches(1.05), UTIL, Inches(0.9),
-          "Começou pelas áreas com pacientes", 36, TEXTO, negrito=True)
-    retangulo(s, MARGEM, Inches(1.85), Inches(1.6), Inches(0.05), QUENTE)
-    texto(s, MARGEM, Inches(2.15), UTIL, Inches(0.5),
-          "Aparelhos instalados nos ambientes onde há paciente o tempo todo.",
-          19, SECUNDARIO)
+    s = branco(prs)
+    cabecalho(s, "Motivação", "Começou pelas áreas com pacientes",
+              "Aparelhos instalados nos ambientes onde há paciente o tempo todo.")
 
-    ambientes = [
+    itens = [
         ("Enfermarias e quartos",
-         "O aparelho fica ligado dia e noite. Parar significa remanejar quem está internado."),
+         "Ligado dia e noite. Parar significa remanejar quem está internado."),
         ("UTIs e leitos críticos",
-         "O paciente não tem condição de ser removido, e a temperatura do ambiente faz parte do cuidado."),
+         "O paciente não pode ser removido, e a temperatura faz parte do cuidado."),
         ("Pronto-socorro",
-         "Ocupação contínua e imprevisível. O equipamento quase nunca é desligado para manutenção."),
+         "Ocupação contínua. Quase nunca é desligado para manutenção."),
     ]
-    larg = (UTIL - Inches(0.5)) / 3
-    for i, (titulo, corpo) in enumerate(ambientes):
-        x = MARGEM + i * (larg + Inches(0.25))
-        retangulo(s, x, Inches(2.95), larg, Inches(2.6), CAIXA_FRIA)
-        retangulo(s, x, Inches(2.95), larg, Inches(0.07), FRIO)
-        texto(s, x + Inches(0.3), Inches(3.3), larg - Inches(0.6), Inches(0.8),
-              titulo, 20, TEXTO, negrito=True)
-        texto(s, x + Inches(0.3), Inches(4.15), larg - Inches(0.6), Inches(1.3),
-              corpo, 16, SECUNDARIO, espaco=1.25)
 
-    texto(s, MARGEM, Inches(5.85), UTIL, Inches(0.9),
-          "O desgaste desses aparelhos aparece antes da parada, na vibração do compressor, "
+    painel_y, painel_h = Inches(2.9), Inches(2.2)
+    bloco(s, MARGEM, painel_y, UTIL, painel_h, AZUL_TENUE)
+
+    # margem interna igual nos quatro lados do retângulo
+    recuo, vao = Inches(0.45), Inches(0.5)
+    larg = (UTIL - recuo * 2 - vao * 2) / 3
+    conteudo_y = painel_y + recuo
+    for i, (titulo, corpo) in enumerate(itens):
+        x = MARGEM + recuo + i * (larg + vao)
+        if i:
+            bloco(s, x - vao / 2, conteudo_y, Emu(12700), painel_h - recuo * 2, AZUL_CLARO)
+        texto(s, x, conteudo_y, larg, Inches(0.4), titulo, 19, TINTA, negrito=True)
+        texto(s, x, conteudo_y + Inches(0.52), larg, Inches(0.9),
+              corpo, 15, CINZA, espaco=1.3)
+
+    bloco(s, MARGEM, Inches(5.5), UTIL, Inches(1.08), AZUL_FUNDO)
+    texto(s, MARGEM + Inches(0.45), Inches(5.77), UTIL - Inches(0.9), Inches(0.6),
+          "O desgaste aparece antes da parada, na vibração do compressor, "
           "na corrente do motor e na temperatura de operação.",
-          20, TEXTO, espaco=1.3)
-    rodape(s, "Seminário 1 · Trabalhos relacionados", "2 / 11")
+          17, BRANCO, **{"espaco": 1.3})
+    rodape(s, "2 / 11")
 
 
-# --------------------------------------------------- 3. outros locais
+# ---------------------------------------------------------- 3. outros locais
 def outros_locais(prs):
-    s = slide_base(prs, "Alcance")
-    texto(s, MARGEM, Inches(1.05), UTIL, Inches(0.9),
-          "O mesmo problema aparece fora do hospital", 36, TEXTO, negrito=True)
-    retangulo(s, MARGEM, Inches(1.85), Inches(1.6), Inches(0.05), QUENTE)
-    texto(s, MARGEM, Inches(2.15), UTIL, Inches(0.5),
-          "O critério é operação ininterrupta somada a uma parada que custa mais que o reparo.",
-          19, SECUNDARIO)
+    s = branco(prs)
+    cabecalho(s, "Alcance", "O mesmo problema aparece fora do hospital",
+              "O critério é operação ininterrupta somada a uma parada que custa mais que o reparo.")
 
     locais = [
         ("Data centers e salas de servidores",
@@ -185,166 +198,231 @@ def outros_locais(prs):
         ("Aeroportos e rodoviárias",
          "Terminais abertos o tempo todo. A manutenção precisa acontecer sem interromper a operação."),
     ]
-    larg = (UTIL - Inches(0.4)) / 2
-    alt = Inches(1.5)
+    larg = (UTIL - Inches(0.9)) / 2
     for i, (titulo, corpo) in enumerate(locais):
-        x = MARGEM + (i % 2) * (larg + Inches(0.4))
-        y = Inches(2.8) + (i // 2) * (alt + Inches(0.22))
-        retangulo(s, x, y, larg, alt, CAIXA_FRIA)
-        retangulo(s, x, y, Inches(0.07), alt, FRIO)
-        texto(s, x + Inches(0.4), y + Inches(0.22), larg - Inches(0.8), Inches(0.4),
-              titulo, 19, TEXTO, negrito=True)
-        texto(s, x + Inches(0.4), y + Inches(0.72), larg - Inches(0.8), Inches(0.7),
-              corpo, 16, SECUNDARIO, espaco=1.2)
+        x = MARGEM + (i % 2) * (larg + Inches(0.9))
+        y = Inches(3.05) + (i // 2) * Inches(1.75)
+        bloco(s, x, y + Inches(0.06), Inches(0.055), Inches(1.2), AZUL)
+        texto(s, x + Inches(0.35), y, larg - Inches(0.5), Inches(0.45), titulo, 20, TINTA, negrito=True)
+        texto(s, x + Inches(0.35), y + Inches(0.55), larg - Inches(0.5), Inches(0.9),
+              corpo, 16, CINZA, espaco=1.25)
 
-    texto(s, MARGEM, Inches(6.25), UTIL, Inches(0.5),
+    texto(s, MARGEM, Inches(6.4), UTIL, Inches(0.4),
           "Muda a consequência da parada. O equipamento e o método continuam os mesmos.",
-          18, TEXTO, espaco=1.25)
-    rodape(s, "Seminário 1 · Trabalhos relacionados", "3 / 11")
+          17, CINZA)
+    rodape(s, "3 / 11")
 
 
-# ---------------------------------------------------------------- 3. mapa
-def mapa(prs):
-    s = slide_base(prs, "Como organizamos a leitura")
-    texto(s, MARGEM, Inches(1.05), UTIL, Inches(0.9),
-          "Seis trabalhos, três camadas", 36, TEXTO, negrito=True)
-    retangulo(s, MARGEM, Inches(1.85), Inches(1.6), Inches(0.05), QUENTE)
-    texto(s, MARGEM, Inches(2.15), UTIL, Inches(0.5),
-          "Cada camada responde a uma pergunta diferente do nosso projeto.",
-          19, SECUNDARIO)
-
-    camadas = [
-        ("MEDIR", "Como instrumentar o equipamento e levar o dado até uma decisão.",
-         "[1] Yousuf et al., 2024\n[2] Mohammed et al., 2023"),
-        ("DETECTAR", "Como separar operação normal de anomalia com hardware barato.",
-         "[3] Kolok et al., 2025"),
-        ("CONFIAR", "Como garantir que o resultado se sustenta e vira ação.",
-         "[4] Meitz et al., 2025\n[5] Gupta et al., 2023\n[6] Burmeister et al., 2023"),
-    ]
-    larg = (UTIL - Inches(0.5)) / 3
-    for i, (nome, pergunta, refs) in enumerate(camadas):
-        x = MARGEM + i * (larg + Inches(0.25))
-        retangulo(s, x, Inches(2.95), larg, Inches(3.35), CAIXA_FRIA)
-        retangulo(s, x, Inches(2.95), larg, Inches(0.5), FRIO)
-        texto(s, x + Inches(0.3), Inches(3.08), larg - Inches(0.6), Inches(0.3),
-              nome, 17, BRANCO, negrito=True)
-        texto(s, x + Inches(0.3), Inches(3.7), larg - Inches(0.6), Inches(1.1),
-              pergunta, 17, TEXTO, espaco=1.25)
-        texto(s, x + Inches(0.3), Inches(4.85), larg - Inches(0.6), Inches(0.9),
-              refs.split("\n"), 16, FRIO, negrito=True, espaco=1.2)
-    rodape(s, "Seminário 1 · Trabalhos relacionados", "4 / 11")
-
-
-# ------------------------------------------------- 4-9. uma por referência
+# -------------------------------------------------- 4 a 9. uma por referência
 REFERENCIAS = [
     dict(
-        camada="Medir", numero="5 / 11",
-        autor="Yousuf et al., 2024",
-        problema="Monitoramento de condição e detecção de falhas em motor de indução CA",
-        estudou=['Motor de indução CA instrumentado com temperatura, vibração, corrente, tensão e velocidade', 'Aquisição em Arduino, com alarme local e notificação por GSM', 'Proteção automática por relé e histórico na plataforma IoT Blynk'],
-                levamos=['Fechar a cadeia inteira, do sensor até a ação', 'Temperatura, vibração e corrente como lista de partida', 'Relé como resposta automática à falha'],
-                fonte="Measurement and Control, v. 57, n. 8, 2024 · DOI 10.1177/00202940241231473 · [1]",
-    ),
-    dict(
-        camada="Medir", numero="6 / 11",
-        autor="Mohammed, Abdulateef e Hamad, 2023",
-        problema="Manutenção preditiva de motores elétricos com IoT industrial e aprendizado de máquina",
-        estudou=['Raspberry Pi coletando vibração, corrente e temperatura', 'Transmissão por MQTT para servidor em nuvem', 'Cinco algoritmos supervisionados sobre falhas induzidas, com Random Forest à frente'],
-                levamos=['MQTT separa aquisição de análise e libera o ESP32', 'Falha induzida gera dados sem histórico prévio', 'Coleta a cada segundo não preserva a vibração'],
-                fonte="J. Européen des Systèmes Automatisés, v. 56, n. 4, 2023 · DOI 10.18280/jesa.560414 · [2]",
-    ),
-    dict(
-        camada="Detectar", numero="7 / 11",
-        autor="Kolok et al., 2025",
-        problema="Manutenção preditiva de baixo custo baseada em vibração",
-        estudou=['ESP32 com sensores MEMS de vibração e acústico', 'RMS no domínio do tempo e FFT no da frequência', 'Isolation Forest treinado apenas com operação saudável'],
-                levamos=['Dispensa exemplos de falha, nossa maior limitação', 'Extração de característica cabe na borda', 'Calibração por equipamento é obrigatória'],
-                fonte="Sensors, v. 25, art. 6610, 2025 · DOI 10.3390/s25216610 · [3]",
-    ),
-    dict(
-        camada="Confiar", numero="8 / 11",
-        autor="Meitz et al., 2025",
+        camada="Panorama",
+        autor="Meitz et al.", ano="2025",
         problema="Revisão estruturada e desafios em aberto da manutenção preditiva na Indústria 4.0",
-        estudou=['Revisão sistemática de 249 publicações', 'Nove categorias e 73 atributos de manutenção preditiva', 'Do monitoramento de condição ao prognóstico e ao planejamento'],
-                levamos=['O projeto é um fluxo inteiro: aquisição, tratamento, detecção e avaliação',
-                 'Nosso escopo fica na detecção de anomalia, antes do prognóstico',
-                 'Avaliação é etapa própria, com métrica escolhida de propósito',
-                 'Documentar amostragem, limpeza e separação de treino e teste'],
-                fonte="Computers & Industrial Engineering, v. 206, 2025 · DOI 10.1016/j.cie.2025.111193 · [4]",
+        estudou=[
+            "Revisão de 249 publicações, organizadas em nove categorias",
+            "Monitoramento de condição: o que medir no equipamento",
+            "Tratamento de dados: limpar, rotular e organizar",
+            "Detecção de falhas, degradação e prognóstico",
+            "Avaliação e planejamento da manutenção",
+        ],
+        levamos=[
+            "As etapas dele viram a estrutura do nosso projeto",
+            "Ficamos em monitoramento, dados, detecção e avaliação",
+            "Prognóstico e vida útil restante ficam declaradamente fora",
+            "Avaliação é etapa própria, não apêndice do modelo",
+        ],
+        fonte=["Computers & Industrial Engineering", "v. 206, art. 111193, 2025",
+               "DOI 10.1016/j.cie.2025.111193"],
     ),
     dict(
-        camada="Confiar", numero="9 / 11",
-        autor="Gupta et al., 2023",
+        camada="Monitoramento de condição",
+        autor="Yousuf et al.", ano="2024",
+        problema="Monitoramento de condição e detecção de falhas em motor de indução CA",
+        estudou=[
+            "Motor de indução CA instrumentado com temperatura, vibração, corrente, tensão e velocidade",
+            "Aquisição em Arduino, com alarme local e notificação por GSM",
+            "Proteção automática por relé e histórico na plataforma IoT Blynk",
+        ],
+        levamos=[
+            "Fechar a cadeia inteira, do sensor até a ação",
+            "Temperatura, vibração e corrente como lista de partida",
+            "Relé como resposta automática à falha",
+        ],
+        fonte=["Measurement and Control", "v. 57, n. 8, 2024",
+               "DOI 10.1177/00202940241231473"],
+    ),
+    dict(
+        camada="Monitoramento de condição",
+        autor="Mohammed et al.", ano="2023",
+        problema="Manutenção preditiva de motores elétricos com IoT industrial e aprendizado de máquina",
+        estudou=[
+            "Raspberry Pi coletando vibração, corrente e temperatura",
+            "Transmissão por MQTT para servidor em nuvem",
+            "Cinco algoritmos supervisionados sobre falhas induzidas, com Random Forest à frente",
+        ],
+        levamos=[
+            "MQTT separa aquisição de análise e libera o ESP32",
+            "Falha induzida gera dados sem histórico prévio",
+            "Coleta a cada segundo não preserva a vibração",
+        ],
+        fonte=["J. Européen des Systèmes Automatisés", "v. 56, n. 4, 2023",
+               "DOI 10.18280/jesa.560414"],
+    ),
+    dict(
+        camada="Detecção de falhas",
+        autor="Kolok et al.", ano="2025",
+        problema="Manutenção preditiva de baixo custo baseada em vibração",
+        estudou=[
+            "ESP32 com sensores MEMS de vibração e acústico",
+            "RMS no domínio do tempo e FFT no da frequência",
+            "Isolation Forest treinado apenas com operação saudável",
+        ],
+        levamos=[
+            "Dispensa exemplos de falha, nossa maior limitação",
+            "Extração de característica cabe na borda",
+            "Calibração por equipamento é obrigatória",
+        ],
+        fonte=["Sensors", "v. 25, art. 6610, 2025", "DOI 10.3390/s25216610"],
+    ),
+    dict(
+        camada="Tratamento de dados e avaliação",
+        autor="Gupta et al.", ano="2023",
         problema="Manutenção preditiva de esteiras de bagagem de aeroporto com IoT",
-        estudou=['Vibração por IoT em oito esteiras idênticas em operação real', 'Sem histórico até a falha, com limpeza apoiada em RMS', 'Rótulos extraídos de registros de manutenção em texto', 'Quatro classificadores comparados, com Random Forest à frente'],
-                levamos=['É o caso mais próximo do nosso', 'Limpar ruído e rotular consomem a maior parte do trabalho', 'Registro escrito de manutenção pode virar rótulo'],
-                fonte="Computers & Industrial Engineering, v. 177, 2023 · DOI 10.1016/j.cie.2023.109033 · [5]",
+        estudou=[
+            "Vibração por IoT em oito esteiras idênticas em operação real",
+            "Sem histórico até a falha, com limpeza apoiada em RMS",
+            "Rótulos extraídos de registros de manutenção em texto",
+            "Quatro classificadores comparados, com Random Forest à frente",
+        ],
+        levamos=[
+            "É o caso mais próximo do nosso",
+            "Limpar ruído e rotular consomem a maior parte do trabalho",
+            "Registro escrito de manutenção pode virar rótulo",
+        ],
+        fonte=["Computers & Industrial Engineering", "v. 177, art. 109033, 2023",
+               "DOI 10.1016/j.cie.2023.109033"],
     ),
     dict(
-        camada="Confiar", numero="10 / 11",
-        autor="Burmeister et al., 2023",
-        problema="Exploração de dados de produção para manutenção preditiva de equipamento industrial",
-        estudou=['Redes bayesianas e árvores de classificação', '227.996 observações de produção e inspeção, com 29 variáveis', 'Reamostragem para lidar com a resposta desbalanceada', 'Previsões traduzidas em regras interpretáveis'],
-                levamos=['Todo alerta precisa dizer o que o motivou', 'Modelo legível vale mais que modelo opaco', 'Dado operacional complementa o sinal de sensor'],
-                fonte="IEEE Access, v. 11, 2023 · DOI 10.1109/ACCESS.2023.3315842 · [6]",
+        camada="Interpretação do alerta",
+        autor="Tormos et al.", ano="2026",
+        problema="Detecção de anomalia e explicação de alertas em ar-condicionado de frota de ônibus",
+        estudou=[
+            "Ar-condicionado de ônibus urbanos monitorado por sensores e telemetria",
+            "Sensores mapeados sobre o ciclo de refrigeração antes de modelar",
+            "Isolation Forest aprende a operação normal, sem rótulo de falha",
+            "Kernel SHAP aponta qual variável causou cada desvio",
+        ],
+        levamos=[
+            "Aprender o normal dispensa exemplos de falha",
+            "O alerta indica qual medição disparou o alarme",
+            "A explicação roda no servidor, não no ESP32",
+        ],
+        fonte=["Algorithms", "v. 19, n. 7, art. 586, 2026",
+               "DOI 10.3390/a19070586", "Acesso aberto, CC BY 4.0"],
     ),
 ]
 
 
-def slide_referencia(prs, ref):
-    s = slide_base(prs, ref["camada"])
-    texto(s, MARGEM, Inches(1.0), UTIL, Inches(0.55),
-          ref["autor"], 32, TEXTO, negrito=True)
-    texto(s, MARGEM, Inches(1.62), UTIL, Inches(0.5),
-          ref["problema"], 19, SECUNDARIO, espaco=1.2)
+# ------------------------------------------------- 5. as etapas do Meitz
+def etapas(prs):
+    s = branco(prs)
+    cabecalho(s, "A estrutura do projeto", "As etapas que o Meitz define",
+              "Quatro delas organizam o nosso trabalho. A quinta é acréscimo nosso.")
 
-    larg = (UTIL - Inches(0.4)) / 2
-    topo, alt = Inches(2.35), Inches(4.25)
-
-    retangulo(s, MARGEM, topo, larg, alt, CAIXA_FRIA)
-    retangulo(s, MARGEM, topo, larg, Inches(0.07), FRIO)
-    texto(s, MARGEM + Inches(0.35), topo + Inches(0.35), larg - Inches(0.7), Inches(0.3),
-          "O QUE O TRABALHO ESTUDOU", 14, FRIO, negrito=True)
-    topicos(s, MARGEM + Inches(0.35), topo + Inches(0.95), larg - Inches(0.7),
-            alt - Inches(1.3), ref["estudou"])
-
-    x2 = MARGEM + larg + Inches(0.4)
-    retangulo(s, x2, topo, larg, alt, CAIXA_QUENTE)
-    retangulo(s, x2, topo, larg, Inches(0.07), QUENTE)
-    texto(s, x2 + Inches(0.35), topo + Inches(0.35), larg - Inches(0.7), Inches(0.3),
-          "O QUE LEVAMOS PARA O PROJETO", 14, QUENTE, negrito=True)
-    topicos(s, x2 + Inches(0.35), topo + Inches(0.95), larg - Inches(0.7),
-            alt - Inches(1.3), ref["levamos"])
-
-    rodape(s, ref["fonte"], ref["numero"])
-
-
-# ------------------------------------------------------------- 10. síntese
-def sintese(prs):
-    s = slide_base(prs, "Síntese")
-    texto(s, MARGEM, Inches(1.0), UTIL, Inches(0.8),
-          "O que cada trabalho decidiu no nosso projeto", 34, TEXTO, negrito=True)
-    retangulo(s, MARGEM, Inches(1.75), Inches(1.6), Inches(0.05), QUENTE)
-
-    itens = [
-        ("[1] Yousuf", "Fechar a cadeia do sensor até a ação."),
-        ("[2] Mohammed", "Separar aquisição de análise; induzir falhas para gerar dados."),
-        ("[3] Kolok", "Treinar apenas com operação saudável, processando na borda."),
-        ("[4] Meitz", "Assumir detecção de anomalia como escopo desta etapa."),
-        ("[5] Gupta", "Tratar ruído e ausência de rótulo como o trabalho principal."),
-        ("[6] Burmeister", "Todo alerta precisa registrar o que o motivou."),
+    dentro = [
+        ("Monitoramento\nde condição", ["[2] Yousuf", "[3] Mohammed"]),
+        ("Tratamento\nde dados", ["[5] Gupta"]),
+        ("Detecção\nde falhas", ["[4] Kolok"]),
+        ("Avaliação", ["[1] Meitz", "[5] Gupta"]),
+        ("Interpretação\ndo alerta", ["[6] Tormos"]),
     ]
-    y = Inches(2.25)
-    alt = Inches(0.62)
-    for i, (chave, decisao) in enumerate(itens):
-        yi = y + i * (alt + Inches(0.06))
-        retangulo(s, MARGEM, yi, UTIL, alt, CAIXA_FRIA)
-        retangulo(s, MARGEM, yi, Inches(0.07), alt, QUENTE if i % 2 else FRIO)
-        texto(s, MARGEM + Inches(0.4), yi + Inches(0.16), Inches(2.4), Inches(0.4),
-              chave, 19, FRIO, negrito=True)
-        texto(s, MARGEM + Inches(3.0), yi + Inches(0.16), UTIL - Inches(3.4), Inches(0.4),
-              decisao, 19, TEXTO)
-    rodape(s, "Seminário 1 · Trabalhos relacionados", "11 / 11")
+    vao = Inches(0.24)
+    larg = (UTIL - vao * 4) / 5
+    topo, alt = Inches(2.95), Inches(1.2)
+    for i, (nome, refs) in enumerate(dentro):
+        x = MARGEM + i * (larg + vao)
+        bloco(s, x, topo, larg, alt, AZUL_FUNDO)
+        texto(s, x + Inches(0.2), topo + Inches(0.26), larg - Inches(0.4), Inches(0.8),
+              nome.split("\n"), 15, BRANCO, negrito=True, espaco=1.15)
+        texto(s, x, topo + alt + Inches(0.16), larg, Inches(0.5),
+              refs, 11, AZUL, negrito=True, espaco=1.25)
+        if i < 4:
+            texto(s, x + larg, topo + Inches(0.38), vao, Inches(0.4), "\u203a", 22,
+                  AZUL, negrito=True, alinha=PP_ALIGN.CENTER)
+
+    bloco(s, MARGEM, Inches(5.05), UTIL, Emu(9525), AZUL_TENUE)
+    rotulo(s, MARGEM, Inches(5.32), UTIL, "Fora do escopo do protótipo", CINZA)
+
+    fora = ["Modelagem de degradação", "Prognóstico", "Planejamento da manutenção"]
+    larg2 = (UTIL - vao * 2) / 3
+    for i, nome in enumerate(fora):
+        x = MARGEM + i * (larg2 + vao)
+        bloco(s, x, Inches(5.72), larg2, Inches(0.6), AZUL_TENUE)
+        texto(s, x + Inches(0.25), Inches(5.88), larg2 - Inches(0.5), Inches(0.4),
+              nome, 15, CINZA, negrito=True)
+
+    texto(s, MARGEM, Inches(6.52), UTIL, Inches(0.4),
+          "As três exigem histórico de falhas validadas, que o protótipo não terá.",
+          15, CINZA)
+    rodape(s, "5 / 11")
+
+
+def slide_referencia(prs, ref, indice, pagina):
+    s = branco(prs)
+    bloco(s, 0, 0, PAINEL, A, AZUL_FUNDO)
+
+    largura_painel = PAINEL - MARGEM - Inches(0.35)
+    corpo_autor = 29 if len(ref["autor"]) <= 14 else 24 if len(ref["autor"]) <= 20 else 21
+    texto(s, MARGEM, Inches(0.8), Inches(2.0), Inches(1.2), f"{indice:02d}", 60, AZUL, negrito=True)
+    rotulo(s, MARGEM, Inches(2.0), Inches(3.2), ref["camada"], AZUL_CLARO)
+    texto(s, MARGEM, Inches(2.5), largura_painel, Inches(1.6),
+          ref["autor"], corpo_autor, BRANCO, negrito=True, espaco=1.15)
+
+    # o ano acompanha a altura ocupada pelo nome
+    por_linha = int(largura_painel / 914400 * 148 / corpo_autor)
+    linhas_autor = max(1, -(-len(ref["autor"]) // por_linha))
+    y_ano = Inches(2.5) + Inches(linhas_autor * corpo_autor * 0.019 + 0.2)
+    texto(s, MARGEM, y_ano, Inches(2.0), Inches(0.5), ref["ano"], 22, AZUL_CLARO, negrito=True)
+    bloco(s, MARGEM, Inches(4.3), Inches(1.4), Inches(0.045), AZUL)
+    texto(s, MARGEM, Inches(4.7), largura_painel, Inches(1.4),
+          ref["fonte"], 12, AZUL_CLARO, espaco=1.35)
+
+    texto(s, DIR_X, Inches(0.95), DIR_W, Inches(0.9), ref["problema"], 20, TINTA,
+          negrito=True, espaco=1.2)
+
+    y = Inches(2.1)
+    rotulo(s, DIR_X, y, DIR_W, "O que o trabalho estudou")
+    topicos(s, DIR_X, y + Inches(0.45), DIR_W, ref["estudou"])
+
+    y2 = y + Inches(0.45) + altura_topicos(ref["estudou"], DIR_W / 914400) + Inches(0.32)
+    bloco(s, DIR_X, y2, DIR_W, Emu(22860), AZUL)
+    rotulo(s, DIR_X, y2 + Inches(0.3), DIR_W, "O que levamos para o projeto")
+    topicos(s, DIR_X, y2 + Inches(0.75), DIR_W, ref["levamos"])
+
+    texto(s, MARGEM, A - Inches(0.62), largura_painel, Inches(0.3),
+          f"{pagina} / 11", 11, AZUL_CLARO)
+
+
+# ----------------------------------------------------------- 10. agradecimento
+def agradecimento(prs):
+    """Mesma composição do slide final do deck de colmeias, na paleta azul."""
+    s = prs.slides.add_slide(prs.slide_layouts[6])
+    bloco(s, 0, 0, L, A, AZUL_FUNDO)
+
+    centro = dict(alinha=PP_ALIGN.CENTER)
+    texto(s, Inches(0.60), Inches(2.72), Inches(12.13), Inches(1.10),
+          "Obrigado!", 60, BRANCO, negrito=True, **centro)
+    texto(s, Inches(0.60), Inches(3.86), Inches(12.13), Inches(0.50),
+          "Perguntas e Discussão", 20, AZUL_CLARO, **centro)
+    texto(s, Inches(0.60), Inches(4.95), Inches(12.13), Inches(0.30),
+          "GRUPO 3  ·  IBMEC RIO DE JANEIRO", 11, AZUL_CLARO, negrito=True, **centro)
+    texto(s, Inches(0.60), Inches(5.30), Inches(12.13), Inches(0.40),
+          "Igor Costa   ·   Jorge Alves   ·   Ian Dias   ·   Davi Ito",
+          15, BRANCO, negrito=True, **centro)
+    texto(s, Inches(0.60), Inches(7.02), Inches(12.13), Inches(0.28),
+          "Manutenção preditiva de ar-condicionado  ·  IBM3118 Sistemas Embarcados (2026.2)",
+          9, AZUL_CLARO, **centro)
 
 
 def main():
@@ -354,13 +432,15 @@ def main():
     capa(prs)
     motivacao(prs)
     outros_locais(prs)
-    mapa(prs)
-    for ref in REFERENCIAS:
-        slide_referencia(prs, ref)
-    sintese(prs)
+    paginas = [4, 6, 7, 8, 9, 10]
+    for i, (ref, pagina) in enumerate(zip(REFERENCIAS, paginas), start=1):
+        slide_referencia(prs, ref, i, pagina)
+        if i == 1:
+            etapas(prs)
+    agradecimento(prs)
 
     prs.save(SAIDA)
-    print(f"{SAIDA} — {len(prs.slides.__iter__.__self__._sldIdLst)} slides")
+    print(f"{SAIDA}: {len(prs.slides._sldIdLst)} slides")
 
 
 if __name__ == "__main__":
