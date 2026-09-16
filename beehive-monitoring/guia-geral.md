@@ -66,7 +66,7 @@ As exclusões não são omissões: o rastreio individual é impossível com a c�
 - [x] Criar uma referência separada para o repositório, além das dez referências acadêmicas, e citá-la no artigo.
 - [x] Manter o repositório público.
 - [x] Colocar no repositório as implementações, documentos e materiais usados no protótipo. Primeiros sketches em `firmware/` e fotos em `assets/`.
-- [ ] Compartilhar o repositório com o professor.
+- [x] Compartilhar o repositório com o professor.
 - [ ] Construir a parte física para as demonstrações dos Seminários 2, 3 e 4.
 - [x] Usar o Seminário 1 para apresentar os trabalhos relacionados.
 
@@ -107,8 +107,8 @@ A entrega da AC5, originalmente prevista para 08/09, foi adiada pelo professor, 
 - [x] Criar e organizar a pasta `beehive-monitoring`.
 - [x] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
 - [x] Confirmar que todos os integrantes acessam o Overleaf.
-- [ ] Confirmar que todos os integrantes acessam o repositório.
-- [ ] Compartilhar o repositório com o professor.
+- [x] Confirmar que todos os integrantes acessam o repositório.
+- [x] Compartilhar o repositório com o professor.
 
 ### Manuscrito inicial
 
