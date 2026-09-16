@@ -28,7 +28,7 @@ A estação de monitoramento é uma única placa de baixo custo que comanda a c�
 
 ### Aquisição de imagens
 
-Um módulo ESP32-CAM com sensor OV2640 registra a entrada a 1280 por 720 pixels. Ele fica acima e um pouco à frente da entrada, em um suporte rígido com proteção contra chuva, apontado para a faixa de tábua onde as abelhas pousam e levantam voo, e posicionado de modo a não bloquear nem a entrada nem a ventilação da colmeia. Zheng et al. e Narcia-Macias et al. apontam a câmera para a entrada pelo mesmo motivo, e Tu et al. mostraram que uma placa de baixo custo basta para contar as abelhas ali \cite{zheng2024intelligent,narciamacias2024intellibeehive,tu2016automatic}. Cada captura é guardada como uma sequência de arquivos JPEG, e não como vídeo H.264 ou H.265, então cada quadro mantém o próprio horário e os originais continuam disponíveis para uma segunda análise.
+Uma placa de desenvolvimento ESP32-WROVER com câmera OV2640 registra a entrada a 1280 por 720 pixels. A placa tem PSRAM externa, de que a câmera precisa para guardar um quadro nessa resolução. Ele fica acima e um pouco à frente da entrada, em um suporte rígido com proteção contra chuva, apontado para a faixa de tábua onde as abelhas pousam e levantam voo, e posicionado de modo a não bloquear nem a entrada nem a ventilação da colmeia. Zheng et al. e Narcia-Macias et al. apontam a câmera para a entrada pelo mesmo motivo, e Tu et al. mostraram que uma placa de baixo custo basta para contar as abelhas ali \cite{zheng2024intelligent,narciamacias2024intellibeehive,tu2016automatic}. Cada captura é guardada como uma sequência de arquivos JPEG, e não como vídeo H.264 ou H.265, então cada quadro mantém o próprio horário e os originais continuam disponíveis para uma segunda análise.
 
 ### Sensoriamento ambiental
 
@@ -36,7 +36,7 @@ Dois sensores medem temperatura e umidade, um dentro da colmeia e um fora, junto
 
 ### Armazenamento local e operação offline
 
-A estação não precisa de conexão de rede para funcionar. As medições ambientais e as imagens da entrada vão para um cartão microSD na placa de aquisição, e um relógio de tempo real mantém os horários consistentes quando não há fonte externa de tempo. O cartão é retirado mais ou menos uma vez por semana, e o material gravado é analisado em um computador separado.
+A estação não precisa de conexão de rede para funcionar. As medições ambientais e as imagens da entrada vão para um cartão microSD em um leitor ligado à placa de aquisição, e um relógio de tempo real mantém os horários consistentes quando não há fonte externa de tempo. O cartão é retirado mais ou menos uma vez por semana, e o material gravado é analisado em um computador separado.
 
 Apiários costumam ficar onde a cobertura sem fio é instável ou inexistente. Uma estação que para de gravar quando o enlace cai deixa buracos no registro, que é justamente o que o monitoramento contínuo pretende evitar. Tashakkori et al. e Henry et al. mostram o que a aquisição em rede por MQTT e por redes de sensores sem fio torna possível, e a transmissão remota continua sendo uma extensão natural deste trabalho \cite{tashakkori2021beemon,henry2019precision}. Para a primeira versão, o armazenamento local mantém o subsistema de comunicação fora da lista de peças que podem interromper a coleta.
 
