@@ -15,7 +15,8 @@ A arquitetura deve preservar os dados brutos ou amostras selecionadas sempre que
 
 ## 2. Controlador e comunicação
 
-- A ESP32-CAM está disponível e será considerada a unidade de captura de imagens na entrada.
+- A placa confirmada é a ESP32-WROVER-DEV v1.6, com câmera OV2640 separada. Ela é a unidade de captura de imagens na entrada.
+- A placa não tem slot de cartão microSD; é necessário um módulo leitor avulso.
 - O ESP8266 pode funcionar como controlador de sensores e comunicação.
 - Arduino Uno e Arduino Mega estão disponíveis, mas não são a primeira opção para transmissão sem fio e processamento de imagens.
 - Wi-Fi é a opção inicial quando houver cobertura no local da colmeia, em linha com as redes avaliadas por Henry et al. [5].
@@ -43,7 +44,7 @@ A arquitetura deve preservar os dados brutos ou amostras selecionadas sempre que
 
 ## 5. Captura de imagens
 
-- A ESP32-CAM deve ser instalada voltada para a entrada da colmeia, com fixação estável e proteção contra chuva.
+- A câmera deve ser instalada voltada para a entrada da colmeia, com fixação estável e proteção contra chuva.
 - O posicionamento não pode bloquear a passagem das abelhas nem alterar significativamente a ventilação.
 - Para o primeiro teste, a câmera pode operar entre 10 e 16 quadros por segundo durante uma janela de captura. O valor de até 16 quadros por segundo é usado como referência por Zheng et al. [1].
 - Proposta inicial de coleta: uma janela de 30 segundos a cada 5 minutos, com ajuste após medir volume de dados, consumo e qualidade das imagens.
@@ -111,7 +112,7 @@ A validação deve separar treinamento e teste e informar as condições de cole
 1. Microfone adequado para registrar o som da colmeia.
 2. Acelerômetro, caso a medição de vibração seja mantida.
 3. Quantidade de sensores DHT11 e suas posições.
-4. Estrutura para fixar a ESP32-CAM na entrada.
+4. Estrutura para fixar a câmera na entrada.
 5. Gabinete protegido contra chuva e umidade.
 6. Fonte de alimentação para operação prolongada.
 7. Computador ou servidor para executar os modelos de visão computacional.
@@ -180,10 +181,10 @@ Cada experimento deve registrar a distância, a presença de obstáculos, a conf
 
 ### 12.3 Integração com a câmera e a visão computacional
 
-A ESP32-CAM deve seguir um caminho de comunicação separado do nó de sensores:
+A placa de câmera deve seguir um caminho de comunicação separado do nó de sensores:
 
 ```text
-ESP32-CAM
+ESP32-WROVER-DEV
       | Wi-Fi ou armazenamento local
 Computador ou Raspberry Pi
       | YOLO + DeepSORT
