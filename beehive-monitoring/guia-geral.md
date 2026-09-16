@@ -10,11 +10,11 @@ O arquivo `orientacoes-artigo.pdf`, na raiz do repositório, é a fonte de prior
 
 ## Escopo do projeto
 
-O sistema é uma estação de baixo custo instalada na colmeia, com uma câmera apontada para a entrada e dois sensores de temperatura e umidade, um interno e um externo. A câmera captura sequências curtas de imagens em horário fixo e os sensores medem a cada três minutos. Tudo é gravado em um cartão microSD na própria placa, com data e hora vindas de um relógio de tempo real.
+Uma estação de baixo custo instalada na colmeia, com uma câmera apontada para a entrada e dois sensores de temperatura e umidade. O sistema **não usa rede**: grava tudo em um cartão microSD, que é recolhido uma vez por semana e analisado depois em um computador.
 
-O sistema **não usa rede**. O cartão é recolhido uma vez por semana e as imagens são analisadas depois, em um computador, por um modelo que conta as abelhas visíveis em cada janela de observação. A alimentação é por painel solar com bateria. As decisões completas estão em `decisoes-confirmadas.md`, e o plano de montagem em `plano-do-prototipo.md`.
+A análise se limita a contar as abelhas visíveis em cada janela de observação, como indicador de atividade na entrada. Como a câmera fica desligada entre as janelas, o artigo não deve afirmar que o sistema acompanha uma mesma abelha entre janelas diferentes.
 
-A análise se limita a contar as abelhas visíveis em cada janela como indicador de atividade na entrada. Como a câmera fica desligada entre as janelas, o artigo não deve afirmar que o sistema acompanha uma mesma abelha entre janelas diferentes.
+Os detalhes estão em `decisoes-confirmadas.md`: resolução, horários, intervalos de leitura, posição dos sensores e alimentação. O plano de montagem está em `plano-do-prototipo.md`.
 
 ## Estrutura adotada
 
