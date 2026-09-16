@@ -70,7 +70,7 @@ The monitoring station is a single low-cost board that drives the camera, reads 
 
 \subsection{Image Acquisition}
 
-An ESP32-CAM module with an OV2640 sensor records the entrance at 1280 by 720 pixels. It sits above and slightly in front of the entrance on a rigid bracket with rain protection, angled at the strip of board where the bees land and take off, and placed so that it blocks neither the entrance nor the ventilation of the hive. Zheng et al. and Narcia-Macias et al. both point a camera at the entrance for the same reason, and Tu et al. showed that a low-cost single board is enough to count bees there \cite{zheng2024intelligent,narciamacias2024intellibeehive,tu2016automatic}. Each capture is stored as a sequence of JPEG files rather than as H.264 or H.265 video, so every frame keeps its own timestamp and the originals stay available for a second analysis.
+An ESP32-WROVER development board with an OV2640 camera records the entrance at 1280 by 720 pixels. The board carries external PSRAM, which the camera needs to hold a frame at that resolution. It sits above and slightly in front of the entrance on a rigid bracket with rain protection, angled at the strip of board where the bees land and take off, and placed so that it blocks neither the entrance nor the ventilation of the hive. Zheng et al. and Narcia-Macias et al. both point a camera at the entrance for the same reason, and Tu et al. showed that a low-cost single board is enough to count bees there \cite{zheng2024intelligent,narciamacias2024intellibeehive,tu2016automatic}. Each capture is stored as a sequence of JPEG files rather than as H.264 or H.265 video, so every frame keeps its own timestamp and the originals stay available for a second analysis.
 
 \subsection{Environmental Sensing}
 
@@ -78,7 +78,7 @@ Two sensors measure temperature and humidity, one inside the hive and one outsid
 
 \subsection{Local Storage and Offline Operation}
 
-The station does not need a network connection to work. Environmental measurements and entrance images go to a microSD card on the acquisition board, and a real-time clock keeps the timestamps consistent when no external time source is available. The card is retrieved about once a week, and the recorded material is analysed on a separate computer.
+The station does not need a network connection to work. Environmental measurements and entrance images go to a microSD card on a reader wired to the acquisition board, and a real-time clock keeps the timestamps consistent when no external time source is available. The card is retrieved about once a week, and the recorded material is analysed on a separate computer.
 
 Apiaries often sit where wireless coverage is unreliable or absent. A station that stops recording when the link drops leaves gaps in the record, which is what continuous observation is meant to avoid. Tashakkori et al. and Henry et al. show what networked acquisition through MQTT and wireless sensor networks makes possible, and remote transmission remains a natural extension of this work \cite{tashakkori2021beemon,henry2019precision}. For the first version, local storage keeps the communication subsystem out of the list of parts that can interrupt data collection.
 
