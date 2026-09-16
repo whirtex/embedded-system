@@ -18,13 +18,13 @@ As referências [1]--[6] correspondem aos trabalhos registrados em reference-con
 | RF01 | O sistema deve monitorar continuamente as condições ambientais da colmeia e do ambiente externo. | Parcial. Há módulos DHT11, mas ainda é preciso definir quantidade, posição, proteção e alimentação. | [1], [4], [5] |
 | RF02 | O sistema deve medir temperatura e umidade em pontos relevantes, como centro, margem, entrada e ambiente externo. | Parcial. O DHT11 está disponível, mas a quantidade necessária para todos os pontos não foi confirmada. | [1], [4], [5] |
 | RF03 | O sistema deve registrar sinais acústicos no interior da colmeia. | Ausente. O KY-038 pode indicar intensidade de ruído, mas não substitui um microfone adequado para registrar sinais acústicos. | [1], [3], [4], [5] |
-| RF04 | O sistema deve registrar a atividade das abelhas na entrada da colmeia. | Parcial. Há uma ESP32-CAM, mas faltam suporte, proteção, posicionamento e definição da qualidade da imagem. | [1], [2], [6] |
+| RF04 | O sistema deve registrar a atividade das abelhas na entrada da colmeia. | Parcial. Há uma ESP32-WROVER-DEV com câmera OV2640, mas faltam suporte, proteção, posicionamento e definição da qualidade da imagem. | [1], [2], [6] |
 | RF05 | O sistema deve detectar e contar abelhas nas imagens da entrada. | A definir. Será necessário implementar, treinar e validar um modelo de visão computacional. | [1], [2], [6] |
 | RF06 | O sistema deve acompanhar a movimentação das abelhas ao longo do tempo. | A definir. A solução pode usar rastreamento de objetos ou análise do fluxo de entrada e saída. | [1], [2], [6] |
 | RF07 | O sistema deve permitir a identificação de pólen nas imagens, caso essa função faça parte da primeira versão. | A definir. O recurso depende de imagens rotuladas e de um escopo aprovado pelo professor. | [2] |
 | RF08 | O sistema deve produzir evidências que apoiem a avaliação de estados da colônia, como presença da rainha ou preparação para enxameação. | A definir. A classificação deve ser validada com dados de campo e não deve ser apresentada como diagnóstico automático sem testes suficientes. | [3], [5] |
 | RF09 | O sistema deve registrar data e hora para cada medição, imagem, amostra acústica e resultado processado. | Parcial. Há um módulo de relógio de tempo real, mas a sincronização ainda precisa ser definida. | [1], [4] |
-| RF10 | O sistema deve enviar dados processados para uma aplicação ou servidor remoto. | Parcial. Há ESP8266, ESP32-CAM, Ethernet e LoRa, mas o protocolo, a rede e o destino ainda não foram definidos. | [1], [4], [5] |
+| RF10 | O sistema deve enviar dados processados para uma aplicação ou servidor remoto. | Parcial. Há ESP8266, ESP32-WROVER-DEV, Ethernet e LoRa, mas o protocolo, a rede e o destino ainda não foram definidos. | [1], [4], [5] |
 | RF11 | O sistema deve armazenar o histórico de medições, amostras selecionadas, imagens processadas e resultados das detecções. | Ausente. Não foi identificado um módulo de cartão SD; o armazenamento em servidor ainda precisa ser providenciado ou confirmado. | [1], [4] |
 | RF12 | O sistema deve apresentar dados e alertas ao responsável pela colmeia. | A definir. Ainda é preciso escolher dashboard, display local, e-mail ou mensagem para celular. | [1], [4] |
 | RF13 | O sistema deve continuar registrando dados quando a comunicação estiver indisponível e reenviá-los quando a conexão retornar. | A definir. Será necessária uma memória temporária e uma estratégia de reenvio. | [4], [5] |
@@ -52,7 +52,7 @@ Os seguintes itens não foram identificados com segurança entre os componentes 
 1. Quantidade de sensores DHT11 e posições de instalação.
 2. Microfone adequado para gravação acústica; o KY-038 deve ser considerado apenas um indicador simples de ruído.
 3. Acelerômetro, caso a análise de vibração seja mantida.
-4. Suporte, gabinete e vedação para a ESP32-CAM e os sensores.
+4. Suporte, gabinete e vedação para a ESP32-WROVER-DEV, a câmera e os sensores.
 5. Fonte de alimentação e autonomia esperada.
 6. Computador ou servidor para executar os modelos e armazenar os dados.
 7. Módulo de armazenamento local ou estratégia de buffer durante falhas de comunicação.
