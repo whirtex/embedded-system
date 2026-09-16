@@ -14,7 +14,7 @@ Uma estação de baixo custo instalada na colmeia, com uma câmera apontada para
 
 A análise se limita a contar as abelhas visíveis em cada janela de observação, como indicador de atividade na entrada. Como a câmera fica desligada entre as janelas, o artigo não deve afirmar que o sistema acompanha uma mesma abelha entre janelas diferentes.
 
-Os detalhes estão em `decisoes-confirmadas.md`: resolução, horários, intervalos de leitura, posição dos sensores e alimentação. O plano de montagem está em `plano-do-prototipo.md`.
+Os detalhes estão em `decisoes-do-projeto.md`: resolução, horários, intervalos de leitura, posição dos sensores e alimentação. O plano de montagem está em `plano-do-prototipo.md`.
 
 ## Estrutura adotada
 
@@ -215,7 +215,7 @@ Com a introdução pronta, o PDF orienta a escrever a seção de desenvolvimento
 - [x] Planejar os experimentos e definir a configuração da primeira rodada.
 - [x] Continuar a construção do protótipo para a avaliação qualitativa inicial.
 
-A subseção que descrevia o MQTT foi substituída por armazenamento local e operação offline, para bater com a decisão registrada em `decisoes-confirmadas.md`.
+A subseção que descrevia o MQTT foi substituída por armazenamento local e operação offline, para bater com a decisão registrada em `decisoes-do-projeto.md`.
 
 ## Semana 8 — Seção III: método
 
@@ -260,7 +260,7 @@ A terceira é a que mais se parece com o que o PDF chama de solução alternativ
 
 ## Dados e validação do protótipo
 
-Decisões necessárias para executar as etapas do PDF, algumas já fechadas em `decisoes-confirmadas.md`:
+Decisões necessárias para executar as etapas do PDF, algumas já fechadas em `decisoes-do-projeto.md`:
 
 - [x] Definir os sinais coletados: imagens da entrada, temperatura e umidade internas e externas.
 - [x] Definir a frequência: janela de imagens a cada cinco minutos, das 7h às 17h; sensores a cada três minutos.
@@ -325,7 +325,7 @@ Antes de enviar:
 - `reference-contributions.md`: contribuição de cada referência para o projeto.
 - `requirements.md`: requisitos funcionais e não funcionais.
 - `specifications.md`: especificações técnicas preliminares.
-- `decisoes-confirmadas.md`: decisões de projeto já fechadas pelo grupo.
+- `decisoes-do-projeto.md`: decisões de projeto já fechadas pelo grupo.
 - `decisoes-de-projeto.md`: lista antiga de decisões em aberto, em parte superada pelo arquivo acima.
 - `plano-do-prototipo.md`: o que montar, em que ordem, o que pegar no laboratório e o que comprar.
 - `retirada-de-materiais.pdf`: folha entregue ao professor para a retirada dos componentes.
