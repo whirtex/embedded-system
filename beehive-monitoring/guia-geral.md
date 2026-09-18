@@ -78,19 +78,22 @@ As exclusões não são omissões: o rastreio individual é impossível com a c�
 | Semana 2 — 10 a 14/08 | AC1 |
 | Semana 3 — 17 a 21/08 | AC2 |
 | Semana 4 — 24 a 28/08 | AC3 |
-| Semana 5 — 31/08 a 04/09 | Seminário 1 — apresentação dos trabalhos relacionados; o cronograma associa esta etapa à AC4 |
+| Semana 5 — 31/08 a 04/09 | Seminário 1, que o cronograma associa à AC4 |
 | Semana 6 — 07 a 11/09 | AC5 |
-| Semana 7 — 14 a 18/09 | AC6 — desenvolvimento da Seção II |
-| Semana 8 — 21 a 25/09 | Seção III — método |
+| Semana 7 — 14 a 18/09 | em branco no PDF |
+| Semana 8 — 21 a 25/09 | em branco no PDF |
 | AP1 — 28/09 a 02/10 | Prova escrita |
-| Semana 9 — 05 a 09/10 | Seminário 2 — problema, método e resultados qualitativos |
-| Semana 10 — 12 a 16/10 | Continuação do desenvolvimento |
-| Semana 11 — 19 a 23/10 | Continuação do desenvolvimento |
-| Semana 12 — 26 a 30/10 | Seminário 3 — método, protótipo e resultados quantitativos parciais |
-| Semanas 13 e 14 — 02 a 13/11 | Finalização |
-| AP2 — 16 a 20/11 | Seminário 4 e segunda avaliação |
-| Semana 15 — 23 a 27/11 | Ajustes finais |
-| AS — 30/11 a 04/12 | Avaliação substitutiva, se aplicável |
+| Semana 9 — 05 a 09/10 | Seminário 2 |
+| Semana 10 — 12 a 16/10 | em branco no PDF |
+| Semana 11 — 19 a 23/10 | em branco no PDF |
+| Semana 12 — 26 a 30/10 | Seminário 3 |
+| Semana 13 — 02 a 06/11 | em branco no PDF |
+| Semana 14 — 09 a 13/11 | em branco no PDF |
+| AP2 — 16 a 20/11 | Seminário 4 |
+| Semana 15 — 23 a 27/11 | em branco no PDF |
+| AS — 30/11 a 04/12 | Avaliação substitutiva |
+
+O calendário do PDF deixa várias semanas em branco. As descrições das atividades, porém, continuam: depois da AC5 vêm a AC6 e, em seguida, quatro blocos que o próprio PDF chama de Semana 7, Semana 8, Semana 9 e Semana 10. Esses rótulos são os do documento e não correspondem necessariamente às semanas do calendário. Este guia usa os rótulos do PDF, para não criar uma numeração própria.
 
 ### Observação sobre AC4, Seminário 1 e AC5
 
@@ -217,7 +220,7 @@ Com a introdução pronta, o PDF orienta a escrever a seção de desenvolvimento
 
 A subseção que descrevia o MQTT foi substituída por armazenamento local e operação offline, para bater com a decisão registrada em `decisoes-do-projeto.md`.
 
-## Semana 8 — Seção III: método
+## Semana 7 — Seção III: método
 
 - [ ] Descrever detalhadamente o funcionamento do sistema, sem repetir a revisão bibliográfica.
 - [ ] Criar um diagrama do método, preferencialmente no Lucidchart, exportando-o em PDF e cortando os espaços em branco.
@@ -226,21 +229,21 @@ A subseção que descrevia o MQTT foi substituída por armazenamento local e ope
 - [ ] Escrever um parágrafo que apresente e explique a foto do protótipo.
 - [ ] Continuar a montagem para a primeira avaliação quantitativa.
 
-## Semana 9 — resultados, resumo e conclusões iniciais
+## Semana 8 — resultados, resumo e conclusões iniciais
 
 - [ ] Registrar resultados qualitativos do protótipo.
 - [ ] Registrar os primeiros resultados quantitativos, se já houver dados suficientes.
 - [ ] Escrever o Abstract.
 - [ ] Escrever as conclusões iniciais com base nos resultados disponíveis.
 
-## Semana 10 — refinamento dos resultados
+## Semana 9 — refinamento dos resultados
 
 - [ ] Continuar a coleta e a análise dos resultados quantitativos.
 - [ ] Refinar o Abstract.
 - [ ] Fazer a última linha do Abstract apresentar um resultado interessante que represente a principal contribuição do grupo.
 - [ ] Refinar as conclusões, resumindo a avaliação do sistema embarcado.
 
-## Semana 11 — método alternativo e comparação
+## Semana 10 — método alternativo e comparação
 
 O PDF pede uma solução alternativa para comparar dois métodos, com a comparação na Seção V.
 
@@ -323,11 +326,13 @@ Antes de enviar:
 - `beehive-monitoring-pt.md`: tradução de apoio em português.
 - `refs.bib`: referências acadêmicas e a entrada do repositório; mesmo nome usado no Overleaf.
 - `reference-contributions.md`: contribuição de cada referência para o projeto.
+- `research-notes.md`: matriz de evidências, com o que cada referência mostrou, onde ela falha e o papel dela no artigo.
 - `requirements.md`: requisitos funcionais e não funcionais.
 - `specifications.md`: especificações técnicas preliminares.
 - `decisoes-do-projeto.md`: decisões de projeto já fechadas pelo grupo.
-- `decisoes-de-projeto.md`: lista antiga de decisões em aberto, em parte superada pelo arquivo acima.
 - `plano-do-prototipo.md`: o que montar, em que ordem, o que pegar no laboratório e o que comprar.
-- `retirada-de-materiais.pdf`: folha entregue ao professor para a retirada dos componentes.
+- `retirada-de-materiais.pdf`: folha entregue ao professor para a retirada dos componentes. Gerado a partir do plano; está no `.gitignore`.
+- `firmware/`: os sketches do protótipo, um por pasta, no formato que o Arduino IDE espera.
+- `assets/`: fotos do protótipo e imagens do projeto.
 - `guia-geral.md`: este guia consolidado, subordinado ao PDF oficial.
 - `orientacoes-artigo.pdf`: documento oficial de orientações, na raiz do repositório; fonte prioritária.
