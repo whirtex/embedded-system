@@ -57,24 +57,44 @@ Beyond detecting that something deviates from normal operation, a maintenance sy
 
 The implementation, documentation, and experimental material produced in this project are publicly available in the project repository \cite{repo}.
 
-\rigel{AC Semana 5: Elaborar o penúltimo parágrafo que descreve a proposta do artigo e contribuições.
+This work proposes an embedded system that monitors the condition of air-conditioning units under uninterrupted duty and flags anomalies early. The prototype reads temperature, vibration, and electrical current at the equipment through a low-cost microcontroller and computes time- and frequency-domain features on the spot. The measurements then reach a remote application, which compares them against the healthy operating baseline and reports what deviated. Four aspects of this design are our contribution. The architecture pairs local acquisition and lightweight edge processing with remote communication, sized for equipment that stays in a steady regime and cannot have its cooling interrupted. The detection strategy learns the healthy baseline instead of requiring a labelled failure history, which is the realistic condition for equipment that has never been instrumented, and follows what Tormos et al. and Gupta et al. report from field deployments with the same absence of run-to-failure records \cite{tormos2026hvacxai,gupta2023baggage}. The system names the measurement that produced the alert, so the maintenance team gets something to act on instead of an undifferentiated warning. And the experimental protocol induces anomalies in a controlled way on a laboratory bench, keeping the data that establishes the baseline separate from the data used to evaluate it. We restrict the prototype to the condition monitoring, data handling, fault detection, and evaluation stages of the framework organized by Meitz et al. Degradation modelling, prognostics, and remaining-useful-life estimation stay out, because they need a representative history of validated failures that the prototype does not have \cite{meitz2025pdmframework}. The initial tests run on a bench built around a 12~V fan, the same class of machine as the condenser fan of an air-conditioning unit, which lets faults be induced in a controlled way. A bench fan is still not a compressor, so the results characterise the method rather than validate it on a real unit.
 
-Verifiquem as referências dos alunos do Ibmec e cite-as caso seja oportuno.}
+The rest of this work is organized as follows. Section~\ref{sec:system-description} describes the system under development, its sensors, microcontroller and communication protocol, together with the configuration defined for the first experiments. Section~\ref{sec:method} details the proposed method, covering signal acquisition, feature extraction, the operating baseline, the detection of deviations and the interpretation of each alert. We then report the results obtained with the prototype in Section~\ref{sec:results}, and Section~\ref{sec:conclusion} concludes the work, compares the proposed method with an alternative solution and outlines the next steps.
 
-\rigel{AC Semana 5: Elaborar o último parágrafo da introdução, que será a visita guiada pelas seções do artigo. Nesse parágrafo, sintetize para o leitor o que cada seção tratará, como no exemplo fornecido pela professora.}
-
-\rigel{AC Semana 5: Elaborar o outline do artigo, criando o esqueleto das seções de descrição do sistema, método proposto, resultados e conclusões.}
+\rigel{Pendência da AC Semana 5: verificar as referências produzidas por alunos do Ibmec e citá-las caso seja oportuno.}
 
 \section{System Description}
 \label{sec:system-description}
 
-\rigel{AC Semana 6: Apresente os sensores, o microcontrolador e os protocolos de comunicação utilizados. Inclua referências que deem suporte à descrição dos componentes e relacione a arquitetura ao monitoramento de aparelhos de ar-condicionado em ambientes críticos ou coletivos.}
+The monitoring station is built around a single low-cost microcontroller that reads the sensors at the equipment, computes features locally, and sends the result onward. Kolok et al. showed that a board of this class can extract time- and frequency-domain characteristics and run a lightweight anomaly detector without a server, and Lin et al. describe why processing near the device reduces latency and keeps the service running when the link does not \cite{kolok2025lowcost,lin2017iot}. The prototype uses an ESP32 module with external PSRAM, which leaves room for the sample buffers that a frequency transform needs.
 
-\subsection{MQTT Protocol}
+\subsection{Vibration Sensing}
 
-MQTT (Message Queuing Telemetry Transport) is a lightweight communication protocol designed for low-bandwidth and high-latency environments and widely used in IoT applications. Its publish/subscribe model allows sensor and controller devices to transmit measurements without requiring a direct connection between the data producer and the monitoring application.
+A MEMS accelerometer is fixed to the shell of the rotating component and reports acceleration along three axes. The firmware computes the RMS of each window and a discrete Fourier transform, the same pair of characteristics that Kolok et al. applied to small rotating machines, and Yousuf et al. combine with electrical measurements on induction motors \cite{kolok2025lowcost,yousuf2024iot}. Mechanical coupling decides whether the reading means anything: a sensor that is not rigidly attached measures its own movement rather than the machine, so the accelerometer sits on a flat and rigid part of the casing, held by a magnetic base or structural adhesive.
 
-In this project, MQTT is intended to transmit temperature, vibration, current, and operational measurements from the monitored air-conditioning equipment to a remote application or server. Its low overhead and asynchronous communication model make it suitable for an embedded system focused on continuous monitoring and alert generation.
+\subsection{Electrical Current Sensing}
+
+Current rises before most other evidence appears, because a motor under friction or obstruction draws more to hold its speed. Yousuf et al. and Mohammed et al. both include current among the quantities they acquire from motors under induced faults \cite{yousuf2024iot,mohammed2023iot}.
+
+The prototype uses two different sensors for this single quantity. On the bench, where the machine runs at low voltage, a shunt monitor on the supply line measures the current directly. On an air-conditioning unit, where the compressor runs from the mains, a split-core current transformer clamps around one conductor and measures by induction, without cutting any wire and without contact with the supply. The distinction matters for safety as much as for accuracy, and it is declared here because the two setups are not interchangeable.
+
+\subsection{Temperature Sensing}
+
+A single temperature reading describes the room rather than the machine. The quantity that carries information is the difference between two points, which is why the station uses digital probes on a shared one-wire bus rather than one ambient sensor.
+
+On the equipment, the probes are clamped to the liquid line and to the suction line of the refrigerant circuit. Tormos et al. map the available measurements onto the vapour-compression cycle precisely to obtain features with physical meaning, and Es-Sakali et al. review how HVAC health assessment rests on this kind of thermal evidence \cite{tormos2026hvacxai,essakali2022hvac}. Two further probes at the return and supply air of the indoor unit measure cooling capacity, and they have the practical advantage of requiring no access to the electrical enclosure.
+
+\subsection{Processing and Communication}
+
+The microcontroller acquires the three quantities, computes the window features, and publishes the result through MQTT, a lightweight publish and subscribe protocol for low-bandwidth and intermittent links. Mohammed et al. adopt the same arrangement, with an embedded acquisition unit transmitting vibration, current, and temperature to a remote server, and Gubbi et al. describe the wider architecture in which such devices deliver data to analytical services \cite{mohammed2023iot,gubbi2013iot}. The remote side compares each window against the healthy baseline and reports which measurement produced the alert.
+
+\subsection{Experimental Configuration}
+
+The first experiments run on a bench built around a 12~V fan driven by the same microcontroller, with the accelerometer on the motor body, the shunt monitor in series with the supply, and one probe on the motor and another measuring ambient air, so that heating is read as a rise above the room rather than as an absolute value.
+
+Four conditions are induced in a controlled and repeatable way: a mass attached to one blade for imbalance, added friction on the shaft, a blocked air path for obstruction, and a loosened mounting screw. Each condition produces a different combination across the three quantities, which is what allows an alert to name the mechanism instead of only reporting that something changed.
+
+Each condition is recorded in independent runs rather than sliced from a single acquisition. Gupta et al. report that ignoring this separation inflates the measured performance, and Meitz et al. treat evaluation as a stage of its own rather than an afterthought \cite{gupta2023baggage,meitz2025pdmframework}. The healthy baseline is built from runs that are never reused for evaluation.
 
 \section{The Method}
 \label{sec:method}
