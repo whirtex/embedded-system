@@ -7,23 +7,24 @@ Estas são as especificações preliminares para o protótipo de manutenção pr
 - O alvo do projeto é o monitoramento de aparelhos de ar-condicionado que operam em regime contínuo, 24 horas por dia, em ambientes nos quais a refrigeração não pode ser interrompida.
 - Exemplos de aplicação incluem enfermarias e UTIs, data centers e salas de servidores, e shelters de telecomunicação.
 - Ficam fora do escopo escolas, escritórios e shopping centers, que operam em horário comercial e desligam diariamente.
-- A montagem experimental poderá usar o motor de passo disponível para simular um componente rotativo do equipamento, mas essa bancada não representa a validação completa de um aparelho de ar-condicionado real.
+- A montagem experimental usará um cooler de 12 V como equipamento de ensaio. Ele é da mesma classe do ventilador da unidade condensadora, então não é um substituto genérico de componente rotativo. Ainda assim, um ventilador de bancada não é um compressor, e a bancada não representa a validação completa de um aparelho real.
 
 ## 1. Controlador e comunicação
 
-- A placa principal recomendada é um ESP8266 ou um ESP32-CAM.
-- Também há Arduino Uno e Arduino Mega disponíveis, mas essas placas têm menos recursos de comunicação.
-- O modelo exato da placa deve ser confirmado antes da montagem.
+- A placa confirmada, com o hardware na mão, é uma **ESP32-WROVER-DEV v1.6**, com micro-USB e conversor CH340 embutidos. Grava firmware direto pelo cabo, sem adaptador.
+- A câmera OV2640 que acompanha a placa **não é usada neste projeto**. Sem ela, todos os GPIOs ficam livres no header, e não há disputa de pinos.
+- Também há Arduino Uno e Arduino Mega disponíveis. Servem para validar cada sensor isoladamente antes de passar para o ESP32.
 - A comunicação pode usar Wi-Fi, Ethernet ou LoRa.
 - Para a primeira versão, recomenda-se usar Wi-Fi, pois essa opção simplifica o protótipo.
 
 ## 2. Atuador ou máquina de teste
 
-- O motor de passo disponível está identificado como modelo 28BYJ-48. O modelo deve ser confirmado.
-- Também há um driver para acionar o motor.
-- O servomotor SG90 pode ser usado como alternativa.
+- O cooler deve ser de 80 mm, com rolamento e conector de 3 ou 4 pinos. O terceiro pino é a saída de tacômetro, que rende um sinal de rotação sem custo adicional.
+- O motor de passo 28BYJ-48 do laboratório foi descartado como equipamento de ensaio, porque não aquece e deixaria o canal de temperatura sem demonstração.
+- É necessário um transistor MOSFET ou módulo driver para o microcontrolador ligar e desligar o cooler, e uma fonte de 12 V.
+- O servomotor SG90 não serve, porque não gira continuamente.
 - Antes da montagem, ainda é preciso definir:
-  - como o motor será fixado;
+  - como o cooler será fixado;
   - qual carga será aplicada;
   - como será simulada uma condição de falha;
   - qual componente será monitorado;
@@ -51,7 +52,7 @@ Os itens abaixo não foram identificados entre os componentes disponíveis na fa
 - acelerômetro para medir vibração, como MPU6050, ADXL345 ou um sensor industrial;
 - sensor de corrente, como ACS712 ou INA219;
 - fonte regulada de 5 V;
-- suporte mecânico para o motor;
+- suporte mecânico para fixar o cooler;
 - elemento de carga ou transmissão mecânica;
 - gabinete ou caixa de proteção;
 - instrumento para calibrar e validar as medições.
@@ -81,7 +82,7 @@ Ainda é preciso decidir se o sistema deverá:
 - Há conectores e suportes para pilhas AA entre os componentes disponíveis na faculdade.
 - Ainda não foi confirmada uma fonte regulada capaz de alimentar a placa, os sensores e o motor.
 - A tensão de alimentação de cada componente precisa ser definida.
-- A alimentação do motor deve ser separada ou dimensionada corretamente para evitar que o controlador seja reiniciado.
+- A alimentação do cooler deve ser separada ou dimensionada corretamente para evitar que o controlador seja reiniciado.
 - O protótipo não deve usar tensão da rede elétrica sem proteção e autorização do professor.
 
 ## 7. Montagem elétrica
@@ -138,7 +139,7 @@ Não foram identificados entre os componentes disponíveis na faculdade uma máq
 1. Sensor de vibração.
 2. Sensor de corrente.
 3. Fonte regulada.
-4. Estrutura mecânica para fixar o motor.
+4. Estrutura mecânica para fixar o cooler.
 5. Método para criar as falhas.
 6. Frequência de amostragem.
 7. Método de detecção: limites ou aprendizado de máquina.
