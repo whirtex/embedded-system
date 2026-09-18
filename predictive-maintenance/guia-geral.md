@@ -4,7 +4,7 @@ Este arquivo organiza o andamento do projeto **Embedded Systems-based Predictive
 
 ## Fonte prioritária
 
-O arquivo `orientacoes-artigos.pdf` é a fonte de prioridade número 1. Quando houver diferença entre este guia, outro arquivo do repositório, uma anotação ou uma interpretação anterior, deve-se seguir o PDF e, em caso de dúvida, confirmar com o professor. Este documento apenas reorganiza as instruções do PDF e registra o estado específico deste projeto.
+O arquivo `orientacoes-artigo.pdf`, na raiz do repositório, é a fonte de prioridade número 1. Quando houver diferença entre este guia, outro arquivo do repositório, uma anotação ou uma interpretação anterior, deve-se seguir o PDF e, em caso de dúvida, confirmar com o professor. Este documento apenas reorganiza as instruções do PDF e registra o estado específico deste projeto.
 
 ## Escopo do projeto
 
@@ -12,7 +12,7 @@ O sistema será voltado ao monitoramento e à manutenção preditiva de aparelho
 
 A restrição a 24 horas é uma decisão de escopo do grupo e também tem justificativa técnica: em regime contínuo o equipamento permanece em condição de operação estável, o que permite estabelecer uma linha de base confiável e evita que transitórios diários de partida e parada sejam confundidos com degradação progressiva. Ficam fora do escopo escolas, escritórios e shopping centers, que operam em horário comercial.
 
-O protótipo deve investigar monitoramento contínuo e detecção antecipada de anomalias. Enquanto não houver histórico representativo de falhas validadas, o artigo não deve afirmar que o sistema estima a vida útil restante do equipamento. Um motor de passo pode ser usado como equipamento-simulador para os testes iniciais, mas isso deve ser declarado como limitação e não como validação de um aparelho de ar-condicionado real.
+O protótipo deve investigar monitoramento contínuo e detecção antecipada de anomalias. Enquanto não houver histórico representativo de falhas validadas, o artigo não deve afirmar que o sistema estima a vida útil restante do equipamento. A bancada usará um cooler de 12 V, da mesma classe do ventilador da unidade condensadora. Isso deve ser declarado como caracterização do método e não como validação de um aparelho de ar-condicionado real.
 
 ## Estrutura adotada
 
@@ -41,7 +41,7 @@ As três etapas fora do escopo exigem histórico representativo de falhas valida
 - [x] Quatro parágrafos de trabalhos relacionados escritos com as seis referências estudadas nas AC2 e AC3.
 - [x] Foco ajustado para aparelhos de ar-condicionado em ambientes críticos ou coletivos, com operação prolongada.
 - [x] As notas verdes do Rigel podem permanecer durante a produção; elas devem ser removidas ou resolvidas na versão final.
-- [ ] Introdução completamente concluída: ainda faltam, no momento adequado, o parágrafo sobre a proposta/contribuições e o parágrafo final de organização do artigo.
+- [x] Introdução completamente concluída: o penúltimo parágrafo, com a proposta e as quatro contribuições, e o último parágrafo, com a visita guiada pelas seções, foram escritos na AC5.
 - [ ] Resumo/Abstract: será escrito posteriormente, conforme o cronograma do PDF, depois que houver resultados.
 - [ ] Conferir o limite final de três páginas após retirar as notas verdes e concluir o texto.
 
@@ -64,23 +64,28 @@ As três etapas fora do escopo exigem histórico representativo de falhas valida
 | Semana 2 — 10 a 14/08 | AC1 |
 | Semana 3 — 17 a 21/08 | AC2 |
 | Semana 4 — 24 a 28/08 | AC3 |
-| Semana 5 — 31/08 a 04/09 | Seminário 1 — apresentação dos trabalhos relacionados; o cronograma associa esta etapa à AC4 |
+| Semana 5 — 31/08 a 04/09 | Seminário 1, que o cronograma associa à AC4 |
 | Semana 6 — 07 a 11/09 | AC5 |
-| Semana 7 — 14 a 18/09 | Desenvolvimento da Seção III — método |
-| Semana 8 — 21 a 25/09 | Resultados iniciais; resumo e conclusões |
-| AP1 — 28/09 a 02/10 | Primeira avaliação |
-| Semana 9 — 05 a 09/10 | Seminário 2 — problema, método e resultados qualitativos |
-| Semana 10 — 12 a 16/10 | Método alternativo e comparação |
-| Semana 11 — 19 a 23/10 | Continuação do desenvolvimento |
-| Semana 12 — 26 a 30/10 | Seminário 3 — método, protótipo e resultados quantitativos parciais |
-| Semanas 13 e 14 — 02 a 13/11 | Finalização |
-| AP2 — 16 a 20/11 | Seminário 4 e segunda avaliação |
-| Semana 15 — 23 a 27/11 | Ajustes finais |
-| AS — 30/11 a 04/12 | Avaliação substitutiva, se aplicável |
+| Semana 7 — 14 a 18/09 | em branco no PDF |
+| Semana 8 — 21 a 25/09 | em branco no PDF |
+| AP1 — 28/09 a 02/10 | Prova escrita |
+| Semana 9 — 05 a 09/10 | Seminário 2 |
+| Semana 10 — 12 a 16/10 | em branco no PDF |
+| Semana 11 — 19 a 23/10 | em branco no PDF |
+| Semana 12 — 26 a 30/10 | Seminário 3 |
+| Semana 13 — 02 a 06/11 | em branco no PDF |
+| Semana 14 — 09 a 13/11 | em branco no PDF |
+| AP2 — 16 a 20/11 | Seminário 4 |
+| Semana 15 — 23 a 27/11 | em branco no PDF |
+| AS — 30/11 a 04/12 | Avaliação substitutiva |
+
+O calendário do PDF deixa várias semanas em branco. As descrições das atividades, porém, continuam: depois da AC5 vêm a AC6 e, em seguida, quatro blocos que o próprio PDF chama de Semana 7, Semana 8, Semana 9 e Semana 10. Esses rótulos são os do documento e não correspondem necessariamente às semanas do calendário. Este guia usa os rótulos do PDF, para não criar uma numeração própria.
 
 ### Observação sobre AC4, Seminário 1 e AC5
 
-Na descrição das atividades, a AC4 pede os dois parágrafos de contexto da introdução. No cronograma, a semana seguinte aparece como “Seminário 1 (AC4)”, porque é quando os seis trabalhos relacionados devem ser apresentados. A atividade seguinte é a AC5, que trata do esboço do artigo, dos dois parágrafos finais da introdução e do protótipo. Em caso de conflito de nomenclatura ou data, prevalecem o PDF e a confirmação do professor.
+Na descrição das atividades, a AC4 pede os dois parágrafos de contexto da introdução. No cronograma, a semana seguinte aparece como “Seminário 1 (AC4)”, porque é quando os seis trabalhos relacionados devem ser apresentados. A atividade seguinte é a AC5, que trata do esboço do artigo, dos dois parágrafos finais da introdução e do protótipo. A AC6 trata da Seção II. Em caso de conflito de nomenclatura ou data, prevalecem o PDF e a confirmação do professor.
+
+A entrega da AC5, originalmente prevista para 08/09, foi adiada pelo professor, e a AC5 e a AC6 passaram a ser entregues juntas.
 
 ## AC1 — início do projeto
 
@@ -161,19 +166,29 @@ O PDF determina que a apresentação seja sobre os trabalhos já estudados. Deve
 - [ ] Ensaiar o tempo e revisar a apresentação.
 - [ ] Levar ou enviar os slides conforme a orientação do professor.
 
-## AC5 — esboço, introdução final e protótipo
+## AC5 — Seminário 1, esboço, introdução final e protótipo
 
-O PDF pede, após o Seminário 1:
+O PDF divide a AC5 em três frentes: a atividade presencial do Seminário 1, a parte escrita e a construção do protótipo.
 
-- [ ] Definir o esboço do artigo, com nomes de seções como descrição do sistema, método, resultados e conclusões.
-- [ ] Escrever o penúltimo parágrafo da introdução, apresentando a proposta do artigo e as contribuições do grupo.
-- [ ] Escrever o último parágrafo da introdução, apresentando a organização do restante do artigo.
+### Atividade presencial
+
+- [ ] Apresentar no Seminário 1 as seis referências da revisão, usando os slides elaborados na AC4. A ordem de apresentação segue a ordem de envio dos slides por e-mail.
+
+### Parte escrita
+
+- [x] Definir o esboço do artigo, com os nomes das cinco seções: Introduction, System Description, The Method, Results e Conclusion. As seções já existem no `.tex`, cada uma com o seu `\label`.
+- [x] Escrever o penúltimo parágrafo da introdução, apresentando a proposta do artigo e as contribuições do grupo.
+- [x] Escrever o último parágrafo da introdução, apresentando a organização do restante do artigo.
+- [ ] Verificar as referências produzidas por alunos do Ibmec e citá-las caso seja oportuno.
+
+### Protótipo
+
 - [ ] Iniciar a construção do protótipo com os componentes disponíveis no laboratório.
 - [ ] Registrar fotos do protótipo para a avaliação qualitativa.
 
 O Abstract não é uma pendência obrigatória desta etapa. Pelo cronograma do PDF, ele será produzido quando já houver resultados, na Semana 8, e refinado depois.
 
-## Semana 6 — Seção II: desenvolvimento do sistema
+## AC6 — Seção II: desenvolvimento do sistema
 
 Com a introdução pronta, o PDF orienta a escrever a seção de desenvolvimento do sistema:
 
@@ -182,7 +197,7 @@ Com a introdução pronta, o PDF orienta a escrever a seção de desenvolvimento
 - [ ] Planejar os experimentos e definir a primeira configuração.
 - [ ] Continuar a construção do protótipo para a avaliação qualitativa inicial.
 
-Para este projeto, ainda precisam ser definidos e/ou obtidos o acelerômetro, o sensor de corrente, a fonte regulada, o suporte mecânico, o gabinete e a forma de coleta de temperatura. Também é necessário decidir quando o teste usará um aparelho de ar-condicionado real e quando usará um motor de passo como simulador.
+Para este projeto, ainda precisam ser obtidos o acelerômetro, o sensor de corrente, o cooler de ensaio, a fonte regulada, o suporte mecânico, o gabinete e a forma de coleta de temperatura. Também é necessário decidir quando o teste usará um aparelho de ar-condicionado real e quando usará um motor de passo como simulador.
 
 ## Semana 7 — Seção III: método
 
@@ -263,8 +278,13 @@ Antes de enviar:
 - `predictive-maintenance-pt.md`: tradução de apoio em português.
 - `refs.bib`: referências acadêmicas e a entrada do repositório; mesmo nome usado no Overleaf.
 - `reference-contributions.md`: contribuição de cada referência para o projeto.
+- `research-notes.md`: matriz de evidências, com o que cada referência mostrou, onde ela falha e o papel dela no artigo.
 - `requirements.md`: requisitos funcionais e não funcionais.
 - `specifications.md`: especificações técnicas preliminares.
+- `perguntas-em-aberto.md`: tudo que ainda não está decidido, separado por quem responde, e o registro do que já foi decidido.
+- `plano-do-prototipo.md`: o que montar, em que ordem, o que pegar no laboratório e o que comprar.
+- `retirada-de-materiais.pdf`: folha para a retirada dos componentes no laboratório.
+- `assets/`: diagramas e ilustrações do projeto.
 - `guia-geral.md`: este guia consolidado, subordinado ao PDF oficial.
-- `orientacoes-artigos.pdf`: documento oficial de orientações; fonte prioritária.
+- `orientacoes-artigo.pdf`: documento oficial de orientações, na raiz do repositório; fonte prioritária.
 
