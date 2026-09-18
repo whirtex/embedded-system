@@ -30,7 +30,7 @@ Medir o equipamento e levar a medição até onde ela será usada.
 | RF03 | O sistema deve medir a vibração do motor. | Ausente. É necessário solicitar um acelerômetro, como MPU6050 ou ADXL345. |
 | RF04 | O sistema deve medir o esforço ou o peso aplicado ao equipamento. | Disponível. Há uma célula de carga de 50 kg e um módulo HX711. |
 | RF05 | O sistema deve medir o consumo de corrente do motor. | Ausente. Seria necessário um sensor ACS712 ou INA219. |
-| RF06 | O sistema deve possuir uma máquina ou um motor para realizar os testes. | Parcial. Há um motor de passo e um driver, mas não foram identificados suporte mecânico, carga ou estrutura de teste. |
+| RF06 | O sistema deve possuir uma máquina ou um motor para realizar os testes. | A definir. Será um cooler de 12 V, ainda a ser adquirido. Há um motor de passo e um driver, mas não foram identificados suporte mecânico, carga ou estrutura de teste. |
 | RF12 | O sistema deve enviar as medições para outro dispositivo ou plataforma. | Parcial. Há ESP8266, ESP32-CAM, Ethernet e LoRa. A proposta é MQTT, seguindo Mohammed et al. O MQTT transporta a medição, mas não notifica pessoas: isso é tratado no RF18. |
 | RF14 | O sistema deve testar os sensores ao ser ligado. | Será implementado no software. |
 | RF15 | O sistema deve identificar uma falha ou desconexão de sensor. | Será implementado no software. |
@@ -103,14 +103,13 @@ métricas serão reportadas e como os conjuntos de treino e teste serão separad
 1. Qual tipo de falha o projeto deverá detectar?
 2. O projeto precisa medir vibração obrigatoriamente?
 3. O sensor de corrente será necessário?
-4. Será usado um motor real ou apenas um motor de passo para simulação?
-5. O sistema deve apenas emitir um alerta ou também desligar o motor?
-6. Os dados precisam ser enviados para uma aplicação web?
-7. Qual frequência de amostragem deve ser usada?
-8. Qual precisão mínima será exigida?
-9. O projeto precisa usar aprendizado de máquina ou pode usar limites fixos?
-10. Será necessário comprar os sensores que não estão entre os componentes disponíveis na faculdade?
-11. O projeto deve funcionar com bateria ou com fonte externa?
-12. Será necessário construir um gabinete e uma estrutura mecânica?
-13. O objetivo da primeira versão é detectar anomalias, classificar falhas ou estimar a vida útil restante?
-14. Como as condições normais e as falhas controladas serão produzidas e validadas com segurança?
+4. O sistema deve apenas emitir um alerta ou também desligar o motor?
+5. Os dados precisam ser enviados para uma aplicação web?
+6. Qual frequência de amostragem deve ser usada?
+7. Qual precisão mínima será exigida?
+8. O projeto precisa usar aprendizado de máquina ou pode usar limites fixos?
+9. Será necessário comprar os sensores que não estão entre os componentes disponíveis na faculdade?
+10. O projeto deve funcionar com bateria ou com fonte externa?
+11. Será necessário construir um gabinete e uma estrutura mecânica?
+12. O objetivo da primeira versão é detectar anomalias, classificar falhas ou estimar a vida útil restante?
+13. Como as condições normais e as falhas controladas serão produzidas e validadas com segurança?
