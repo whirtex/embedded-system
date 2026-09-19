@@ -5,3 +5,6 @@ beehive-monitoring/retirada-de-materiais.pdf
 beehive-monitoring/instrucoes-ap1.pdf
 predictive-maintenance/instrucoes-ap1.pdf
 wpp-images/
+
+# credenciais de Wi-Fi do firmware: o repositorio e publico
+predictive-maintenance/firmware/**/credenciais.h
