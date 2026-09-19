@@ -31,10 +31,10 @@
 #include <time.h>
 #include "DHT.h"
 
-// ---------- preencher antes de gravar ----------
-const char* WIFI_SSID  = "COLOQUE_A_REDE_AQUI";
-const char* WIFI_SENHA = "COLOQUE_A_SENHA_AQUI";
-// -----------------------------------------------
+// A rede e a senha ficam em credenciais.h, que nao vai para o
+// repositorio. Copie credenciais.h.exemplo como credenciais.h e
+// preencha antes de gravar.
+#include "credenciais.h"
 
 #define PINO_DHT 4
 #define TIPO_DHT DHT11
