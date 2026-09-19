@@ -261,6 +261,89 @@ A terceira é a que mais se parece com o que o PDF chama de solução alternativ
 - [ ] Criar um gráfico ou uma tabela comparando os métodos.
 - [ ] Avaliar, se possível, alguma otimização da solução.
 
+## AP1 — entrega do projeto
+
+Fonte: `instrucoes-ap1.pdf`, nesta pasta. Este projeto
+pertence à disciplina **IBM3118 — Sistemas Embarcados e IoT**, e o documento da AP1
+dela é diferente do da IBM3119.
+
+**A diferença que mais importa:** aqui a parte escrita é entregue no dia da AP1, mas a
+apresentação acontece **na semana seguinte**. Há uma semana extra para os slides, que
+o outro projeto não tem.
+
+A ordem de apresentação segue a ordem de recebimento dos e-mails.
+
+### Prova escrita — 10 pontos, peso 0,7
+
+É o item de maior peso da AP1, e não depende do projeto.
+
+### Repositório — 4 pontos, peso 0,3
+
+- [x] Criar o repositório para guardar o código e documentar o sistema em desenvolvimento, com a descrição do hardware e do software utilizados.
+- [ ] Criar um `README.md` no repositório.
+- [x] Adicionar o professor ao repositório. Usuário do GitHub: **`rigelfernandes`**.
+- [x] Inserir o link do repositório no manuscrito, com uma frase do tipo "As implementações desse trabalho estão disponíveis em [1]".
+
+### Customizações — 3 pontos, peso 0,3
+
+- [ ] Descrever no `README.md` quais customizações foram realizadas, isto é, quais esforços de desenvolvimento foram necessários para adaptar o software padrão utilizado.
+
+### Parte escrita — 2 pontos, peso 0,3
+
+O artigo deve conter **seis seções**: abstract, introduction, literature review,
+method, partial results e conclusions. Até a AP1 o trabalho deve se parecer com os
+artigos apresentados por outros alunos do Ibmec, mas só serão cobrados resultados
+qualitativos.
+
+- [x] Introduction.
+- [x] Literature review, dentro da introdução.
+- [ ] Method, a Seção III.
+- [ ] Partial results, com ao menos resultados qualitativos.
+- [ ] Conclusions.
+- [ ] Abstract. A AP1 exige antes do que previa o cronograma das ACs, que só o pedia depois dos resultados.
+- [ ] Enviar o PDF para `rigel.fernandes@professores.ibmec.edu.br` até o dia da AP1.
+
+### Apresentação — 1 ponto, peso 0,3
+
+Na aula seguinte à AP1, com slides contendo motivação, descrição do problema, esforços
+das etapas de desenvolvimento com as dificuldades encontradas, conclusões e trabalhos
+futuros.
+
+- [ ] Preparar os slides.
+- [ ] Levar o protótipo e demonstrar o funcionamento.
+- [ ] Enviar os slides por e-mail, lembrando que a ordem de apresentação segue a ordem de recebimento.
+
+### Ponto adicional — 0,5
+
+- [x] Escrever o artigo em inglês, no modelo do SBrT.
+
+### Observação sobre a nota
+
+A nota não é necessariamente igual para todos do grupo. Cada aluno é avaliado pelo
+relatório, pelo funcionamento do projeto e pelas respostas dadas durante a
+apresentação.
+
+## Referências produzidas por alunos do Ibmec
+
+O PDF das ACs pede, na AC2, que sejam consideradas referências de outros alunos do
+Ibmec. A lista completa está nas Instruções da AP1:
+
+| # | Trabalho | DOI |
+|---|---|---|
+| 1 | Estacionamento inteligente: uma comparação entre sensores ultrassônicos e visão computacional. SBrT 2024 | `10.14209/sbrt.2024.1571036315` |
+| 2 | Vision-based fatigue detection using a smartphone. SBrT 2025 | `10.14209/sbrt.2025.1571157331` |
+| 3 | Detecção de vagas de estacionamento baseada em visão computacional com mínima intervenção humana. SBrT 2025 | `10.14209/sbrt.2025.1571157303` |
+| 4 | A computer vision-based system for monitoring liveness in remote work. SBrT 2025 | `10.14209/sbrt.2025.1571143918` |
+| 5 | Investigating image pre-processing techniques to enhance Brazilian license plate recognition. CBIC 2025 | `10.21528/CBIC2023-115` |
+
+Quatro das cinco são de visão computacional, que é exatamente o método deste projeto.
+A [3] é a mais próxima: câmera fixa, cena conhecida, contagem por imagem, e o título
+vende a redução de anotação manual, que é o gargalo da contagem de abelhas. A [1]
+compara duas tecnologias de sensoriamento para o mesmo problema, o que serve de modelo
+para a comparação de métodos da Seção V.
+
+- [ ] Decidir quais serão citadas e escrever as frases correspondentes.
+
 ## Dados e validação do protótipo
 
 Decisões necessárias para executar as etapas do PDF, algumas já fechadas em `decisoes-do-projeto.md`:
@@ -335,4 +418,5 @@ Antes de enviar:
 - `firmware/`: os sketches do protótipo, um por pasta, no formato que o Arduino IDE espera.
 - `assets/`: fotos do protótipo e imagens do projeto.
 - `guia-geral.md`: este guia consolidado, subordinado ao PDF oficial.
-- `orientacoes-artigo.pdf`: documento oficial de orientações, na raiz do repositório; fonte prioritária.
+- `instrucoes-ap1.pdf`: instruções oficiais da AP1 da disciplina IBM3118; traz as pontuações, as seis seções exigidas no artigo e a lista de referências de alunos do Ibmec.
+- `orientacoes-artigo.pdf`: documento oficial de orientações das ACs, na raiz do repositório; fonte prioritária.
