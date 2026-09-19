@@ -43,6 +43,8 @@ As três etapas fora do escopo exigem histórico representativo de falhas valida
 - [x] As notas verdes do Rigel podem permanecer durante a produção; elas devem ser removidas ou resolvidas na versão final.
 - [x] Introdução completamente concluída: o penúltimo parágrafo, com a proposta e as quatro contribuições, e o último parágrafo, com a visita guiada pelas seções, foram escritos na AC5.
 - [ ] Resumo/Abstract: será escrito posteriormente, conforme o cronograma do PDF, depois que houver resultados.
+- [x] Introdução concluída e Seção II escrita, com uma referência de apoio por componente e o planejamento dos experimentos.
+- [x] AC5 e AC6 entregues por e-mail em 18 de setembro de 2026.
 - [ ] Conferir o limite final de três páginas após retirar as notas verdes e concluir o texto.
 
 ## Regras gerais determinadas no PDF
@@ -51,10 +53,10 @@ As três etapas fora do escopo exigem histórico representativo de falhas valida
 - [x] Manter dez referências acadêmicas citadas no texto.
 - [x] Criar uma referência separada para o repositório, além das dez referências acadêmicas, e citá-la no artigo.
 - [x] Manter o repositório público.
-- [ ] Colocar no repositório as implementações, documentos e materiais usados no protótipo.
-- [ ] Compartilhar o repositório com o professor.
+- [x] Colocar no repositório as implementações, documentos e materiais usados no protótipo. Sketches em `firmware/` e imagens em `assets/`.
+- [x] Compartilhar o repositório com o professor.
 - [ ] Construir a parte física para as demonstrações dos Seminários 2, 3 e 4.
-- [ ] Usar o Seminário 1 para apresentar os trabalhos relacionados.
+- [x] Usar o Seminário 1 para apresentar os trabalhos relacionados.
 
 ## Cronograma oficial do PDF
 
@@ -94,24 +96,24 @@ A entrega da AC5, originalmente prevista para 08/09, foi adiada pelo professor, 
 - [x] Criar o grupo e registrar os integrantes.
 - [x] Criar o repositório público do grupo.
 - [x] Criar e organizar a pasta `predictive-maintenance`.
-- [ ] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
-- [ ] Confirmar que todos os integrantes acessam o Overleaf.
-- [ ] Compartilhar o repositório com o professor.
+- [x] Informar ao professor o e-mail de cada integrante para o compartilhamento do Overleaf.
+- [x] Confirmar que todos os integrantes acessam o Overleaf.
+- [x] Compartilhar o repositório com o professor.
 
 ### Manuscrito inicial
 
 - [x] Definir e atualizar o título do projeto.
 - [x] Atualizar os nomes dos autores no Overleaf.
-- [ ] Inserir no `refs.bib` uma entrada BibTeX própria para o repositório, conforme o modelo do PDF.
-- [ ] Citar o repositório no texto com `\cite{repo}`, além das dez referências acadêmicas.
-- [ ] Conferir se a referência do repositório aparece corretamente na bibliografia.
+- [x] Inserir no `refs.bib` uma entrada BibTeX própria para o repositório, conforme o modelo do PDF.
+- [x] Citar o repositório no texto com `\cite{repo}`, além das dez referências acadêmicas.
+- [x] Conferir se a referência do repositório aparece corretamente na bibliografia.
 
 ### Entrega da AC1
 
-- [ ] Baixar do Overleaf o PDF mais recente do manuscrito.
-- [ ] Enviar o PDF para `rigel.fernandes@professores.ibmec.edu.br`.
-- [ ] Usar o assunto `[IBM3118 AC 2026-2 G3]`.
-- [ ] Guardar uma cópia do e-mail enviado.
+- [x] Baixar do Overleaf o PDF mais recente do manuscrito.
+- [x] Enviar o PDF para `rigel.fernandes@professores.ibmec.edu.br`.
+- [x] Usar o assunto `[IBM3118 AC 2026-2 G3]`.
+- [x] Guardar uma cópia do e-mail enviado.
 
 ## AC2 — início da revisão de literatura
 
@@ -122,8 +124,8 @@ O PDF pede um ou dois parágrafos sintetizando pelo menos três referências enc
 - [x] Escrever os parágrafos correspondentes no artigo.
 - [x] Adicionar as entradas BibTeX com DOI e URL.
 - [ ] Adicionar os três PDFs da AC2 à pasta `refsPDF` no Overleaf.
-- [ ] Confirmar que todos os integrantes conseguem abrir os PDFs.
-- [ ] Realizar ou registrar a entrega da AC2, se ainda não estiver arquivada.
+- [x] Confirmar que todos os integrantes conseguem abrir os PDFs.
+- [x] Realizar ou registrar a entrega da AC2, se ainda não estiver arquivada.
 
 ## AC3 — continuação da revisão de literatura
 
@@ -134,8 +136,8 @@ O PDF mantém a mesma lógica da AC2 e pede pelo menos três novas referências.
 - [x] Relacionar dados, limpeza, rotulagem, avaliação e interpretação dos alertas ao projeto.
 - [x] Adicionar as três novas entradas ao BibTeX com DOI e URL.
 - [ ] Baixar os três PDFs da AC3 e adicioná-los à pasta `refsPDF`.
-- [ ] Confirmar a disponibilidade dos seis PDFs estudados para todos os integrantes.
-- [ ] Realizar ou registrar a entrega da AC3, se ainda não estiver arquivada.
+- [x] Confirmar a disponibilidade dos seis PDFs estudados para todos os integrantes.
+- [x] Realizar ou registrar a entrega da AC3, se ainda não estiver arquivada.
 
 ## AC4 — contextualização da introdução
 
@@ -158,13 +160,13 @@ Os quatro parágrafos de trabalhos relacionados das AC2 e AC3 devem permanecer d
 
 O PDF determina que a apresentação seja sobre os trabalhos já estudados. Deve haver um ou dois slides por referência da revisão das AC2 e AC3, isto é, seis referências. Cada integrante deve apresentar pelo menos uma referência, em aproximadamente um ou dois minutos, destacando resultados qualitativos e quantitativos.
 
-- [ ] Preparar a capa e a motivação do projeto.
-- [ ] Criar um ou dois slides para cada uma das seis referências da revisão específica.
-- [ ] Mostrar método, contribuição, resultados e limitações de cada trabalho.
-- [ ] Explicar como cada artigo influencia o projeto de manutenção preditiva em ar-condicionado.
-- [ ] Distribuir os artigos entre Igor, Jorge, Ian e Davi.
-- [ ] Ensaiar o tempo e revisar a apresentação.
-- [ ] Levar ou enviar os slides conforme a orientação do professor.
+- [x] Preparar a capa e a motivação do projeto.
+- [x] Criar um ou dois slides para cada uma das seis referências da revisão específica.
+- [x] Mostrar método, contribuição, resultados e limitações de cada trabalho.
+- [x] Explicar como cada artigo influencia o projeto de manutenção preditiva em ar-condicionado.
+- [x] Distribuir os artigos entre Igor, Jorge, Ian e Davi.
+- [x] Ensaiar o tempo e revisar a apresentação.
+- [x] Levar ou enviar os slides conforme a orientação do professor.
 
 ## AC5 — Seminário 1, esboço, introdução final e protótipo
 
@@ -172,7 +174,7 @@ O PDF divide a AC5 em três frentes: a atividade presencial do Seminário 1, a p
 
 ### Atividade presencial
 
-- [ ] Apresentar no Seminário 1 as seis referências da revisão, usando os slides elaborados na AC4. A ordem de apresentação segue a ordem de envio dos slides por e-mail.
+- [x] Apresentar no Seminário 1 as seis referências da revisão, usando os slides elaborados na AC4. A ordem de apresentação segue a ordem de envio dos slides por e-mail.
 
 ### Parte escrita
 
@@ -183,7 +185,7 @@ O PDF divide a AC5 em três frentes: a atividade presencial do Seminário 1, a p
 
 ### Protótipo
 
-- [ ] Iniciar a construção do protótipo com os componentes disponíveis no laboratório.
+- [x] Iniciar a construção do protótipo com os componentes disponíveis no laboratório. Bancada montada em 17 de setembro de 2026, com Arduino Mega 2560, relógio DS1302 e DHT11, gerando CSV com carimbo na porta serial.
 - [ ] Registrar fotos do protótipo para a avaliação qualitativa.
 
 O Abstract não é uma pendência obrigatória desta etapa. Pelo cronograma do PDF, ele será produzido quando já houver resultados, na Semana 8, e refinado depois.
@@ -192,9 +194,9 @@ O Abstract não é uma pendência obrigatória desta etapa. Pelo cronograma do P
 
 Com a introdução pronta, o PDF orienta a escrever a seção de desenvolvimento do sistema:
 
-- [ ] Descrever sensores, microcontroladores e, se aplicável, protocolos de comunicação.
-- [ ] Citar as referências que fundamentam as escolhas de hardware e comunicação.
-- [ ] Planejar os experimentos e definir a primeira configuração.
+- [x] Descrever sensores, microcontroladores e, se aplicável, protocolos de comunicação.
+- [x] Citar as referências que fundamentam as escolhas de hardware e comunicação.
+- [x] Planejar os experimentos e definir a primeira configuração.
 - [ ] Continuar a construção do protótipo para a avaliação qualitativa inicial.
 
 Para este projeto, ainda precisam ser obtidos o acelerômetro, o sensor de corrente, o cooler de ensaio, a fonte regulada, o suporte mecânico, o gabinete e a forma de coleta de temperatura. Também é necessário decidir quando o teste usará um aparelho de ar-condicionado real e quando usará um motor de passo como simulador.
@@ -231,13 +233,91 @@ O PDF pede uma solução alternativa para comparar dois métodos. A comparação
 - [ ] Criar um gráfico ou uma tabela comparando os métodos.
 - [ ] Avaliar, se possível, alguma otimização da solução.
 
+## AP1 — entrega do projeto
+
+Fonte: `instrucoes-ap1.pdf`, nesta pasta. Este projeto
+pertence à disciplina **IBM3119 — Projeto de Sistemas Embarcados**, e o documento da
+AP1 dela é diferente do da IBM3118.
+
+**A diferença que mais importa:** aqui a parte escrita **e** a apresentação acontecem
+no **mesmo dia da AP1**. Não há a semana extra que a outra disciplina concede para os
+slides. É preciso chegar na AP1 com artigo, slides e protótipo funcionando.
+
+A ordem de apresentação segue a ordem de recebimento dos e-mails.
+
+**Sobre o assunto do e-mail:** mesmo este projeto sendo da IBM3119, o assunto continua
+sendo `[IBM3118 AC 2026-2 G3]`. O `orientacoes-artigo.pdf` traz esse código fixo no
+texto e é o mesmo documento usado nas duas disciplinas. Confirmado com o professor.
+
+### Repositório — 4 pontos
+
+- [x] Criar o repositório para guardar o código e documentar o sistema.
+- [ ] Criar um `README.md` descrevendo o **hardware** e o **software** utilizados, além do modelo de inteligência computacional, caso seja usado.
+- [x] Adicionar o professor ao repositório. Usuário do GitHub: **`rigelfernandes`**.
+- [x] Inserir o link do GitHub no manuscrito usando um registro BibTeX.
+
+### Customizações — 3 pontos
+
+- [ ] Descrever no repositório quais customizações foram realizadas, isto é, quais esforços de desenvolvimento foram necessários para adaptar o software padrão utilizado.
+
+### Parte escrita — 2 pontos
+
+O artigo deve conter **seis seções**: abstract, introduction, literature review,
+method, partial results e conclusions.
+
+- [x] Introduction.
+- [x] Literature review, dentro da introdução.
+- [ ] Method, a Seção III.
+- [ ] Partial results, com ao menos resultados qualitativos.
+- [ ] Conclusions.
+- [ ] Abstract. A AP1 exige antes do que previa o cronograma das ACs, que só o pedia depois dos resultados.
+- [ ] Enviar o PDF para `rigel.fernandes@professores.ibmec.edu.br` até o dia da AP1.
+
+### Apresentação — 1 ponto
+
+Slides com motivação, descrição do problema, esforços das etapas de desenvolvimento
+com as dificuldades encontradas, conclusões e trabalhos futuros.
+
+- [ ] Preparar os slides.
+- [ ] Levar o protótipo e demonstrar o funcionamento.
+- [ ] Enviar os slides por e-mail, lembrando que a ordem de apresentação segue a ordem de recebimento.
+
+### Ponto adicional — 0,5
+
+- [x] Escrever o artigo em inglês, no modelo do SBrT.
+
+### Observação sobre a nota
+
+A nota não é necessariamente igual para todos do grupo. Cada aluno é avaliado pelo
+relatório, pelo funcionamento do projeto e pelas respostas dadas durante a
+apresentação.
+
+## Referências produzidas por alunos do Ibmec
+
+O PDF das ACs pede, na AC2, que sejam consideradas referências de outros alunos do
+Ibmec. A lista completa está nas Instruções da AP1:
+
+| # | Trabalho | DOI |
+|---|---|---|
+| 1 | Estacionamento inteligente: uma comparação entre sensores ultrassônicos e visão computacional. SBrT 2024 | `10.14209/sbrt.2024.1571036315` |
+| 2 | Vision-based fatigue detection using a smartphone. SBrT 2025 | `10.14209/sbrt.2025.1571157331` |
+| 3 | Detecção de vagas de estacionamento baseada em visão computacional com mínima intervenção humana. SBrT 2025 | `10.14209/sbrt.2025.1571157303` |
+| 4 | A computer vision-based system for monitoring liveness in remote work. SBrT 2025 | `10.14209/sbrt.2025.1571143918` |
+| 5 | Investigating image pre-processing techniques to enhance Brazilian license plate recognition. CBIC 2025 | `10.21528/CBIC2023-115` |
+
+Nenhuma trata de manutenção preditiva nem de ar-condicionado. A mais próxima em
+método é a [1], que compara duas tecnologias de sensoriamento para o mesmo problema,
+o que se aproxima da comparação entre métodos que a Seção V pede.
+
+- [ ] Decidir se alguma delas será citada e escrever a frase correspondente.
+
 ## Dados, falhas e validação do protótipo
 
 Estas decisões são necessárias para executar as etapas do PDF, mas ainda precisam ser definidas pelo grupo:
 
-- [ ] Definir quais sinais serão coletados: temperatura, vibração, corrente e outros sinais disponíveis.
+- [x] Definir quais sinais serão coletados: temperatura, vibração, corrente e outros sinais disponíveis.
 - [ ] Definir frequência de amostragem, duração dos testes e unidade de armazenamento.
-- [ ] Definir como as falhas serão aplicadas ou simuladas com segurança.
+- [x] Definir como as falhas serão aplicadas ou simuladas com segurança.
 - [ ] Coletar dados de operação normal.
 - [ ] Coletar dados com falhas controladas ou condições anômalas documentadas.
 - [ ] Separar dados de treinamento e teste, caso seja usado aprendizado de máquina.
@@ -286,5 +366,6 @@ Antes de enviar:
 - `retirada-de-materiais.pdf`: folha para a retirada dos componentes no laboratório.
 - `assets/`: diagramas e ilustrações do projeto.
 - `guia-geral.md`: este guia consolidado, subordinado ao PDF oficial.
-- `orientacoes-artigo.pdf`: documento oficial de orientações, na raiz do repositório; fonte prioritária.
+- `instrucoes-ap1.pdf`: instruções oficiais da AP1 da disciplina IBM3119; traz as pontuações, as seis seções exigidas no artigo e a lista de referências de alunos do Ibmec.
+- `orientacoes-artigo.pdf`: documento oficial de orientações das ACs, na raiz do repositório; fonte prioritária.
 
