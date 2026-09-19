@@ -1,0 +1,25 @@
+/*
+  Modelo das credenciais de Wi-Fi.
+
+  Este arquivo e o que vai para o repositorio. Ele nao tem senha
+  nenhuma: serve so para quem clonar o projeto saber o que precisa
+  criar.
+
+  Para usar:
+    1. copie este arquivo como credenciais.h, na mesma pasta
+    2. preencha a rede e a senha
+    3. grave normalmente
+
+  O credenciais.h esta bloqueado no .gitignore e nunca sobe para o
+  GitHub. O repositorio do grupo e publico, entao senha em codigo
+  ficaria visivel para qualquer pessoa, e apagar depois nao resolve:
+  fica no historico do git.
+*/
+
+#ifndef CREDENCIAIS_H
+#define CREDENCIAIS_H
+
+const char* WIFI_SSID  = "nome da rede";
+const char* WIFI_SENHA = "senha da rede";
+
+#endif
