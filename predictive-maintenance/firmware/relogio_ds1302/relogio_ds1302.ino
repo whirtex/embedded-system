@@ -21,7 +21,7 @@
 
   Pendencia conhecida: o modulo MH testado em 17/09/2026 contava
   cerca de seis vezes mais rapido que o tempo real. Ver
-  perguntas-em-aberto.md.
+  decisoes-do-projeto.md.
 */
 
 #include <ThreeWire.h>

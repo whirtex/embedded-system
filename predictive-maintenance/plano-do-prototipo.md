@@ -14,7 +14,7 @@ frequência, e envia as medições para uma aplicação remota, que compara com 
 base saudável e informa qual medição desviou.
 
 Os pontos de instalação no aparelho estão em `assets/instalacao-sensores-ac.png`. As
-decisões e as dúvidas em aberto estão em `perguntas-em-aberto.md`.
+decisões e as dúvidas em aberto estão em `decisoes-do-projeto.md`.
 
 ## Etapas da montagem
 
@@ -40,7 +40,7 @@ primeiro sensor chegar, ele entra numa cadeia que já roda.
 ## O equipamento de ensaio
 
 **Cooler de 12 V, de 80 mm, com rolamento e conector de 3 ou 4 pinos.** Decisão
-tomada, registrada em `perguntas-em-aberto.md`.
+tomada, registrada em `decisoes-do-projeto.md`.
 
 Gira a milhares de RPM, aceita desbalanceamento com massa presa a uma pá, sobe de
 corrente quando o fluxo é obstruído e aquece sob carga. Os três sinais têm o que

@@ -361,7 +361,7 @@ Antes de enviar:
 - `research-notes.md`: matriz de evidências, com o que cada referência mostrou, onde ela falha e o papel dela no artigo.
 - `requirements.md`: requisitos funcionais e não funcionais.
 - `specifications.md`: especificações técnicas preliminares.
-- `perguntas-em-aberto.md`: tudo que ainda não está decidido, separado por quem responde, e o registro do que já foi decidido.
+- `decisoes-do-projeto.md`: o que já está decidido no protótipo, agrupado por tema, com o porquê de cada escolha e os limites a declarar no artigo. As pendências ficam no fim, separadas entre as que dependem do professor e as que só saem medindo.
 - `plano-do-prototipo.md`: o que montar, em que ordem, o que pegar no laboratório e o que comprar.
 - `retirada-de-materiais.pdf`: folha para a retirada dos componentes no laboratório.
 - `assets/`: diagramas e ilustrações do projeto.
